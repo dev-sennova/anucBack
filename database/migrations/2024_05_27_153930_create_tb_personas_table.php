@@ -15,7 +15,24 @@ class CreateTbPersonasTable extends Migration
     {
         Schema::create('tb_personas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('identificacion');
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('telefono');
+            $table->string('fecha_nacimiento');
+            $table->boolean('estado')->default(1);
+
+            // Clave foránea para el tipo de documento
+            $table->unsignedBigInteger('tipo_documento');
+            $table->foreign('tipo_documento')->references('id')->on('tb_tipo_documento');
+
+            // Clave foránea para el sexo
+            $table->unsignedBigInteger('sexo');
+            $table->foreign('sexo')->references('id')->on('tb_sexo');
+
+            // Clave foránea para el estado civil
+            $table->unsignedBigInteger('estado_civil');
+            $table->foreign('estado_civil')->references('id')->on('tb_estado_civil');
         });
     }
 

@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tb_fincas extends Model
 {
-    //
+    protected $table = 'tb_fincas';
+
+    protected $fillable = ['nombre','extension','latitud','longitud','estado'];
+
+    public $timestamps = false;
+
+
+    public function Vereda()
+    {
+        return $this->belongsTo(Tb_veredas::class);
+    }
 }

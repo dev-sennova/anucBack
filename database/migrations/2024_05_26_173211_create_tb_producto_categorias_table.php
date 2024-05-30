@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbCiudadesTable extends Migration
+class CreateTbProductoCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTbCiudadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_ciudades', function (Blueprint $table) {
+        Schema::create('tb_producto_categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('ciudad');
+            $table->string('categoria');
             $table->boolean('estado')->default(1);
         });
     }
@@ -27,6 +27,6 @@ class CreateTbCiudadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_ciudades');
+        Schema::dropIfExists('tb_producto_categorias');
     }
 }

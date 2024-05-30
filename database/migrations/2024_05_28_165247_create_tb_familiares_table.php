@@ -15,7 +15,16 @@ class CreateTbFamiliaresTable extends Migration
     {
         Schema::create('tb_familiares', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('parentesco');
+            $table->boolean('estado')->default(1);
+
+            // Clave foránea para asociados
+            $table->unsignedBigInteger('asociado');
+            $table->foreign('asociado')->references('id')->on('tb_asociados');
+
+            // Clave foránea para personas
+            $table->unsignedBigInteger('persona');
+            $table->foreign('persona')->references('id')->on('tb_personas');
         });
     }
 

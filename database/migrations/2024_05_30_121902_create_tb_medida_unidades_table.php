@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbNovedadesTable extends Migration
+class CreateTbMedidaUnidadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTbNovedadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_novedades', function (Blueprint $table) {
+        Schema::create('tb_medida_unidades', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('unidad');
+            $table->boolean('estado')->default(1);
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTbNovedadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_novedades');
+        Schema::dropIfExists('tb_medida_unidades');
     }
 }

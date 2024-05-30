@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tb_novedades extends Model
 {
-    //
+    protected $table = 'tb_novedades';
+
+    protected $fillable = ['novedad','estado'];
+
+    public $timestamps = false;
+
+    public function Asociado()
+    {
+        return $this->belongsTo(Tb_asociados::class);
+    }
 }

@@ -15,7 +15,11 @@ class CreateTbProductosTable extends Migration
     {
         Schema::create('tb_productos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->boolean('estado')->default(1);
+
+            // Clave foránea para producto categoria
+            $table->unsignedBigInteger('categoria');
+            $table->foreign('categoria')->references('id')->on('tb_producto_categorias');
         });
     }
 
