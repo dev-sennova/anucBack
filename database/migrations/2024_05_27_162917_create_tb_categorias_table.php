@@ -15,7 +15,7 @@ class CreateTbCategoriasTable extends Migration
     {
         Schema::create('tb_categorias', function (Blueprint $table) {
             $table->id();
-            $table->string('categorias');
+            $table->string('categoria');
             $table->boolean('estado')->default(1);
         });
     }

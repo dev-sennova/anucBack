@@ -15,12 +15,8 @@ class CreateTbProduccionsTable extends Migration
     {
         Schema::create('tb_produccion', function (Blueprint $table) {
             $table->id();
-            $table->string('produccion');
+            $table->integer('produccion');
             $table->boolean('estado')->default(1);
-
-            // Clave foránea para asociados
-            $table->unsignedBigInteger('asociado');
-            $table->foreign('asociado')->references('id')->on('tb_asociados');
 
             // Clave foránea para productos
             $table->unsignedBigInteger('producto');
@@ -29,6 +25,10 @@ class CreateTbProduccionsTable extends Migration
             // Clave foránea para medida
             $table->unsignedBigInteger('medida');
             $table->foreign('medida')->references('id')->on('tb_medida_unidades');
+
+            // Clave foránea para producto asociados_finca
+            $table->unsignedBigInteger('asociados_finca');
+            $table->foreign('asociados_finca')->references('id')->on('tb_asociados_fincas');
         });
     }
 

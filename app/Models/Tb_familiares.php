@@ -8,7 +8,7 @@ class Tb_familiares extends Model
 {
     protected $table = 'tb_familiares';
 
-    protected $fillable = ['parentesco','estado'];
+    protected $fillable = ['estado'];
 
     public $timestamps = false;
 
@@ -20,5 +20,10 @@ class Tb_familiares extends Model
     public function Persona()
     {
         return $this->belongsTo(Tb_personas::class);
+    }
+
+    public function Parentesco()
+    {
+        return $this->belongsTo(Tb_parentesco::class);
     }
 }

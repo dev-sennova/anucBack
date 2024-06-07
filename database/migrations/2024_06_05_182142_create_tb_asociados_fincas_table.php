@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbFamiliaresTable extends Migration
+class CreateTbAsociadosFincasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,18 @@ class CreateTbFamiliaresTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_familiares', function (Blueprint $table) {
+        Schema::create('tb_asociados_fincas', function (Blueprint $table) {
             $table->id();
             $table->boolean('estado')->default(1);
 
-            // Clave foránea para asociados
+            // Clave foránea para producto finca
+            $table->unsignedBigInteger('finca');
+            $table->foreign('finca')->references('id')->on('tb_fincas');
+
+            // Clave foránea para producto asociado
             $table->unsignedBigInteger('asociado');
             $table->foreign('asociado')->references('id')->on('tb_asociados');
 
-            // Clave foránea para personas
-            $table->unsignedBigInteger('persona');
-            $table->foreign('persona')->references('id')->on('tb_personas');
-
-            // Clave foránea para producto parentesco
-            $table->unsignedBigInteger('parentesco');
-            $table->foreign('parentesco')->references('id')->on('tb_parentescos');
         });
     }
 
@@ -38,6 +35,6 @@ class CreateTbFamiliaresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_familiares');
+        Schema::dropIfExists('tb_asociados_fincas');
     }
 }

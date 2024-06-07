@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbProductosTable extends Migration
+class CreateTbParentescosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateTbProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_productos', function (Blueprint $table) {
+        Schema::create('tb_parentescos', function (Blueprint $table) {
             $table->id();
-            $table->string('producto');
+            $table->string('parentesco');
             $table->boolean('estado')->default(1);
 
-            // Clave foránea para producto categoria
-            $table->unsignedBigInteger('categoria');
-            $table->foreign('categoria')->references('id')->on('tb_producto_categorias');
         });
     }
 
@@ -31,6 +28,6 @@ class CreateTbProductosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_productos');
+        Schema::dropIfExists('tb_parentescos');
     }
 }

@@ -12,11 +12,6 @@ class Tb_produccion extends Model
 
     public $timestamps = false;
 
-    public function Asociado()
-    {
-        return $this->belongsTo(Tb_asociados::class);
-    }
-
     public function Producto()
     {
         return $this->belongsTo(Tb_productos::class);
@@ -25,5 +20,11 @@ class Tb_produccion extends Model
     public function Medida()
     {
         return $this->belongsTo(Tb_medida_unidades::class);
+    }
+
+
+    public function asociadosFincas()
+    {
+        return $this->belongsTo(Tb_asociados_fincas::class);
     }
 }
