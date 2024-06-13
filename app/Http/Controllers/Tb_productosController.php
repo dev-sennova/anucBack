@@ -9,7 +9,7 @@ class Tb_productosController extends Controller
 {
     public function index(Request $request)
     {
-        $productos = Tb_productos::orderBy('productos','asc')
+        $productos = Tb_productos::orderBy('producto','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_productosController extends Controller
 
     public function indexOne(Request $request)
     {
-        $productos = Tb_productos::orderBy('productos','desc')
+        $productos = Tb_productos::orderBy('producto','desc')
         ->where('tb_productos.id','=',$request->id)
         ->get();
 
@@ -43,12 +43,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'productos creada con éxito'
+                    'message' => 'Productos creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'productos no pudo ser creada'
+                    'message' => 'Productos no pudo ser creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -70,12 +70,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'productos actualizada con éxito'
+                    'message' => 'Productos actualizada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'productos no pudo ser actualizada'
+                    'message' => 'Productos no pudo ser actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +95,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'productos desactivada con éxito'
+                    'message' => 'Productos desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'productos no pudo ser desactivada'
+                    'message' => 'Productos no pudo ser desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +120,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'productos activada con éxito'
+                    'message' => 'Productos activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'productos no pudo ser activada'
+                    'message' => 'Productos no pudo ser activada'
                    ]);
             }
         } catch (\Exception $e) {

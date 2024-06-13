@@ -42,12 +42,12 @@ class Tb_estado_civilController extends Controller
             if ($tb_estado_civil->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'estado_civil creada con éxito'
+                    'message' => 'Estado Civil creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'estado_civil no pudo ser creada'
+                    'message' => 'Estado Civil no pudo ser creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_estado_civilController extends Controller
             if ($tb_estado_civil->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'estado_civil actualizada con éxito'
+                    'message' => 'Estado Civil actualizado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'estado_civil no pudo ser actualizada'
+                    'message' => 'Estado Civil no pudo ser actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_estado_civilController extends Controller
             if ($tb_estado_civil->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'estado_civil desactivada con éxito'
+                    'message' => 'Estado Civil desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'estado_civil no pudo ser desactivada'
+                    'message' => 'Estado Civil no pudo ser desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_estado_civilController extends Controller
             if ($tb_estado_civil->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'estado_civil activada con éxito'
+                    'message' => 'Estado Civil activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'estado_civil no pudo ser activada'
+                    'message' => 'Estado Civil no pudo ser activado'
                    ]);
             }
         } catch (\Exception $e) {

@@ -67,6 +67,63 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("estado_civil/activate", "Tb_estado_civilController@activate");
      Route::get("estado_civil/selectestado_civil/{id}", "Tb_estado_civilController@indexOne");
 
+     Route::get("unidad", "Tb_medida_unidadesController@index");
+     Route::post("unidad/store", "Tb_medida_unidadesController@store");
+     Route::put("unidad/update", "Tb_medida_unidadesController@update");
+     Route::put("unidad/deactivate", "Tb_medida_unidadesController@deactivate");
+     Route::put("unidad/activate", "Tb_medida_unidadesController@activate");
+     Route::get("unidad/selectmedida_unidades/{id}", "Tb_medida_unidadesController@indexOne");
+
+     Route::get("parentesco", "Tb_parentescosController@index");
+     Route::post("parentesco/store", "Tb_parentescosController@store");
+     Route::put("parentesco/update", "Tb_parentescosController@update");
+     Route::put("parentesco/deactivate", "Tb_parentescosController@deactivate");
+     Route::put("parentesco/activate", "Tb_parentescosController@activate");
+     Route::get("parentesco/selectparentesco/{id}", "Tb_parentescosController@indexOne");
+
+     Route::get("categoria", "Tb_producto_categoriasController@index");
+     Route::post("categoria/store", "Tb_producto_categoriasController@store");
+     Route::put("categoria/update", "Tb_producto_categoriasController@update");
+     Route::put("categoria/deactivate", "Tb_producto_categoriasController@deactivate");
+     Route::put("categoria/activate", "Tb_producto_categoriasController@activate");
+     Route::get("categoria/selectcategoria/{id}", "Tb_producto_categoriasController@indexOne");
+
+     Route::get("producto", "Tb_productosController@index");
+     Route::post("producto/store", "Tb_productosController@store");
+     Route::put("producto/update", "Tb_productosController@update");
+     Route::put("producto/deactivate", "Tb_productosController@deactivate");
+     Route::put("producto/activate", "Tb_productosController@activate");
+     Route::get("producto/selectproducto/{id}", "Tb_productosController@indexOne");
+
+     Route::get("sexo", "Tb_sexosController@index");
+     Route::post("sexo/store", "Tb_sexosController@store");
+     Route::put("sexo/update", "Tb_sexosController@update");
+     Route::put("sexo/deactivate", "Tb_sexosController@deactivate");
+     Route::put("sexo/activate", "Tb_sexosController@activate");
+     Route::get("sexo/selectsexo/{id}", "Tb_sexosController@indexOne");
+
+     Route::get("tipo_documentos", "Tb_tipo_documentosController@index");
+     Route::post("tipo_documentos/store", "Tb_tipo_documentosController@store");
+     Route::put("tipo_documentos/update", "Tb_tipo_documentosController@update");
+     Route::put("tipo_documentos/deactivate", "Tb_tipo_documentosController@deactivate");
+     Route::put("tipo_documentos/activate", "Tb_tipo_documentosController@activate");
+     Route::get("tipo_documentos/selecttipo_documentos/{id}", "Tb_tipo_documentosController@indexOne");
+
+     Route::get("tipo_predio", "Tb_tipo_predioController@index");
+     Route::post("tipo_predio/store", "Tb_tipo_predioController@store");
+     Route::put("tipo_predio/update", "Tb_tipo_predioController@update");
+     Route::put("tipo_predio/deactivate", "Tb_tipo_predioController@deactivate");
+     Route::put("tipo_predio/activate", "Tb_tipo_predioController@activate");
+     Route::get("tipo_predio/selecttipo_predio/{id}", "Tb_tipo_predioController@indexOne");
+
+     Route::get("vereda", "Tb_veredasController@index");
+     Route::post("vereda/store", "Tb_veredasController@store");
+     Route::put("vereda/update", "Tb_veredasController@update");
+     Route::put("vereda/deactivate", "Tb_veredasController@deactivate");
+     Route::put("vereda/activate", "Tb_veredasController@activate");
+     Route::get("vereda/selectvereda/{id}", "Tb_veredasController@indexOne");
+
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 

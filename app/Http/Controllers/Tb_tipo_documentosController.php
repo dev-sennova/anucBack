@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tb_tipo_documento;
 use Illuminate\Http\Request;
 
-class Tb_tipo_documentoController extends Controller
+class Tb_tipo_documentosController extends Controller
 {
     public function index(Request $request)
     {
@@ -118,7 +118,7 @@ class Tb_tipo_documentoController extends Controller
             if ($tb_tipo_documento->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo_documento activado con éxito'
+                    'message' => 'Tipo documento activado con éxito'
                    ]);
             } else {
                 return response()->json([

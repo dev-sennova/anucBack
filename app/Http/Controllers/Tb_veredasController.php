@@ -9,7 +9,7 @@ class Tb_veredasController extends Controller
 {
     public function index(Request $request)
     {
-        $veredas = Tb_veredas::orderBy('veredas','asc')
+        $veredas = Tb_veredas::orderBy('vereda','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_veredasController extends Controller
 
     public function indexOne(Request $request)
     {
-        $veredas = Tb_veredas::orderBy('veredas','desc')
+        $veredas = Tb_veredas::orderBy('vereda','desc')
         ->where('tb_veredas.id','=',$request->id)
         ->get();
 

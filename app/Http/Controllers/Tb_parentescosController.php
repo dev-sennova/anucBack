@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tb_parentesco;
 use Illuminate\Http\Request;
 
-class Tb_parentescoController extends Controller
+class Tb_parentescosController extends Controller
 {
     public function index(Request $request)
     {
@@ -21,7 +21,7 @@ class Tb_parentescoController extends Controller
     public function indexOne(Request $request)
     {
         $parentesco = Tb_parentesco::orderBy('parentesco','desc')
-        ->where('tb_parentesco.id','=',$request->id)
+        ->where('tb_parentescos.id','=',$request->id)
         ->get();
 
         return [

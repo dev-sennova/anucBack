@@ -9,7 +9,7 @@ class Tb_medida_unidadesController extends Controller
 {
     public function index(Request $request)
     {
-        $medida_unidades = Tb_medida_unidades::orderBy('medida_unidades','asc')
+        $medida_unidades = Tb_medida_unidades::orderBy('unidad','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_medida_unidadesController extends Controller
 
     public function indexOne(Request $request)
     {
-        $medida_unidades = Tb_medida_unidades::orderBy('medida_unidades','desc')
+        $medida_unidades = Tb_medida_unidades::orderBy('unidad','desc')
         ->where('tb_medida_unidades.id','=',$request->id)
         ->get();
 
@@ -42,12 +42,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'medida_unidades creada con éxito'
+                    'message' => 'Medida Unidades creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'medida_unidades no pudo ser creada'
+                    'message' => 'Medida Unidades no pudo ser creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'medida_unidades actualizada con éxito'
+                    'message' => 'Medida Unidades actualizada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'medida_unidades no pudo ser actualizada'
+                    'message' => 'Medida Unidades no pudo ser actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'medida_unidades desactivada con éxito'
+                    'message' => 'Medida Unidades desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'medida_unidades no pudo ser desactivada'
+                    'message' => 'Medida Unidades no pudo ser desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'medida_unidades activada con éxito'
+                    'message' => 'Medida Unidades activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'medida_unidades no pudo ser activada'
+                    'message' => 'Medida Unidades no pudo ser activada'
                    ]);
             }
         } catch (\Exception $e) {
