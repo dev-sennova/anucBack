@@ -123,6 +123,13 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("vereda/activate", "Tb_veredasController@activate");
      Route::get("vereda/selectvereda/{id}", "Tb_veredasController@indexOne");
 
+     Route::get("personas", "Tb_personasController@index");
+     Route::post("personas/store", "Tb_personasController@store");
+     Route::put("personas/update", "Tb_personasController@update");
+     Route::put("personas/deactivate", "Tb_personasController@deactivate");
+     Route::put("personas/activate", "Tb_personasController@activate");
+     Route::get("personas/selectpersonas/{id}", "Tb_personasController@indexOne");
+
 
      Route::post('/upload-image', 'ImageController@uploadImage');
     });

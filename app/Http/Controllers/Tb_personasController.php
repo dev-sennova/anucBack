@@ -9,7 +9,7 @@ class Tb_personasController extends Controller
 {
     public function index(Request $request)
     {
-        $personas = Tb_personas::orderBy('personas','asc')
+        $personas = Tb_personas::orderByRaw('CONCAT(nombres, " ", apellidos) ASC')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_personasController extends Controller
 
     public function indexOne(Request $request)
     {
-        $personas = Tb_personas::orderBy('personas','desc')
+        $personas = Tb_personas::orderByRaw('CONCAT(nombres, " ", apellidos) ASC')
         ->where('tb_personas.id','=',$request->id)
         ->get();
 
