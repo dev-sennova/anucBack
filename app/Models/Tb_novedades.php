@@ -12,7 +12,7 @@ class Tb_novedades extends Model
 
     public $timestamps = false;
 
-    public function Asociado()
+    public function asociado()
     {
         return $this->belongsTo(Tb_asociados::class);
     }

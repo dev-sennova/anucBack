@@ -17,7 +17,7 @@ class Tb_personas extends Model
         return $this->belongsTo(Tb_tipo_documento::class);
     }
 
-    public function Sexo()
+    public function sexo()
     {
         return $this->belongsTo(Tb_sexo::class);
     }

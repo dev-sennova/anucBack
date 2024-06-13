@@ -12,12 +12,12 @@ class Tb_produccion extends Model
 
     public $timestamps = false;
 
-    public function Producto()
+    public function producto()
     {
         return $this->belongsTo(Tb_productos::class);
     }
 
-    public function Medida()
+    public function medida()
     {
         return $this->belongsTo(Tb_medida_unidades::class);
     }

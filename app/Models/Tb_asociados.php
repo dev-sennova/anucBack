@@ -12,12 +12,12 @@ class Tb_asociados extends Model
 
     public $timestamps = false;
 
-    public function Personas()
+    public function personas()
     {
         return $this->belongsTo(Tb_personas::class);
     }
 
-    public function Categoria()
+    public function categoria()
     {
         return $this->belongsTo(Tb_categorias::class);
     }

@@ -13,7 +13,7 @@ class Tb_fincas extends Model
     public $timestamps = false;
 
 
-    public function Vereda()
+    public function vereda()
     {
         return $this->belongsTo(Tb_veredas::class);
     }

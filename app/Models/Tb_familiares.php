@@ -12,17 +12,17 @@ class Tb_familiares extends Model
 
     public $timestamps = false;
 
-    public function Asociado()
+    public function asociado()
     {
         return $this->belongsTo(Tb_asociados::class);
     }
 
-    public function Persona()
+    public function persona()
     {
         return $this->belongsTo(Tb_personas::class);
     }
 
-    public function Parentesco()
+    public function parentesco()
     {
         return $this->belongsTo(Tb_parentesco::class);
     }

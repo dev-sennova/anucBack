@@ -12,7 +12,7 @@ class Tb_veredas extends Model
 
     public $timestamps = false;
 
-    public function Ciudad()
+    public function ciudad()
     {
         return $this->belongsTo(Tb_ciudades::class);
     }
