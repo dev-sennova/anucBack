@@ -1,0 +1,8 @@
+[
+    {"id":"1","estado_civil":"Casado/a","estado":"1"},
+    {"id":"2","estado_civil":"Soltero/a","estado":"1"},
+    {"id":"3","estado_civil":"Separado/a","estado":"1"},
+    {"id":"4","estado_civil":"Viudo/a","estado":"1"},
+    {"id":"5","estado_civil":"Union Libre","estado":"1"},
+    {"id":"6","estado_civil":"Otro","estado":"1"}
+]

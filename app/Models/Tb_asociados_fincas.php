@@ -21,4 +21,9 @@ class Tb_asociados_fincas extends Model
     {
         return $this->belongsTo(Tb_asociados::class);
     }
+
+    public function tipoPredio()
+    {
+        return $this->belongsTo(Tb_tipo_predio::class);
+    }
 }

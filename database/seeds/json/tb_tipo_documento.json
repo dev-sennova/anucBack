@@ -1,0 +1,5 @@
+[
+    {"id":"1","tipo_documento":"Cédula de ciudadanía","estado":"1"},
+    {"id":"2","tipo_documento":"Trajeta de Identidad","estado":"1"},
+    {"id":"3","tipo_documento":"Cédula de Extranjeria","estado":"1"}
+]

@@ -1,0 +1,8 @@
+[
+    {"id":"1","categoria":"Frutas","estado":"1"},
+    {"id":"2","categoria":"Carnes/Huevos","estado":"1"},
+    {"id":"3","categoria":"Verduras/Vegetales","estado":"1"},
+    {"id":"4","categoria":"Cafe/Cacao/Leche","estado":"1"},
+    {"id":"5","categoria":"Plantas/Yerbas","estado":"1"},
+    {"id":"6","categoria":"Otros Productos","estado":"1"}
+]

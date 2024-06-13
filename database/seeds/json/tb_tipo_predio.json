@@ -1,0 +1,6 @@
+[
+    {"id":"1","tipo_predio":"Propia","estado":"1"},
+    {"id":"2","tipo_predio":"Familiar","estado":"1"},
+    {"id":"3","tipo_predio":"Contrato de Aparceria","estado":"1"},
+    {"id":"4","tipo_predio":"Otro","estado":"1"}
+]

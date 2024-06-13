@@ -25,6 +25,10 @@ class CreateTbAsociadosFincasTable extends Migration
             $table->unsignedBigInteger('asociado');
             $table->foreign('asociado')->references('id')->on('tb_asociados');
 
+            // Clave foránea para producto tipo_predio
+            $table->unsignedBigInteger('tipo_predio');
+            $table->foreign('tipo_predio')->references('id')->on('tb_tipo_predios');
+
         });
     }
 

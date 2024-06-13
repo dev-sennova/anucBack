@@ -53,12 +53,19 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("rol/activate", "Tb_rolController@activate");
      Route::get("rol/selectrol/{id}", "Tb_rolController@indexOne");
 
-     Route::get("ciudad", "Tb_ciudadController@index");
-     Route::post("ciudad/store", "Tb_ciudadController@store");
-     Route::put("ciudad/update", "Tb_ciudadController@update");
-     Route::put("ciudad/deactivate", "Tb_ciudadController@deactivate");
-     Route::put("ciudad/activate", "Tb_ciudadController@activate");
-     Route::get("ciudad/selectciudad/{id}", "Tb_ciudadController@indexOne");
+     Route::get("ciudad", "Tb_ciudadesController@index");
+     Route::post("ciudad/store", "Tb_ciudadesController@store");
+     Route::put("ciudad/update", "Tb_ciudadesController@update");
+     Route::put("ciudad/deactivate", "Tb_ciudadesController@deactivate");
+     Route::put("ciudad/activate", "Tb_ciudadesController@activate");
+     Route::get("ciudad/selectciudad/{id}", "Tb_ciudadesController@indexOne");
+
+     Route::get("estado_civil", "Tb_estado_civilController@index");
+     Route::post("estado_civil/store", "Tb_estado_civilController@store");
+     Route::put("estado_civil/update", "Tb_estado_civilController@update");
+     Route::put("estado_civil/deactivate", "Tb_estado_civilController@deactivate");
+     Route::put("estado_civil/activate", "Tb_estado_civilController@activate");
+     Route::get("estado_civil/selectestado_civil/{id}", "Tb_estado_civilController@indexOne");
 
      Route::post('/upload-image', 'ImageController@uploadImage');
     });

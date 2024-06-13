@@ -1,0 +1,11 @@
+[
+    {"id":"1","parentesco":"Padre","estado":"1"},
+    {"id":"2","parentesco":"Madre","estado":"1"},
+    {"id":"3","parentesco":"Hijo/a","estado":"1"},
+    {"id":"4","parentesco":"Esposo/a","estado":"1"},
+    {"id":"5","parentesco":"Hermano/a","estado":"1"},
+    {"id":"6","parentesco":"Abuelo/a","estado":"1"},
+    {"id":"7","parentesco":"Nieto/a","estado":"1"},
+    {"id":"8","parentesco":"Cuñado/a","estado":"1"},
+    {"id":"9","parentesco":"Compañero/a Permanente","estado":"1"}
+]
