@@ -12,12 +12,12 @@ class Tb_asociados_fincas extends Model
 
     public $timestamps = false;
 
-    public function Fincas()
+    public function fincas()
     {
         return $this->belongsTo(Tb_fincas::class);
     }
 
-    public function Asociados()
+    public function asociados()
     {
         return $this->belongsTo(Tb_asociados::class);
     }

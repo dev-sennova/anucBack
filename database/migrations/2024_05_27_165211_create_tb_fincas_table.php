@@ -16,7 +16,7 @@ class CreateTbFincasTable extends Migration
         Schema::create('tb_fincas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->float('extension');
+            $table->float('extension',8,2);
             $table->string('latitud');
             $table->string('longitud');
             $table->boolean('estado')->default(1);

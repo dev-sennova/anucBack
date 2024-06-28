@@ -5,12 +5,14 @@
     {"id":"4","vereda":"Casiano alto","ciudad":"320","estado":"1"},
     {"id":"5","vereda":"Rio frio","ciudad":"320","estado":"1"},
     {"id":"6","vereda":"Alsacia malabar","ciudad":"320","estado":"1"},
-    {"id":"7","vereda":"Guyana","ciudad":"320","estado":"1"},
-    {"id":"8","vereda":"Valle de ruitoque","ciudad":"320","estado":"1"},
-    {"id":"9","vereda":"Mesa de ruitoque","ciudad":"320","estado":"1"},
-    {"id":"10","vereda":"Casiano bajo","ciudad":"320","estado":"1"},
-    {"id":"11","vereda":"Guayana","ciudad":"320","estado":"1"},
-    {"id":"12","vereda":"Otra","ciudad":"320","estado":"1"}
+    {"id":"7","vereda":"Valle de ruitoque","ciudad":"320","estado":"1"},
+    {"id":"8","vereda":"Mesa de ruitoque","ciudad":"320","estado":"1"},
+    {"id":"9","vereda":"Casiano bajo","ciudad":"320","estado":"1"},
+    {"id":"10","vereda":"Guayanas","ciudad":"320","estado":"1"},
+    {"id":"11","vereda":"Otra","ciudad":"320","estado":"1"},
+    {"id":"12","vereda":"Ruitoque Bajo","ciudad":"320","estado":"1"},
+    {"id":"13","vereda":"Mantilla","ciudad":"320","estado":"1"},
+    {"id":"14","vereda":"Los Cauchos","ciudad":"320","estado":"1"}
 ]
 
 

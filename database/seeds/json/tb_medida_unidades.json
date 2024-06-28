@@ -2,5 +2,12 @@
     {"id":"1","unidad":"Unidad (es)","estado":"1"},
     {"id":"2","unidad":"Kilo (s)","estado":"1"},
     {"id":"3","unidad":"Arroba (s)","estado":"1"},
-    {"id":"4","unidad":"Canastilla (s)","estado":"1"}
+    {"id":"4","unidad":"Canastilla (s)","estado":"1"},
+    {"id":"5","unidad":"Bulto (s)","estado":"1"},
+    {"id":"6","unidad":"Libra (s)","estado":"1"},
+    {"id":"7","unidad":"Gajo (s)","estado":"1"},
+    {"id":"8","unidad":"Rama (s)","estado":"1"},
+    {"id":"9","unidad":"Carga (s)","estado":"1"},
+    {"id":"10","unidad":"Cartón (es) x 30 unidades","estado":"1"},
+    {"id":"11","unidad":"Paquete (s)","estado":"1"}
 ]

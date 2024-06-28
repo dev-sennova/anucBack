@@ -16,11 +16,11 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|email',
+            'identificacion' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $credentials = request(['email', 'password']);
+        $credentials = request(['identificacion', 'password']);
 
         if (!Auth::attempt($credentials)) {
             return response()->json(['message' => 'Unauthorized'], 401);
@@ -39,8 +39,7 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse($tokenResult->token->expires_at)->toDateTimeString(),
             'id_usuario' => $user->id,
-            'nombre_usuario' => $user->name,
-            'email_usuario' => $user->email
+            'identificacion' => $user->identificacion
         ]);
     }
 }

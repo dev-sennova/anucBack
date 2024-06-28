@@ -38,6 +38,7 @@ class Tb_asociados_fincasController extends Controller
             $tb_asociados_fincas=new Tb_asociados_fincas();
             $tb_asociados_fincas->finca=$request->finca;
             $tb_asociados_fincas->asociado=$request->asociado;
+            $tb_asociados_fincas->tipo_predio=$request->tipo_predio;
             $tb_asociados_fincas->estado=1;
 
             if ($tb_asociados_fincas->save()) {
@@ -65,6 +66,7 @@ class Tb_asociados_fincasController extends Controller
             $tb_asociados_fincas=Tb_asociados_fincas::findOrFail($request->id);
             $tb_asociados_fincas->finca=$request->finca;
             $tb_asociados_fincas->asociado=$request->asociado;
+            $tb_asociados_fincas->tipo_predio=$request->tipo_predio;
             $tb_asociados_fincas->estado='1';
 
             if ($tb_asociados_fincas->save()) {
