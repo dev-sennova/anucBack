@@ -9,7 +9,7 @@ class Tb_asociados_fincasController extends Controller
 {
     public function index(Request $request)
     {
-        $asociados_finca = Tb_asociados_fincas::orderBy('asociados_finca','asc')
+        $asociados_finca = Tb_asociados_fincas::orderBy('id','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_asociados_fincasController extends Controller
 
     public function indexOne(Request $request)
     {
-        $asociados_finca = Tb_asociados_fincas::orderBy('asociados_finca','desc')
+        $asociados_finca = Tb_asociados_fincas::orderBy('id','desc')
         ->where('tb_asociados_fincas.id','=',$request->id)
         ->get();
 
@@ -135,4 +135,25 @@ class Tb_asociados_fincasController extends Controller
         }
 
     }
+
+    public function detallado(Request $request)
+    {
+        # Modelo::join('tablaqueseune',basicamente un on)
+        $asociados_finca = Tb_asociados_fincas::join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
+        ->join("tb_tipo_predios","tb_asociados_fincas.tipo_predio","=","tb_tipo_predios.id")
+        ->join("tb_asociados","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_personas","tb_asociados.persona","=","tb_personas.id")
+        ->join("tb_tipo_documento","tb_personas.tipo_documento","=","tb_tipo_documento.id")
+        ->join("tb_sexo","tb_personas.sexo","=","tb_sexo.id")
+        ->join("tb_estado_civil","tb_personas.estado_civil","=","tb_estado_civil.id")
+        ->join("tb_categorias","tb_asociados.categoria","=","tb_categorias.id")
+        ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'asociados_finca' => $asociados_finca
+        ];
+    }
+
 }

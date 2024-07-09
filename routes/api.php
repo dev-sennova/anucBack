@@ -130,6 +130,13 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("personas/activate", "Tb_personasController@activate");
      Route::get("personas/selectpersonas/{id}", "Tb_personasController@indexOne");
 
+     Route::get("asociados_finca", "Tb_asociados_fincasController@index");
+     Route::post("asociados_finca/store", "Tb_asociados_fincasController@store");
+     Route::put("asociados_finca/update", "Tb_asociados_fincasController@update");
+     Route::put("asociados_finca/deactivate", "Tb_asociados_fincasController@deactivate");
+     Route::put("asociados_finca/activate", "Tb_asociados_fincasController@activate");
+     Route::get("asociados_finca/selectasociados_finca/{id}", "Tb_asociados_fincasController@indexOne");
+     Route::get("asociados_finca/detallado", "Tb_asociados_fincasController@detallado");
 
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
