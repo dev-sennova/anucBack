@@ -26,6 +26,15 @@ class DatabaseSeeder extends Seeder
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
+            'tb_empresa_globales'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(Tb_empresa_globalesSeeder::class);
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
             'tb_ciudades'
         ]);
 

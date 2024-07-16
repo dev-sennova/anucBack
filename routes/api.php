@@ -53,6 +53,13 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("rol/activate", "Tb_rolController@activate");
      Route::get("rol/selectrol/{id}", "Tb_rolController@indexOne");
 
+     Route::get("empresa_globales", "Tb_empresa_globalesController@index");
+     Route::post("empresa_globales/store", "Tb_empresa_globalesController@store");
+     Route::put("empresa_globales/update", "Tb_empresa_globalesController@update");
+     Route::put("empresa_globales/deactivate", "Tb_empresa_globalesController@deactivate");
+     Route::put("empresa_globales/activate", "Tb_empresa_globalesController@activate");
+     Route::get("empresa_globales/selectempresa_globales/{id}", "Tb_empresa_globalesController@indexOne");
+
      Route::get("ciudad", "Tb_ciudadesController@index");
      Route::post("ciudad/store", "Tb_ciudadesController@store");
      Route::put("ciudad/update", "Tb_ciudadesController@update");

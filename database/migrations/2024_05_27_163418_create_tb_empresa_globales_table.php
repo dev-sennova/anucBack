@@ -17,8 +17,9 @@ class CreateTbEmpresaGlobalesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('direccion');
-            $table->string('mision');
-            $table->string('vision');
+            $table->text('mision');
+            $table->text('vision');
+            $table->longText('estatutos');
             $table->boolean('estado')->default(1);
         });
     }
