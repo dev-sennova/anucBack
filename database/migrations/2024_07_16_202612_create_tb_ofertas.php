@@ -13,7 +13,7 @@ class CreateTbOfertas extends Migration
      */
     public function up()
     {
-        Schema::create('ofertas', function (Blueprint $table) {
+        Schema::create('tb_ofertas', function (Blueprint $table) {
             $table->id();
             $table->date('start_date');
             $table->date('end_date')->nullable();

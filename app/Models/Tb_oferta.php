@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tb_oferta extends Model
 {
-     protected $table = 'tb_oferta';
+     protected $table = 'tb_ofertas';
 
      protected $fillable = ['product_id','asociados_finca_id','start_date','end_date'];
 

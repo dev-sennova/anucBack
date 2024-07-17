@@ -144,9 +144,9 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados_finca/activate", "Tb_asociados_fincasController@activate");
      Route::get("asociados_finca/selectasociados_finca/{id}", "Tb_asociados_fincasController@indexOne");
      Route::get("asociados_finca/detallado", "Tb_asociados_fincasController@detallado");
-     
-    Route::post("ofertas/store", "Tb_ofertaController@store");
-     
+
+     Route::post("ofertas/store", "Tb_ofertaController@store");
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 
