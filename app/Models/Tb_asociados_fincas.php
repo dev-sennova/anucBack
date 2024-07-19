@@ -8,7 +8,7 @@ class Tb_asociados_fincas extends Model
 {
     protected $table = 'tb_asociados_fincas';
 
-    protected $fillable = ['estado'];
+    protected $fillable = ['estado','asociado'];
 
     public $timestamps = false;
 
@@ -19,11 +19,17 @@ class Tb_asociados_fincas extends Model
 
     public function asociados()
     {
-        return $this->belongsTo(Tb_asociados::class);
+        return $this->belongsTo(Tb_asociados::class,'asociado');
     }
 
     public function tipoPredio()
     {
         return $this->belongsTo(Tb_tipo_predio::class);
     }
+
+    public function ofertas()
+    {
+    return $this->hasMany(Tb_oferta::class,'asociados_finca_id');
+    }
+
 }

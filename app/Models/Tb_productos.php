@@ -16,4 +16,9 @@ class Tb_productos extends Model
     {
         return $this->belongsTo(Tb_producto_categorias::class);
     }
+
+    public function oferta()
+    {
+    return $this->hasMany(Tb_oferta::class, 'product_id');
+    }
 }

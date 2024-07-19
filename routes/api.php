@@ -144,9 +144,16 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados_finca/activate", "Tb_asociados_fincasController@activate");
      Route::get("asociados_finca/selectasociados_finca/{id}", "Tb_asociados_fincasController@indexOne");
      Route::get("asociados_finca/detallado", "Tb_asociados_fincasController@detallado");
-
+    
+     Route::get("ofertas", "Tb_ofertaController@index");
      Route::post("ofertas/store", "Tb_ofertaController@store");
+     Route::put("ofertas/update", "Tb_ofertaController@update");
+     Route::put("ofertas/deactivate", "Tb_ofertaController@deactivate");
+     Route::put("ofertas/activate", "Tb_ofertaController@activate");
+     Route::get("ofertas/selectofertas/{id}", "Tb_ofertaController@indexOne");
+    
 
+     
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 

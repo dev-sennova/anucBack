@@ -8,13 +8,13 @@ class Tb_asociados extends Model
 {
     protected $table = 'tb_asociados';
 
-    protected $fillable = ['estado'];
+    protected $fillable = ['estado','persona'];
 
     public $timestamps = false;
 
     public function personas()
     {
-        return $this->belongsTo(Tb_personas::class);
+        return $this->belongsTo(Tb_personas::class,'persona','id');
     }
 
     public function categoria()

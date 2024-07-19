@@ -17,6 +17,7 @@ class CreateTbOfertas extends Migration
             $table->id();
             $table->date('start_date');
             $table->date('end_date')->nullable();
+            $table->boolean('estado')->default(1);
 
             // Clave foránea para productos
             $table->unsignedBigInteger('product_id');
