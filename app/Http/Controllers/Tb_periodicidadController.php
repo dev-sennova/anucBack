@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tb_fincas;
+use App\Models\Tb_periodicidad;
 use Illuminate\Http\Request;
 
-class Tb_fincasController extends Controller
+class Tb_periodicidadController extends Controller
 {
     public function index(Request $request)
     {
-        $finca = Tb_fincas::orderBy('nombre','asc')
+        $periodicidad = Tb_periodicidad::orderBy('periodicidad','asc')
         ->get();
 
         return [
             'estado' => 'Ok',
-            'finca' => $finca
+            'periodicidad' => $periodicidad
         ];
     }
 
     public function indexOne(Request $request)
     {
-        $finca = Tb_fincas::orderBy('nombre','desc')
-        ->where('tb_fincas.id','=',$request->id)
+        $periodicidad = Tb_periodicidad::orderBy('periodicidad','desc')
+        ->where('tb_periodicidad.id','=',$request->id)
         ->get();
 
         return [
             'estado' => 'Ok',
-            'finca' => $finca
+            'periodicidad' => $periodicidad
         ];
     }
 
@@ -35,23 +35,19 @@ class Tb_fincasController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_fincas=new Tb_fincas();
-            $tb_fincas->nombre=$request->nombre;
-            $tb_fincas->extension=$request->extension;
-            $tb_fincas->latitud=$request->latitud;
-            $tb_fincas->longitud=$request->longitud;
-            $tb_fincas->vereda=$request->vereda;
-            $tb_fincas->estado=1;
+            $tb_periodicidad=new Tb_periodicidad();
+            $tb_periodicidad->periodicidad=$request->periodicidad;
+            $tb_periodicidad->estado=1;
 
-            if ($tb_fincas->save()) {
+            if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'finca creada con éxito'
+                    'message' => 'Periodicidad creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'finca no pudo ser creada'
+                    'message' => 'Periodicidad no pudo ser creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -65,23 +61,19 @@ class Tb_fincasController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_fincas=Tb_fincas::findOrFail($request->id);
-            $tb_fincas->nombre=$request->nombre;
-            $tb_fincas->extension=$request->extension;
-            $tb_fincas->latitud=$request->latitud;
-            $tb_fincas->longitud=$request->longitud;
-            $tb_fincas->vereda=$request->vereda;
-            $tb_fincas->estado='1';
+            $tb_periodicidad=Tb_periodicidad::findOrFail($request->id);
+            $tb_periodicidad->periodicidad=$request->periodicidad;
+            $tb_periodicidad->estado='1';
 
-            if ($tb_fincas->save()) {
+            if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'finca actualizada con éxito'
+                    'message' => 'Periodicidad actualizado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'finca no pudo ser actualizada'
+                    'message' => 'Periodicidad no pudo ser actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,18 +87,18 @@ class Tb_fincasController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_fincas=Tb_fincas::findOrFail($request->id);
-            $tb_fincas->estado='0';
+            $tb_periodicidad=Tb_periodicidad::findOrFail($request->id);
+            $tb_periodicidad->estado='0';
 
-            if ($tb_fincas->save()) {
+            if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'finca desactivada con éxito'
+                    'message' => 'Periodicidad desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'finca no pudo ser desactivada'
+                    'message' => 'Periodicidad no pudo ser desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,18 +112,18 @@ class Tb_fincasController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_fincas=Tb_fincas::findOrFail($request->id);
-            $tb_fincas->estado='1';
+            $tb_periodicidad=Tb_periodicidad::findOrFail($request->id);
+            $tb_periodicidad->estado='1';
 
-            if ($tb_fincas->save()) {
+            if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'finca activada con éxito'
+                    'message' => 'Periodicidad activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'finca no pudo ser activada'
+                    'message' => 'Periodicidad no pudo ser activado'
                    ]);
             }
         } catch (\Exception $e) {

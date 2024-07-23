@@ -18,6 +18,10 @@ class CreateTbProduccionsTable extends Migration
             $table->integer('produccion');
             $table->boolean('estado')->default(1);
 
+            // Clave foránea para periodicidad
+            $table->unsignedBigInteger('periodicidad');
+            $table->foreign('periodicidad')->references('id')->on('tb_periodicidad');
+
             // Clave foránea para productos
             $table->unsignedBigInteger('producto');
             $table->foreign('producto')->references('id')->on('tb_productos');

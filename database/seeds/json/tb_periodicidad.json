@@ -1,0 +1,8 @@
+[
+    {"id":"1","periodicidad":"Semanal","estado":"1"},
+    {"id":"2","periodicidad":"Quincenal","estado":"1"},
+    {"id":"3","periodicidad":"Mensual","estado":"1"},
+    {"id":"4","periodicidad":"Bimensual","estado":"1"},
+    {"id":"5","periodicidad":"Trimestral","estado":"1"},
+    {"id":"6","periodicidad":"Cada 5 meses o más","estado":"1"}
+]

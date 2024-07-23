@@ -19,7 +19,7 @@ class CreateTbPersonasTable extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('telefono');
-            $table->string('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->boolean('estado')->default(1);
 
             // Clave foránea para el tipo de documento

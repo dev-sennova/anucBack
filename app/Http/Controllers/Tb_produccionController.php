@@ -38,6 +38,7 @@ class Tb_produccionController extends Controller
             $tb_produccion=new Tb_produccion();
             $tb_produccion->produccion=$request->produccion;
             $tb_produccion->producto=$request->producto;
+            $tb_produccion->periodicidad=$request->periodicidad;
             $tb_produccion->medida=$request->medida;
             $tb_produccion->asociados_finca=$request->asociados_finca;
             $tb_produccion->estado=1;
@@ -67,6 +68,7 @@ class Tb_produccionController extends Controller
             $tb_produccion=Tb_produccion::findOrFail($request->id);
             $tb_produccion->produccion=$request->produccion;
             $tb_produccion->producto=$request->producto;
+            $tb_produccion->periodicidad=$request->periodicidad;
             $tb_produccion->medida=$request->medida;
             $tb_produccion->asociados_finca=$request->asociados_finca;
             $tb_produccion->estado='1';
