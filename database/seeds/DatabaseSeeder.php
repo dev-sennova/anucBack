@@ -177,12 +177,12 @@ class DatabaseSeeder extends Seeder
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
-/*         $this->truncateTables([
+        $this->truncateTables([
             'tb_produccion'
         ]);
 
         //funcion principal que llama cada seeder
-        $this->call(Tb_produccionSeeder::class); */
+        $this->call(Tb_produccionSeeder::class);
 //-------------------------------------------------------------------//
 
 //-------------------------------------------------------------------//

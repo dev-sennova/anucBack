@@ -31,5 +31,7 @@
     {"id":"30","producto":"Mandarina","categoria":"1","estado":"1"},
     {"id":"31","producto":"Papaya","categoria":"1","estado":"1"},
     {"id":"32","producto":"Yuca","categoria":"3","estado":"1"},
-    {"id":"33","producto":"MASAS DE MAÍZ PARA AREPAS; CON CHICHARRON, LIGTH, Y DE PETO","categoria":"6","estado":"1"}
+    {"id":"33","producto":"MASAS DE MAÍZ PARA AREPAS; CON CHICHARRON, LIGTH, Y DE PETO","categoria":"6","estado":"1"},
+    {"id":"34","producto":"Guacas","categoria":"5","estado":"1"},
+    {"id":"35","producto":"Perejil","categoria":"5","estado":"1"}
 ]
