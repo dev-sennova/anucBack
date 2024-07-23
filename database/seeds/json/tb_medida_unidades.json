@@ -9,5 +9,10 @@
     {"id":"8","unidad":"Rama (s)","estado":"1"},
     {"id":"9","unidad":"Carga (s)","estado":"1"},
     {"id":"10","unidad":"Cartón (es) x 30 unidades","estado":"1"},
-    {"id":"11","unidad":"Paquete (s)","estado":"1"}
+    {"id":"11","unidad":"Paquete (s)","estado":"1"},
+    {"id":"12","unidad":"Caja (s)","estado":"1"},
+    {"id":"13","unidad":"Manojo (s)","estado":"1"},
+    {"id":"14","unidad":"Litro (s)","estado":"1"},
+    {"id":"15","unidad":"Mata (s)","estado":"1"},
+    {"id":"16","unidad":"Racimo (s)","estado":"1"}
 ]

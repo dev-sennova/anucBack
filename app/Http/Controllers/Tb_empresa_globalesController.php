@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Tb_asociados;
 use App\Models\Tb_empresa_globales;
 use App\Models\Tb_asociados_fincas;
+use App\Models\Tb_periodicidad;
+use App\Models\Tb_produccion;
+use App\Models\Tb_producto_categorias;
+use App\Models\Tb_productos;
+use App\Models\Tb_tipo_predio;
 use App\Models\Tb_veredas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -303,28 +308,97 @@ class Tb_empresa_globalesController extends Controller
         ];
 
         #-------------------------------------------------------------------------#
-        #Consulta por categorias
-        $veredas_registradas = Tb_veredas::orderBy('vereda','asc')->get();
+        #Consulta por tipo de predio
+        #Consulta total de asociados_fincas activos
+        $cantidad_asociados_fincas= Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_tipo_predios","tb_asociados_fincas.tipo_predio","=","tb_tipo_predios.id")
+        ->where('tb_asociados.estado','=','1')
+        ->count();
 
-        $datos_vereda = [];
+        $tipos_predios = Tb_tipo_predio::orderBy('tipo_predio','asc')->get();
 
-        foreach($veredas_registradas as $vereda){
-            $id_vereda = $vereda->id;
-            $nombre_vereda = $vereda->vereda;
+        $datos_tipos_predio = [];
 
-            $total_por_veredas = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
-            ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
-            ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+        foreach($tipos_predios as $predio){
+            $id_tipo_predio = $predio->id;
+            $tipo_predio = $predio->tipo_predio;
+
+            $total_por_tipos = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+            ->join("tb_tipo_predios","tb_asociados_fincas.tipo_predio","=","tb_tipo_predios.id")
             ->where('tb_asociados.estado','=','1')
-            ->where('tb_fincas.vereda','=',$id_vereda)
+            ->where('tb_asociados_fincas.tipo_predio','=',$id_tipo_predio)
             ->count();
 
-            $porcentaje_vereda = round((intval($total_por_veredas)/intval($cantidad_asociados))*100, 2);
+            $porcentaje_tipo_predio = round((intval($total_por_tipos)/intval($cantidad_asociados_fincas))*100, 2);
 
-            $datos_vereda[] = [
-                'vereda' => $nombre_vereda,
-                'cantidad_por_vereda' => $total_por_veredas,
-                'porcentaje' => $porcentaje_vereda
+            $datos_tipos_predio[] = [
+                'tipo_predio' => $tipo_predio,
+                'cantidad_por_vereda' => $total_por_tipos,
+                'porcentaje' => $porcentaje_tipo_predio
+            ];
+        }
+
+        #-------------------------------------------------------------------------#
+
+        #-------------------------------------------------------------------------#
+        #Consulta por categorias
+        #Consulta total de asociados_fincas activos
+        $cantidad_producciones= Tb_produccion::join("tb_asociados_fincas","tb_produccion.asociados_finca","=","tb_asociados_fincas.id")
+        ->join("tb_asociados","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->where('tb_asociados.estado','=','1')
+        ->count();
+
+        $categorias_productos = Tb_producto_categorias::orderBy('categoria','asc')->get();
+
+        $datos_categorias_productos = [];
+
+        foreach($categorias_productos as $categoria){
+            $id_categoria = $categoria->id;
+            $nombre_categoria = $categoria->categoria;
+
+            $total_por_categorias_productos = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+            ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
+            ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+            ->join("tb_producto_categorias","tb_productos.categoria","=","tb_producto_categorias.id")
+            ->where('tb_asociados.estado','=','1')
+            ->where('tb_producto_categorias.id','=',$id_categoria)
+            ->count();
+
+            $porcentaje_categorias_productos = round((intval($total_por_categorias_productos)/intval($cantidad_producciones))*100, 2);
+
+            $detalles_productos  = [];
+            $detalles_periodicidad  = [];
+            $detalles_unidad_medida  = [];
+
+            $productos_por_categoria = Tb_productos::where('tb_productos.categoria','=',$id_categoria)->get();
+
+            //abro bloque productos por categoria
+            foreach($productos_por_categoria as $producto){
+                $id_producto = $producto->id;
+                $nombre_producto = $producto->producto;
+
+                $total_productos_categorias = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+                ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
+                ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+                ->where('tb_asociados.estado','=','1')
+                ->where('tb_productos.id','=',$id_producto)
+                ->count();
+
+                $porcentaje_productos_categorias = round((intval($total_productos_categorias)/intval($total_por_categorias_productos))*100, 2);
+
+                $detalles_productos[] = [
+                    'producto' => $nombre_producto,
+                    'cantidad_por_fincas' => $total_productos_categorias,
+                    'porcentaje' => $porcentaje_productos_categorias
+                ];
+            }
+            //cierro bloque productos por categoria
+
+            $datos_categorias_productos[] = [
+                'categoria' => $nombre_categoria,
+                'cantidad_por_fincas' => $total_por_categorias_productos,
+                'porcentaje' => $porcentaje_categorias_productos,
+                'detalles_productos' => $detalles_productos
             ];
         }
 
@@ -359,7 +433,9 @@ class Tb_empresa_globalesController extends Controller
                 'cantidad_fecha_indeterminada' => $fecha_nsnr
             ],
             'datos_vereda' => $datos_vereda,
-            'fincas_por_hectareas' => $fincas_por_hectareas
+            'fincas_por_hectareas' => $fincas_por_hectareas,
+            'fincas_por_tipo_predio' => $datos_tipos_predio,
+            'productos_por_categorias' => $datos_categorias_productos
         ];
     }
 }
