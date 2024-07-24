@@ -48,6 +48,8 @@ class Tb_empresa_globalesController extends Controller
             $tb_empresa_globales=new Tb_empresa_globales();
             $tb_empresa_globales->nombre=$request->nombre;
             $tb_empresa_globales->direccion=$request->direccion;
+            $tb_empresa_globales->nit=$request->nit;
+            $tb_empresa_globales->horarios=$request->horarios;
             $tb_empresa_globales->mision=$request->mision;
             $tb_empresa_globales->vision=$request->vision;
             $tb_empresa_globales->estado=1;
@@ -78,6 +80,8 @@ class Tb_empresa_globalesController extends Controller
             $tb_empresa_globales=new Tb_empresa_globales();
             $tb_empresa_globales->nombre=$request->nombre;
             $tb_empresa_globales->direccion=$request->direccion;
+            $tb_empresa_globales->nit=$request->nit;
+            $tb_empresa_globales->horarios=$request->horarios;
             $tb_empresa_globales->mision=$request->mision;
             $tb_empresa_globales->vision=$request->vision;
             $tb_empresa_globales->estado=1;

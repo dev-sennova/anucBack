@@ -18,6 +18,8 @@ class Tb_empresa_globalesSeeder extends Seeder
             Tb_empresa_globales::create(array(
                 'id' => $item->id,
                 'nombre' => $item->nombre,
+                'nit' => $item->nit,
+                'horarios' => $item->horarios,
                 'mision' => $item->mision,
                 'vision' => $item->vision,
                 'direccion' => $item->direccion,
