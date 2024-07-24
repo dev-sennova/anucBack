@@ -15,10 +15,30 @@ class Tb_ofertaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return DatosGeneralesResource::collection(Tb_oferta::all());
 
+    public function index(Request $request)
+    {
+        $ofertas = Tb_oferta::orderBy('id', 'asc')
+        ->get();
+
+        return response()->json([
+            'estado' => 'Ok',
+            'ofertas' => $ofertas
+        ], 200);
+    
+    }
+
+    public function indexOne(Request $request)
+    {
+        $ofertas = Tb_oferta::orderBy('id', 'desc')
+        ->where('id', $request->id)
+        ->get();
+
+        return response()->json([
+            'estado' => 'Ok',
+            'ofertas' => $ofertas
+        ], 200);
+    
     }
 
     /**
@@ -140,4 +160,10 @@ class Tb_ofertaController extends Controller
             ], 500);
         }
     }
+
+    public function detallado()
+    {
+        return DatosGeneralesResource::collection(Tb_oferta::all());
+    }
+
 }

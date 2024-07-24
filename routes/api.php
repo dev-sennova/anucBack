@@ -151,7 +151,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("ofertas/deactivate", "Tb_ofertaController@deactivate");
      Route::put("ofertas/activate", "Tb_ofertaController@activate");
      Route::get("ofertas/selectofertas/{id}", "Tb_ofertaController@indexOne");
-    
+     Route::get("ofertas/detallado", "Tb_ofertaController@detallado");
 
      
      Route::post('/upload-image', 'ImageController@uploadImage');
