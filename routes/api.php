@@ -59,6 +59,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("empresa_globales/deactivate", "Tb_empresa_globalesController@deactivate");
      Route::put("empresa_globales/activate", "Tb_empresa_globalesController@activate");
      Route::get("empresa_globales/selectempresa_globales/{id}", "Tb_empresa_globalesController@indexOne");
+     Route::get("empresa_globales/estadisticas", "Tb_empresa_globalesController@estadisticas");
 
      Route::get("ciudad", "Tb_ciudadesController@index");
      Route::post("ciudad/store", "Tb_ciudadesController@store");
@@ -129,6 +130,13 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("vereda/deactivate", "Tb_veredasController@deactivate");
      Route::put("vereda/activate", "Tb_veredasController@activate");
      Route::get("vereda/selectvereda/{id}", "Tb_veredasController@indexOne");
+
+     Route::get("finca", "Tb_fincasController@index");
+     Route::post("finca/store", "Tb_fincasController@store");
+     Route::put("finca/update", "Tb_fincasController@update");
+     Route::put("finca/deactivate", "Tb_fincasController@deactivate");
+     Route::put("finca/activate", "Tb_fincasController@activate");
+     Route::get("finca/selectfinca/{id}", "Tb_fincasController@indexOne");
 
      Route::get("personas", "Tb_personasController@index");
      Route::post("personas/store", "Tb_personasController@store");

@@ -12,6 +12,11 @@ class Tb_produccion extends Model
 
     public $timestamps = false;
 
+    public function periodicidad()
+    {
+        return $this->belongsTo(Tb_periodicidad::class);
+    }
+
     public function producto()
     {
         return $this->belongsTo(Tb_productos::class);
