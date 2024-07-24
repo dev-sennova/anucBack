@@ -22,4 +22,9 @@ class Tb_oferta extends Model
     {
         return $this->belongsTo(Tb_asociados_fincas::class, 'asociados_finca_id');
     }
+    public function medidaUnides()
+    {
+        return $this->belongsTo(Tb_medida_unidades::class, 'medida_unidades_id');
+    }
+    
 }

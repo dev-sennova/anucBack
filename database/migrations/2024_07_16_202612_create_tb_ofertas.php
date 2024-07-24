@@ -18,6 +18,9 @@ class CreateTbOfertas extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->boolean('estado')->default(1);
+            $table->boolean('contacto_visible')->default(1);
+            $table->integer('cantidad');
+
 
             // Clave foránea para productos
             $table->unsignedBigInteger('product_id');
@@ -26,6 +29,10 @@ class CreateTbOfertas extends Migration
             // Clave foránea para Asociados fincas
             $table->unsignedBigInteger('asociados_finca_id');
             $table->foreign('asociados_finca_id')->references('id')->on('tb_asociados_fincas');
+
+            // Clave foránea para Unidad de Medida
+            $table->unsignedBigInteger('medida_unidades_id');
+            $table->foreign('medida_unidades_id')->references('id')->on('tb_medida_unidades');
         });
     }
 

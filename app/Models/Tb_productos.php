@@ -14,7 +14,7 @@ class Tb_productos extends Model
 
     public function productoCategoria()
     {
-        return $this->belongsTo(Tb_producto_categorias::class);
+        return $this->belongsTo(Tb_producto_categorias::class,'categoria');
     }
 
     public function oferta()

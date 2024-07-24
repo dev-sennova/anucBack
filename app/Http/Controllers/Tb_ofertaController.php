@@ -25,9 +25,8 @@ class Tb_ofertaController extends Controller
             'estado' => 'Ok',
             'ofertas' => $ofertas
         ], 200);
-    
     }
-
+    
     public function indexOne(Request $request)
     {
         $ofertas = Tb_oferta::orderBy('id', 'desc')
@@ -57,6 +56,9 @@ class Tb_ofertaController extends Controller
             $tb_oferta->estado = 1;
             // Suponiendo que la duración es de 30 días
             $tb_oferta->end_date = \Carbon\Carbon::parse($tb_oferta->start_date)->addDays(30);
+            $tb_oferta->cantidad = $request->cantidad;
+            $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
+            $tb_oferta->contacto_visible = $request->contacto_visible;
             $tb_oferta->save();
 
             return response()->json([
@@ -163,7 +165,7 @@ class Tb_ofertaController extends Controller
 
     public function detallado()
     {
-        return DatosGeneralesResource::collection(Tb_oferta::all());
+        return DatosGeneralesResource::collection(Tb_oferta::with(['product.productoCategoria'])->get());
     }
 
 }
