@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tb_asociados;
 use App\Models\Tb_empresa_globales;
 use App\Models\Tb_asociados_fincas;
+use App\Models\Tb_medida_unidades;
 use App\Models\Tb_periodicidad;
 use App\Models\Tb_produccion;
 use App\Models\Tb_producto_categorias;
@@ -356,6 +357,7 @@ class Tb_empresa_globalesController extends Controller
             $id_categoria = $categoria->id;
             $nombre_categoria = $categoria->categoria;
 
+            //Valor cantidad total de registros por categoria, debe coincidir para detalle_productos, detalle_periodicidad y detalle_unidad_medida
             $total_por_categorias_productos = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
             ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
             ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
@@ -366,13 +368,68 @@ class Tb_empresa_globalesController extends Controller
 
             $porcentaje_categorias_productos = round((intval($total_por_categorias_productos)/intval($cantidad_producciones))*100, 2);
 
-            $detalles_productos  = [];
-            $detalles_periodicidad  = [];
+            //abro bloque unidad por categoria
             $detalles_unidad_medida  = [];
+
+            $unidades = Tb_medida_unidades::orderBy('unidad', 'ASC')->get();
+
+            foreach($unidades as $unidad){
+                $id_unidades = $unidad->id;
+                $nombre_unidades = $unidad->unidad;
+
+                $total_por_categorias_unidades = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+                ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
+                ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+                ->join("tb_producto_categorias","tb_productos.categoria","=","tb_producto_categorias.id")
+                ->where('tb_asociados.estado','=','1')
+                ->where('tb_productos.categoria','=',$id_categoria)
+                ->where('tb_produccion.medida','=',$id_unidades)
+                ->count();
+
+                $porcentaje_productos_unidades = round((intval($total_por_categorias_unidades)/intval($total_por_categorias_productos))*100, 2);
+
+                $detalles_unidad_medida[] = [
+                    'unidad_medida' => $nombre_unidades,
+                    'cantidad_por_fincas' => $total_por_categorias_unidades,
+                    'porcentaje' => $porcentaje_productos_unidades
+                ];
+            }
+            //cierro bloque unidad por categoria
+
+            //abro bloque periodicidad por categoria
+            $detalles_periodicidad  = [];
+
+            $periodicidades = Tb_periodicidad::orderBy('periodicidad', 'ASC')->get();
+
+            foreach($periodicidades as $periodicidad){
+                $id_periodicidad = $periodicidad->id;
+                $nombre_periodicidad = $periodicidad->periodicidad;
+
+                $total_por_categorias_periodicidad = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+                ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
+                ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+                ->join("tb_producto_categorias","tb_productos.categoria","=","tb_producto_categorias.id")
+                ->where('tb_asociados.estado','=','1')
+                ->where('tb_productos.categoria','=',$id_categoria)
+                ->where('tb_produccion.periodicidad','=',$id_periodicidad)
+                ->count();
+
+                $porcentaje_productos_periodicidad = round((intval($total_por_categorias_periodicidad)/intval($total_por_categorias_productos))*100, 2);
+
+                $detalles_periodicidad[] = [
+                    'periodicidad' => $nombre_periodicidad,
+                    'cantidad_por_fincas' => $total_por_categorias_periodicidad,
+                    'porcentaje' => $porcentaje_productos_periodicidad
+                ];
+            }
+
+            //abro bloque periodicidad por categoria
+
+            //abro bloque productos por categoria
+            $detalles_productos  = [];
 
             $productos_por_categoria = Tb_productos::where('tb_productos.categoria','=',$id_categoria)->get();
 
-            //abro bloque productos por categoria
             foreach($productos_por_categoria as $producto){
                 $id_producto = $producto->id;
                 $nombre_producto = $producto->producto;
@@ -398,7 +455,9 @@ class Tb_empresa_globalesController extends Controller
                 'categoria' => $nombre_categoria,
                 'cantidad_por_fincas' => $total_por_categorias_productos,
                 'porcentaje' => $porcentaje_categorias_productos,
-                'detalles_productos' => $detalles_productos
+                'detalles_productos' => $detalles_productos,
+                'detalles_periodicidad' => $detalles_periodicidad,
+                'detalles_unidad_medida' => $detalles_unidad_medida
             ];
         }
 
