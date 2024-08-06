@@ -42,7 +42,7 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad creada con éxito'
+                    'message' => 'Ciudad fue creada con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -68,7 +68,7 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad actualizada con éxito'
+                    'message' => 'Ciudad se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -93,7 +93,7 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad desactivada con éxito'
+                    'message' => 'Ciudad fue desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -118,7 +118,7 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad activada con éxito'
+                    'message' => 'Ciudad fue activada con éxito'
                    ]);
             } else {
                 return response()->json([

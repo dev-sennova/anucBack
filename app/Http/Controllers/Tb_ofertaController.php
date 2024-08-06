@@ -63,7 +63,7 @@ class Tb_ofertaController extends Controller
 
             return response()->json([
                 'estado' => 'Ok',
-                'message' => 'Oferta creada con éxito'
+                'message' => 'Oferta fue creada con éxito'
             ]);
         } catch (\Exception $e) {
             $errorMessage = 'Ocurrió un error interno: ' . $e->getMessage();
@@ -97,7 +97,7 @@ class Tb_ofertaController extends Controller
             if ($tb_oferta->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Oferta actualizada con éxito'
+                    'message' => 'Oferta se actualizó con éxito'
                 ]);
             } else {
                 return response()->json([
@@ -127,12 +127,12 @@ class Tb_ofertaController extends Controller
 
             return response()->json([
                 'estado' => 'Ok',
-                'message' => 'Oferta activada con éxito'
+                'message' => 'Oferta fue activada con éxito'
             ]);
         } catch (\Exception $e) {
             return response()->json([
                 'estado' => 'Error',
-                'message' => 'No se pudo activar la oferta'
+                'message' => 'Oferta no pudo ser activada '
             ], 500);
         }
     }
@@ -153,12 +153,12 @@ class Tb_ofertaController extends Controller
 
             return response()->json([
                 'estado' => 'Ok',
-                'message' => 'Oferta desactivada con éxito'
+                'message' => 'Oferta fue desactivada con éxito'
             ]);
         } catch (\Exception $e) {
             return response()->json([
                 'estado' => 'Error',
-                'message' => 'No se pudo desactivar la oferta'
+                'message' => 'Oferta no pudo ser desactivada'
             ], 500);
         }
     }

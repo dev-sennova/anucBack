@@ -42,7 +42,7 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad creado con éxito'
+                    'message' => 'Periodicidad fuecreado con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -68,7 +68,7 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad actualizado con éxito'
+                    'message' => 'Periodicidad se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -93,7 +93,7 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad desactivado con éxito'
+                    'message' => 'Periodicidad fue desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -118,7 +118,7 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad activado con éxito'
+                    'message' => 'Periodicidad fue activado con éxito'
                    ]);
             } else {
                 return response()->json([

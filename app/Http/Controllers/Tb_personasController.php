@@ -49,12 +49,12 @@ class Tb_personasController extends Controller
             if ($tb_personas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'personas creada con éxito'
+                    'message' => 'Personas fueron creadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'personas no pudo ser creada'
+                    'message' => 'Personas no pudieron ser creadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -82,12 +82,12 @@ class Tb_personasController extends Controller
             if ($tb_personas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'personas actualizada con éxito'
+                    'message' => 'Personas se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'personas no pudo ser actualizada'
+                    'message' => 'Personas no pudieron ser actualizadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -107,12 +107,12 @@ class Tb_personasController extends Controller
             if ($tb_personas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'personas desactivada con éxito'
+                    'message' => 'Personas fueron desactivadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'personas no pudo ser desactivada'
+                    'message' => 'Personas no pudieron ser desactivadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -132,12 +132,12 @@ class Tb_personasController extends Controller
             if ($tb_personas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'personas activada con éxito'
+                    'message' => 'Personas fueron activadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'personas no pudo ser activada'
+                    'message' => 'Personas no pudieron ser activadas'
                    ]);
             }
         } catch (\Exception $e) {

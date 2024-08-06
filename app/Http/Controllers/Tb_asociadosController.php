@@ -43,12 +43,12 @@ class Tb_asociadosController extends Controller
             if ($tb_asociados->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociado creada con éxito'
+                    'message' => 'Asociado fue creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociado no pudo ser creada'
+                    'message' => 'Asociado no pudo ser creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -70,12 +70,12 @@ class Tb_asociadosController extends Controller
             if ($tb_asociados->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociado actualizada con éxito'
+                    'message' => 'Asociado se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociado no pudo ser actualizada'
+                    'message' => 'Asociado no pudo ser actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +95,12 @@ class Tb_asociadosController extends Controller
             if ($tb_asociados->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociado desactivada con éxito'
+                    'message' => 'Asociado fue desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociado no pudo ser desactivada'
+                    'message' => 'Asociado no pudo ser desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +120,12 @@ class Tb_asociadosController extends Controller
             if ($tb_asociados->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociado activada con éxito'
+                    'message' => 'Asociado fue activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociado no pudo ser activada'
+                    'message' => 'Asociado no pudo ser activada'
                    ]);
             }
         } catch (\Exception $e) {

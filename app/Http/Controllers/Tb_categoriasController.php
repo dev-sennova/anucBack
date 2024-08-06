@@ -42,7 +42,7 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria creada con éxito'
+                    'message' => 'Categoria fue creada con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -68,7 +68,7 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria actualizada con éxito'
+                    'message' => 'Categoria se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -93,7 +93,7 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria desactivada con éxito'
+                    'message' => 'Categoria fue desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -118,7 +118,7 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria activada con éxito'
+                    'message' => 'Categoria fue activada con éxito'
                    ]);
             } else {
                 return response()->json([

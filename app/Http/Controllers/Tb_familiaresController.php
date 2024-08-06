@@ -44,12 +44,12 @@ class Tb_familiaresController extends Controller
             if ($tb_familiares->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'familiares creada con éxito'
+                    'message' => 'Familiares fueron creados con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'familiares no pudo ser creada'
+                    'message' => 'Familiares no pudo ser creados'
                    ]);
             }
         } catch (\Exception $e) {
@@ -72,12 +72,12 @@ class Tb_familiaresController extends Controller
             if ($tb_familiares->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'familiares actualizada con éxito'
+                    'message' => 'Familiares se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'familiares no pudo ser actualizada'
+                    'message' => 'Familiares no pudieron ser actualizados'
                    ]);
             }
         } catch (\Exception $e) {
@@ -97,12 +97,12 @@ class Tb_familiaresController extends Controller
             if ($tb_familiares->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'familiares desactivada con éxito'
+                    'message' => 'Familiares fueron desactivados con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'familiares no pudo ser desactivada'
+                    'message' => 'Familiares no pudieron ser desactivados'
                    ]);
             }
         } catch (\Exception $e) {
@@ -122,12 +122,12 @@ class Tb_familiaresController extends Controller
             if ($tb_familiares->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'familiares activada con éxito'
+                    'message' => 'Familiares fueron activados con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'familiares no pudo ser activada'
+                    'message' => 'Familiares no fueron activados'
                    ]);
             }
         } catch (\Exception $e) {

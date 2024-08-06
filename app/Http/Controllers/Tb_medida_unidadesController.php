@@ -42,7 +42,7 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades creada con éxito'
+                    'message' => 'Medida Unidades fue creada con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -68,7 +68,7 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades actualizada con éxito'
+                    'message' => 'Medida Unidades se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -93,7 +93,7 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades desactivada con éxito'
+                    'message' => 'Medida Unidades fue desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -118,7 +118,7 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades activada con éxito'
+                    'message' => 'Medida Unidades fue activada con éxito'
                    ]);
             } else {
                 return response()->json([

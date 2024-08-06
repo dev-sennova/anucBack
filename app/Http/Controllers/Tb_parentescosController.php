@@ -42,7 +42,7 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco creado con éxito'
+                    'message' => 'Parentesco fue creado con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -68,7 +68,7 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco actualizado con éxito'
+                    'message' => 'Parentesco se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -93,7 +93,7 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco desactivado con éxito'
+                    'message' => 'Parentesco fue desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
@@ -118,7 +118,7 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco activado con éxito'
+                    'message' => 'Parentesco fue activado con éxito'
                    ]);
             } else {
                 return response()->json([
