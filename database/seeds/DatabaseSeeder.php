@@ -184,6 +184,15 @@ class DatabaseSeeder extends Seeder
         //funcion principal que llama cada seeder
         $this->call(Tb_produccionSeeder::class);
 //-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
+            'tb_familiares'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(Tb_familiaresSeeder::class);
+//-------------------------------------------------------------------//
 
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
