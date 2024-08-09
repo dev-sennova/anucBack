@@ -43,12 +43,12 @@ class Tb_novedadesController extends Controller
             if ($tb_novedades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Novedades fue creada con éxito'
+                    'message' => 'Las novedades han sido creadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Novedades no pudo ser creada'
+                    'message' => 'Las novedades no fueron creadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -70,12 +70,12 @@ class Tb_novedadesController extends Controller
             if ($tb_novedades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Novedades se actualizó con éxito'
+                    'message' => 'Las novedades se actualizaron con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Novedades no pudo ser actualizada'
+                    'message' => 'Las novedades no fueron actualizadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +95,12 @@ class Tb_novedadesController extends Controller
             if ($tb_novedades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Novedades fue desactivada con éxito'
+                    'message' => 'Las novedades han sido desactivadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Novedades no pudo ser desactivada'
+                    'message' => 'Las novedades no fueron desactivadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +120,12 @@ class Tb_novedadesController extends Controller
             if ($tb_novedades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Novedades fue activada con éxito'
+                    'message' => 'Las novedades han sido activadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Novedades no pudo ser activada'
+                    'message' => 'Las novedades no fueron activadas'
                    ]);
             }
         } catch (\Exception $e) {

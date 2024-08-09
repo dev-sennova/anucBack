@@ -63,7 +63,7 @@ class Tb_ofertaController extends Controller
 
             return response()->json([
                 'estado' => 'Ok',
-                'message' => 'Oferta fue creada con éxito'
+                'message' => 'La oferta ha sido creada con éxito'
             ]);
         } catch (\Exception $e) {
             $errorMessage = 'Ocurrió un error interno: ' . $e->getMessage();
@@ -97,12 +97,12 @@ class Tb_ofertaController extends Controller
             if ($tb_oferta->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Oferta se actualizó con éxito'
+                    'message' => 'La oferta se actualizó con éxito'
                 ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Oferta no pudo ser actualizada'
+                    'message' => 'La oferta no fue actualizada'
                 ]);
             }
         } catch (\Exception $e) {
@@ -127,12 +127,12 @@ class Tb_ofertaController extends Controller
 
             return response()->json([
                 'estado' => 'Ok',
-                'message' => 'Oferta fue activada con éxito'
+                'message' => 'La oferta ha sido activada con éxito'
             ]);
         } catch (\Exception $e) {
             return response()->json([
                 'estado' => 'Error',
-                'message' => 'Oferta no pudo ser activada '
+                'message' => 'La oferta no fue activada '
             ], 500);
         }
     }
@@ -153,12 +153,12 @@ class Tb_ofertaController extends Controller
 
             return response()->json([
                 'estado' => 'Ok',
-                'message' => 'Oferta fue desactivada con éxito'
+                'message' => 'La oferta ha sido desactivada con éxito'
             ]);
         } catch (\Exception $e) {
             return response()->json([
                 'estado' => 'Error',
-                'message' => 'Oferta no pudo ser desactivada'
+                'message' => 'La oferta no fue desactivada'
             ], 500);
         }
     }

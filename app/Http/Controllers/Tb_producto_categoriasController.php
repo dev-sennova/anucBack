@@ -42,12 +42,12 @@ class Tb_producto_categoriasController extends Controller
             if ($tb_producto_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Producto Categorias fue creado con éxito'
+                    'message' => 'El producto categoria ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Producto Categorias no pudo ser creado'
+                    'message' => 'El producto categoria no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_producto_categoriasController extends Controller
             if ($tb_producto_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Producto Categorias se actualizó con éxito'
+                    'message' => 'El producto categoria se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Producto Categorias no pudo ser actualizado'
+                    'message' => 'El producto categoria no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_producto_categoriasController extends Controller
             if ($tb_producto_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Producto Categorias fue desactivado con éxito'
+                    'message' => 'El producto categoria ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Producto Categorias no pudo ser desactivado'
+                    'message' => 'El producto categoria no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_producto_categoriasController extends Controller
             if ($tb_producto_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Producto Categorias fue activado con éxito'
+                    'message' => 'El producto categoria ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Producto Categorias no pudo ser activado'
+                    'message' => 'El producto categoria no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

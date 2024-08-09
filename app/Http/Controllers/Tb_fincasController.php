@@ -46,12 +46,12 @@ class Tb_fincasController extends Controller
             if ($tb_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Finca fue creada con éxito'
+                    'message' => 'La finca ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Finca no pudo ser creada'
+                    'message' => 'La finca no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -76,12 +76,12 @@ class Tb_fincasController extends Controller
             if ($tb_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Finca se actualizó con éxito'
+                    'message' => 'La finca se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Finca no pudo ser actualizada'
+                    'message' => 'La finca no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -101,12 +101,12 @@ class Tb_fincasController extends Controller
             if ($tb_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Finca fue desactivada con éxito'
+                    'message' => 'La finca ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Finca no pudo ser desactivada'
+                    'message' => 'La finca no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -126,12 +126,12 @@ class Tb_fincasController extends Controller
             if ($tb_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Finca fue activada con éxito'
+                    'message' => 'La finca ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Finca no pudo ser activada'
+                    'message' => 'La finca no fue activada'
                    ]);
             }
         } catch (\Exception $e) {

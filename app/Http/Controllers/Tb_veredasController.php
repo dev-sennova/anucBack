@@ -43,12 +43,12 @@ class Tb_veredasController extends Controller
             if ($tb_veredas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Veredas fueron creadas con éxito'
+                    'message' => 'Las veredas han sido creadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Veredas no pudieron ser creadas'
+                    'message' => 'Las veredas no fueron creadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -70,12 +70,12 @@ class Tb_veredasController extends Controller
             if ($tb_veredas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Veredas se actualizó con éxito'
+                    'message' => 'Las veredas se actualizaron con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Veredas no pudieron ser actualizadas'
+                    'message' => 'Las veredas no fueron actualizadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +95,12 @@ class Tb_veredasController extends Controller
             if ($tb_veredas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Veredas fueron desactivadas con éxito'
+                    'message' => 'Las veredas han sido desactivadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Veredas no pudieron ser desactivadas'
+                    'message' => 'Las veredas no fueron desactivadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +120,12 @@ class Tb_veredasController extends Controller
             if ($tb_veredas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Veredas fueron activadas con éxito'
+                    'message' => 'Las veredas han sido activadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Veredas no pudieron ser activadas'
+                    'message' => 'Las veredas no fueron activadas'
                    ]);
             }
         } catch (\Exception $e) {

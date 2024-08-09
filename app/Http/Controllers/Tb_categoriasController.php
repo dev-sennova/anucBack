@@ -42,12 +42,12 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria fue creada con éxito'
+                    'message' => 'La categoria ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Categoria no pudo ser creada'
+                    'message' => 'La categoria no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria se actualizó con éxito'
+                    'message' => 'La categoria se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Categoria no pudo ser actualizada'
+                    'message' => 'La categoria no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria fue desactivada con éxito'
+                    'message' => 'La categoria ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Categoria no pudo ser desactivada'
+                    'message' => 'La categoria no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_categoriasController extends Controller
             if ($tb_categorias->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Categoria fue activada con éxito'
+                    'message' => 'La categoria ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Categoria no pudo ser activada'
+                    'message' => 'La categoria no fue activada'
                    ]);
             }
         } catch (\Exception $e) {

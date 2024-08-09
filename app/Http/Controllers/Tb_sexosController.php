@@ -42,12 +42,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo fue creado con éxito'
+                    'message' => 'Sexo ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser creado'
+                    'message' => 'Sexo no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -73,7 +73,7 @@ class Tb_sexosController extends Controller
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser actualizado'
+                    'message' => 'Sexo no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo fue desactivado con éxito'
+                    'message' => 'Sexo ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser desactivado'
+                    'message' => 'Sexo no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo fue activado con éxito'
+                    'message' => 'Sexo ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser activado'
+                    'message' => 'Sexo no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

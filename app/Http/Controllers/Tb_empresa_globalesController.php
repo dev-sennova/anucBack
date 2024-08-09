@@ -57,12 +57,12 @@ class Tb_empresa_globalesController extends Controller
             if ($tb_empresa_globales->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Empresa fue creada con éxito'
+                    'message' => 'La empresa ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Empresa no pudo ser creada'
+                    'message' => 'La empresa no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -89,12 +89,12 @@ class Tb_empresa_globalesController extends Controller
             if ($tb_empresa_globales->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Empresa se actualizó con éxito'
+                    'message' => 'La empresa se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Empresa no pudo ser actualizada'
+                    'message' => 'La empresa no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -114,12 +114,12 @@ class Tb_empresa_globalesController extends Controller
             if ($Tb_empresa_globales->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Empresa fue desactivada con éxito'
+                    'message' => 'La empresa ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Empresa no pudo ser desactivada'
+                    'message' => 'La empresa no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -139,12 +139,12 @@ class Tb_empresa_globalesController extends Controller
             if ($tb_empresa_globales->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Empresa fue activada con éxito'
+                    'message' => 'La empresa ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Empresa no pudo ser activada'
+                    'message' => 'La empresa no fue activada'
                    ]);
             }
         } catch (\Exception $e) {

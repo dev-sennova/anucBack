@@ -42,12 +42,12 @@ class Tb_tipo_predioController extends Controller
             if ($tb_tipo_predio->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo de predio fue creado con éxito'
+                    'message' => 'El tipo de predio ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo de predio no pudo ser creado'
+                    'message' => 'El tipo de predio no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_tipo_predioController extends Controller
             if ($tb_tipo_predio->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo de predio se actualizó con éxito'
+                    'message' => 'El tipo de predio se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo de predio no pudo ser actualizado'
+                    'message' => 'El tipo de predio no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_tipo_predioController extends Controller
             if ($tb_tipo_predio->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo de predio fue desactivado con éxito'
+                    'message' => 'El tipo de predio ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo de predio no pudo ser desactivado'
+                    'message' => 'El tipo de predio no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_tipo_predioController extends Controller
             if ($tb_tipo_predio->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo de predio fue activado con éxito'
+                    'message' => 'El tipo de predio ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo de predio no pudo ser activado'
+                    'message' => 'El tipo de predio no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

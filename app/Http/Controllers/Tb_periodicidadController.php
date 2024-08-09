@@ -42,12 +42,12 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad fuecreado con éxito'
+                    'message' => 'La periodicidad ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Periodicidad no pudo ser creado'
+                    'message' => 'La periodicidad no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad se actualizó con éxito'
+                    'message' => 'La periodicidad se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Periodicidad no pudo ser actualizado'
+                    'message' => 'La periodicidad no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad fue desactivado con éxito'
+                    'message' => 'La periodicidad ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Periodicidad no pudo ser desactivado'
+                    'message' => 'La periodicidad no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_periodicidadController extends Controller
             if ($tb_periodicidad->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Periodicidad fue activado con éxito'
+                    'message' => 'La periodicidad ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Periodicidad no pudo ser activado'
+                    'message' => 'La periodicidad no fue activada'
                    ]);
             }
         } catch (\Exception $e) {

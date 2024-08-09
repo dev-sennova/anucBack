@@ -46,12 +46,12 @@ class Tb_produccionController extends Controller
             if ($tb_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Produccion fue creado con éxito'
+                    'message' => 'La produccion ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Produccion no pudo ser creado'
+                    'message' => 'La produccion no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -76,12 +76,12 @@ class Tb_produccionController extends Controller
             if ($tb_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Produccion se actualizó con éxito'
+                    'message' => 'La produccion se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Produccion no pudo ser actualizado'
+                    'message' => 'La produccion no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -101,12 +101,12 @@ class Tb_produccionController extends Controller
             if ($tb_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Produccion fue desactivado con éxito'
+                    'message' => 'La produccion ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Produccion no pudo ser desactivada'
+                    'message' => 'La produccion no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -126,12 +126,12 @@ class Tb_produccionController extends Controller
             if ($tb_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Produccion fue activada con éxito'
+                    'message' => 'La produccion ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Produccion no pudo ser activada'
+                    'message' => 'La produccion no fue activada'
                    ]);
             }
         } catch (\Exception $e) {
