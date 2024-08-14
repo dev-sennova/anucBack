@@ -43,12 +43,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Productos creada con éxito'
+                    'message' => 'Los productos han sido creados con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Productos no pudo ser creada'
+                    'message' => 'Los productos no fueron creados'
                    ]);
             }
         } catch (\Exception $e) {
@@ -70,12 +70,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Productos actualizada con éxito'
+                    'message' => 'Los productos se actualizaron con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Productos no pudo ser actualizada'
+                    'message' => 'Los productos no fueron actualizados'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +95,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Productos desactivada con éxito'
+                    'message' => 'Los productos han sido desactivados con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Productos no pudo ser desactivada'
+                    'message' => 'Los productos no fueron desactivados'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +120,12 @@ class Tb_productosController extends Controller
             if ($tb_productos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Productos activada con éxito'
+                    'message' => 'Los productos han sido activados con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Productos no pudo ser activada'
+                    'message' => 'Los productos no fueron activados'
                    ]);
             }
         } catch (\Exception $e) {

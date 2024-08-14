@@ -42,12 +42,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo creada con éxito'
+                    'message' => 'Sexo ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser creada'
+                    'message' => 'Sexo no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo actualizada con éxito'
+                    'message' => 'Sexo se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser actualizada'
+                    'message' => 'Sexo no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo desactivada con éxito'
+                    'message' => 'Sexo ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser desactivada'
+                    'message' => 'Sexo no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_sexosController extends Controller
             if ($tb_sexo->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Sexo activada con éxito'
+                    'message' => 'Sexo ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Sexo no pudo ser activada'
+                    'message' => 'Sexo no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

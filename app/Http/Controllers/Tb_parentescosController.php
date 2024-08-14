@@ -42,12 +42,12 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco creado con éxito'
+                    'message' => 'El parentesco ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Parentesco no pudo ser creado'
+                    'message' => 'El parentesco no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco actualizado con éxito'
+                    'message' => 'El parentesco se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Parentesco no pudo ser actualizado'
+                    'message' => 'El parentesco no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco desactivado con éxito'
+                    'message' => 'El parentesco ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Parentesco no pudo ser desactivado'
+                    'message' => 'El parentesco no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_parentescosController extends Controller
             if ($tb_parentesco->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Parentesco activado con éxito'
+                    'message' => 'El parentesco ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Parentesco no pudo ser activado'
+                    'message' => 'El parentesco no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

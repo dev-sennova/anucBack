@@ -42,12 +42,12 @@ class Tb_tipo_documentosController extends Controller
             if ($tb_tipo_documento->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo documento creado con éxito'
+                    'message' => 'El tipo de documento ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo documento no pudo ser creado'
+                    'message' => 'El tipo de documento no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_tipo_documentosController extends Controller
             if ($tb_tipo_documento->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo documento actualizado con éxito'
+                    'message' => 'El tipo de documento se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo documento no pudo ser actualizado'
+                    'message' => 'El tipo de documento no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_tipo_documentosController extends Controller
             if ($tb_tipo_documento->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo documento desactivado con éxito'
+                    'message' => 'El tipo de documento ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo documento no pudo ser desactivado'
+                    'message' => 'El tipo de documento no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_tipo_documentosController extends Controller
             if ($tb_tipo_documento->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Tipo documento activado con éxito'
+                    'message' => 'El tipo de documento ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Tipo documento no pudo ser activado'
+                    'message' => 'El tipo de documento no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

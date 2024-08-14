@@ -42,12 +42,12 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad creada con éxito'
+                    'message' => 'La ciudad ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Ciudad no pudo ser creada'
+                    'message' => 'La ciudad no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad actualizada con éxito'
+                    'message' => 'La ciudad se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Ciudad no pudo ser actualizada'
+                    'message' => 'La ciudad no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad desactivada con éxito'
+                    'message' => 'La ciudad ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Ciudad no pudo ser desactivada'
+                    'message' => 'La ciudad no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_ciudadesController extends Controller
             if ($tb_ciudades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Ciudad activada con éxito'
+                    'message' => 'La ciudad ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Ciudad no pudo ser activada'
+                    'message' => 'La ciudad no fue activada'
                    ]);
             }
         } catch (\Exception $e) {

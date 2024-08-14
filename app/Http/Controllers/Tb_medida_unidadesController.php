@@ -42,12 +42,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades creada con éxito'
+                    'message' => 'Las medidas de unidades han sido creadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Medida Unidades no pudo ser creada'
+                    'message' => 'Las medidas de unidades no fueron ser creadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades actualizada con éxito'
+                    'message' => 'Las medidas de unidades se actualizaron con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Medida Unidades no pudo ser actualizada'
+                    'message' => 'Las medidas de unidades no fueron actualizadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -93,12 +93,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades desactivada con éxito'
+                    'message' => 'Las medidas de unidades han sido desactivadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Medida Unidades no pudo ser desactivada'
+                    'message' => 'Las medidas de unidades no fueron desactivadas'
                    ]);
             }
         } catch (\Exception $e) {
@@ -118,12 +118,12 @@ class Tb_medida_unidadesController extends Controller
             if ($tb_medida_unidades->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'Medida Unidades activada con éxito'
+                    'message' => 'Las medidas de unidades han sido activadas con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'Medida Unidades no pudo ser activada'
+                    'message' => 'Las medidas de unidades no fueron activadas'
                    ]);
             }
         } catch (\Exception $e) {

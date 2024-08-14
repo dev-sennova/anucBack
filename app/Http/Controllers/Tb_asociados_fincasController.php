@@ -44,12 +44,12 @@ class Tb_asociados_fincasController extends Controller
             if ($tb_asociados_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociados_finca creada con éxito'
+                    'message' => 'El asociado de la finca ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociados_finca no pudo ser creada'
+                    'message' => 'El asociado de la finca no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -72,12 +72,12 @@ class Tb_asociados_fincasController extends Controller
             if ($tb_asociados_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociados_finca actualizada con éxito'
+                    'message' => 'El asociado de la finca se actualizò con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociados_finca no pudo ser actualizada'
+                    'message' => 'El asociado de la finca no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -97,12 +97,12 @@ class Tb_asociados_fincasController extends Controller
             if ($tb_asociados_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociados_finca desactivada con éxito'
+                    'message' => 'El asociado de la finca ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociados_finca no pudo ser desactivada'
+                    'message' => 'El asociado de la finca no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -122,12 +122,12 @@ class Tb_asociados_fincasController extends Controller
             if ($tb_asociados_fincas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'asociados_finca activada con éxito'
+                    'message' => 'El asociado de la finca ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'asociados_finca no pudo ser activada'
+                    'message' => 'El asociado de la finca no fue activado'
                    ]);
             }
         } catch (\Exception $e) {
