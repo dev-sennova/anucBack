@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tb_asociados;
+use App\Models\Tb_familiares;
 use Illuminate\Http\Request;
 
 class Tb_asociadosController extends Controller
@@ -27,6 +28,32 @@ class Tb_asociadosController extends Controller
         return [
             'estado' => 'Ok',
             'asociado' => $asociado
+        ];
+    }
+
+    public function indexOneDetalle(Request $request)
+    {
+        $asociado = Tb_asociados::join("tb_personas","tb_asociados.persona","=","tb_personas.id")
+        ->where('tb_asociados.id','=',$request->id)
+        ->get();
+
+        $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
+        ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+        ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
+        ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+        ->where('tb_asociados.id','=',$request->id)
+        ->get();
+
+        $familiares = Tb_familiares::join("tb_personas","tb_familiares.persona","=","tb_personas.id")
+        ->where('tb_familiares.asociado','=',$request->id)
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'asociado' => $asociado,
+            'familiares' => $familiares,
+            'produccion' => $produccion
         ];
     }
 
