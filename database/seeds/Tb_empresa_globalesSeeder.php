@@ -20,6 +20,7 @@ class Tb_empresa_globalesSeeder extends Seeder
                 'nombre' => $item->nombre,
                 'nit' => $item->nit,
                 'horarios' => $item->horarios,
+                'horariosCargue' => $item->horariosCargue,
                 'mision' => $item->mision,
                 'vision' => $item->vision,
                 'direccion' => $item->direccion,

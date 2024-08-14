@@ -19,6 +19,7 @@ class CreateTbEmpresaGlobalesTable extends Migration
             $table->string('direccion');
             $table->string('nit');
             $table->string('horarios');
+            $table->string('horariosCargue');
             $table->text('mision');
             $table->text('vision');
             $table->longText('estatutos');

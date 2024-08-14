@@ -16,6 +16,7 @@ class CreateTbProductosTable extends Migration
         Schema::create('tb_productos', function (Blueprint $table) {
             $table->id();
             $table->string('producto');
+            $table->longText('imagenProducto')->nullable();
             $table->boolean('estado')->default(1);
 
             // Clave foránea para producto categoria

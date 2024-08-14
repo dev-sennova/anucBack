@@ -10,7 +10,7 @@ class Tb_oferta extends Model
 {
     protected $table = 'tb_ofertas';
 
-    protected $fillable = ['product_id','asociados_finca_id','start_date','end_date','estado'];
+    protected $fillable = ['product_id','asociados_finca_id','start_date','end_date','imagenProducto','estado'];
 
     public $timestamps = false;
 
@@ -26,5 +26,5 @@ class Tb_oferta extends Model
     {
         return $this->belongsTo(Tb_medida_unidades::class, 'medida_unidades_id');
     }
-    
+
 }

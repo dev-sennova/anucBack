@@ -17,6 +17,7 @@ class Tb_productosSeeder extends Seeder
             Tb_productos::create(array(
                 'id' => $item->id,
                 'producto' => $item->producto,
+                'imagenProducto' => $item->imagenProducto,
                 'categoria' => $item->categoria,
                 'estado' => $item->estado,
             ));

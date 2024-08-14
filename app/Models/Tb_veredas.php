@@ -8,7 +8,7 @@ class Tb_veredas extends Model
 {
     protected $table = 'tb_veredas';
 
-    protected $fillable = ['vereda','estado'];
+    protected $fillable = ['vereda','latitud','longitud','estado'];
 
     public $timestamps = false;
 

@@ -1,18 +1,18 @@
 [
-    {"id":"1","vereda":"Aguablanca","ciudad":"320","estado":"1"},
-    {"id":"2","vereda":"Judía","ciudad":"320","estado":"1"},
-    {"id":"3","vereda":"Helechales","ciudad":"320","estado":"1"},
-    {"id":"4","vereda":"Casiano alto","ciudad":"320","estado":"1"},
-    {"id":"5","vereda":"Rio frio","ciudad":"320","estado":"1"},
-    {"id":"6","vereda":"Alsacia malabar","ciudad":"320","estado":"1"},
-    {"id":"7","vereda":"Valle de ruitoque","ciudad":"320","estado":"1"},
-    {"id":"8","vereda":"Mesa de ruitoque","ciudad":"320","estado":"1"},
-    {"id":"9","vereda":"Casiano bajo","ciudad":"320","estado":"1"},
-    {"id":"10","vereda":"Guayanas","ciudad":"320","estado":"1"},
-    {"id":"11","vereda":"Otra","ciudad":"320","estado":"1"},
-    {"id":"12","vereda":"Ruitoque Bajo","ciudad":"320","estado":"1"},
-    {"id":"13","vereda":"Mantilla","ciudad":"320","estado":"1"},
-    {"id":"14","vereda":"Los Cauchos","ciudad":"320","estado":"1"}
+    {"id":"1","vereda":"Aguablanca","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"2","vereda":"Judía","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"3","vereda":"Helechales","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"4","vereda":"Casiano alto","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"5","vereda":"Rio frio","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"6","vereda":"Alsacia malabar","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"7","vereda":"Valle de ruitoque","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"8","vereda":"Mesa de ruitoque","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"9","vereda":"Casiano bajo","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"10","vereda":"Guayanas","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"11","vereda":"Otra","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"12","vereda":"Ruitoque Bajo","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"13","vereda":"Mantilla","latitud":"","longitud":"","ciudad":"320","estado":"1"},
+    {"id":"14","vereda":"Los Cauchos","latitud":"","longitud":"","ciudad":"320","estado":"1"}
 ]
 
 

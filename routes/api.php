@@ -25,6 +25,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/verify-email','AuthController@verifyEmail')->name('verify_email');
     Route::post('/resend-email','AuthController@resendEmail')->name('resend_email');
     Route::post('register', 'AuthController@register');
+    Route::get("empresa_globales_publico", "Tb_empresa_globalesController@indexPublico");
 
     // Las siguientes rutas además del prefijo requieren que el usuario tenga un token válido
 
@@ -152,7 +153,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados_finca/activate", "Tb_asociados_fincasController@activate");
      Route::get("asociados_finca/selectasociados_finca/{id}", "Tb_asociados_fincasController@indexOne");
      Route::get("asociados_finca/detallado", "Tb_asociados_fincasController@detallado");
-    
+
      Route::get("ofertas", "Tb_ofertaController@index");
      Route::post("ofertas/store", "Tb_ofertaController@store");
      Route::put("ofertas/update", "Tb_ofertaController@update");
@@ -161,7 +162,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::get("ofertas/selectofertas/{id}", "Tb_ofertaController@indexOne");
      Route::get("ofertas/detallado", "Tb_ofertaController@detallado");
 
-     
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 

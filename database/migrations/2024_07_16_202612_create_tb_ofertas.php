@@ -15,6 +15,7 @@ class CreateTbOfertas extends Migration
     {
         Schema::create('tb_ofertas', function (Blueprint $table) {
             $table->id();
+            $table->longText('imagenProducto')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->boolean('estado')->default(1);

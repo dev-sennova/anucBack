@@ -16,6 +16,8 @@ class CreateTbVeredasTable extends Migration
         Schema::create('tb_veredas', function (Blueprint $table) {
             $table->id();
             $table->string('vereda');
+            $table->string('latitud')->nullable();
+            $table->string('longitud')->nullable();
             $table->boolean('estado')->default(1);
 
             // Clave foránea para la ciudad

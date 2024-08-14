@@ -17,8 +17,8 @@ class CreateTbFincasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->float('extension',8,2);
-            $table->string('latitud');
-            $table->string('longitud');
+            $table->string('latitud')->nullable();
+            $table->string('longitud')->nullable();
             $table->boolean('estado')->default(1);
 
             // Clave foránea para la vereda

@@ -28,6 +28,18 @@ class Tb_empresa_globalesController extends Controller
         ];
     }
 
+    public function indexPublico()
+    {
+        $empresa = Tb_empresa_globales::orderBy('nombre','asc')
+        ->select("nombre","direccion","horarios","mision","vision")
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'empresa' => $empresa
+        ];
+    }
+
     public function indexOne(Request $request)
     {
         $empresa = Tb_empresa_globales::orderBy('nombre','desc')

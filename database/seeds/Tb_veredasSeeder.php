@@ -17,6 +17,8 @@ class Tb_veredasSeeder extends Seeder
             Tb_veredas::create(array(
                 'id' => $item->id,
                 'vereda' => $item->vereda,
+                'latitud' => $item->latitud,
+                'longitud' => $item->longitud,
                 'ciudad' => $item->ciudad,
                 'estado' => $item->estado,
             ));
