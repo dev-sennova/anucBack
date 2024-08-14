@@ -89,7 +89,6 @@ class Tb_empresa_globalesController extends Controller
 
         try {
             $tb_empresa_globales=Tb_empresa_globales::findOrFail($request->id);
-            $tb_empresa_globales=new Tb_empresa_globales();
             $tb_empresa_globales->nombre=$request->nombre;
             $tb_empresa_globales->direccion=$request->direccion;
             $tb_empresa_globales->nit=$request->nit;
