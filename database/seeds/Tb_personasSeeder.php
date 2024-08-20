@@ -19,6 +19,7 @@ class Tb_personasSeeder extends Seeder
                 'nombres' => $item->nombres,
                 'apellidos' => $item->apellidos,
                 'telefono' => $item->telefono,
+                'correo' => $item->correo,
                 'fecha_nacimiento' => $item->fecha_nacimiento,
                 'tipo_documento' => $item->tipo_documento,
                 'identificacion' => $item->identificacion,

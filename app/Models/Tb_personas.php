@@ -8,7 +8,7 @@ class Tb_personas extends Model
 {
     protected $table = 'tb_personas';
 
-    protected $fillable = ['identificacion','nombres','apellidos','telefono','fecha_nacimiento','estado'];
+    protected $fillable = ['identificacion','nombres','apellidos','telefono','correo','fecha_nacimiento','estado'];
 
     public $timestamps = false;
 

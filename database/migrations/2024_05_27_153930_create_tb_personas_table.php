@@ -18,8 +18,9 @@ class CreateTbPersonasTable extends Migration
             $table->string('identificacion');
             $table->string('nombres');
             $table->string('apellidos');
-            $table->string('telefono');
-            $table->date('fecha_nacimiento');
+            $table->string('telefono')->nullable();
+            $table->string('correo')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
             $table->boolean('estado')->default(1);
 
             // Clave foránea para el tipo de documento
