@@ -37,6 +37,7 @@ class Tb_productosController extends Controller
         try {
             $tb_productos=new Tb_productos();
             $tb_productos->producto=$request->producto;
+            $tb_productos->imagenProducto=$request->imagenProducto;
             $tb_productos->categoria=$request->categoria;
             $tb_productos->estado=1;
 
@@ -64,6 +65,7 @@ class Tb_productosController extends Controller
         try {
             $tb_productos=Tb_productos::findOrFail($request->id);
             $tb_productos->producto=$request->producto;
+            $tb_productos->imagenProducto=$request->imagenProducto;
             $tb_productos->categoria=$request->categoria;
             $tb_productos->estado='1';
 
