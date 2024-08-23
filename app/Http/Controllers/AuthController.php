@@ -7,6 +7,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Mail\RegistroMailable;
+use App\Models\Tb_personas;
+use App\Models\Tb_usuario_rol;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 
@@ -34,12 +36,38 @@ class AuthController extends Controller
 
         $token->save();
 
+        $userId=$user->id;
+
+        $userDocument=$user->identificacion;
+
+        $nombres = Tb_personas::where('identificacion', $userDocument)
+        ->orderBy('id', 'asc')
+        ->value('nombres');
+
+        $apellidos = Tb_personas::where('identificacion', $userDocument)
+        ->orderBy('id', 'asc')
+        ->value('apellidos');
+
+        $usuario_rol = Tb_usuario_rol::orderBy('tb_rol.id','asc')
+        ->join("tb_rol","tb_usuario_rol.idRol","=","tb_rol.id")
+        ->where('tb_usuario_rol.idUsuario','=',$userId)
+        ->select('tb_usuario_rol.idRol','tb_rol.rol')
+        ->get();
+
+        $cantidad_rol = Tb_usuario_rol::orderBy('id','desc')
+        ->where('tb_usuario_rol.idUsuario','=',$userId)
+        ->count();
+
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse($tokenResult->token->expires_at)->toDateTimeString(),
             'id_usuario' => $user->id,
-            'identificacion' => $user->identificacion
+            'identificacion' => $user->identificacion,
+            'nombres' => $nombres,
+            'apellidos' => $apellidos,
+            'numeroRoles' => $cantidad_rol,
+            'roles' => $usuario_rol
         ]);
     }
 }
