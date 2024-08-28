@@ -153,6 +153,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados/activate", "Tb_asociadosController@activate");
      Route::get("asociados/selectasociados/{id}", "Tb_asociadosController@indexOne");
      Route::get("asociados/detallado/{id}", "Tb_asociadosController@indexOneDetalle");
+     Route::get("asociados/ofertas/{id}", "Tb_asociadosController@indexOneOfertas");
 
      Route::get("asociados_finca", "Tb_asociados_fincasController@index");
      Route::post("asociados_finca/store", "Tb_asociados_fincasController@store");
