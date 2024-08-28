@@ -57,26 +57,6 @@ class Tb_asociadosController extends Controller
         ];
     }
 
-    public function indexOneOfertas(Request $request)
-    {
-        $asociado = Tb_asociados::join("tb_personas","tb_asociados.persona","=","tb_personas.id")
-        ->where('tb_asociados.id','=',$request->id)
-        ->get();
-
-        $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
-        ->join("tb_ofertas","tb_ofertas.asociados_finca_id","=","tb_asociados_fincas.id")
-        ->join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
-        ->where('tb_asociados.id','=',$request->id)
-        ->get();
-
-
-        return [
-            'estado' => 'Ok',
-            'asociado' => $asociado,
-            'ofertas' => $produccion
-        ];
-    }
-
     public function store(Request $request)
     {
         //if(!$request->ajax()) return redirect('/');
