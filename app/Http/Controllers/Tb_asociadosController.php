@@ -63,17 +63,27 @@ class Tb_asociadosController extends Controller
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
-        $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        $produccionActiva = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
         ->join("tb_ofertas","tb_ofertas.asociados_finca_id","=","tb_asociados_fincas.id")
         ->join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
         ->where('tb_asociados.id','=',$request->id)
+        ->where('tb_ofertas.estado','=',1)
+        ->get();
+
+        $produccionInactiva = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_ofertas","tb_ofertas.asociados_finca_id","=","tb_asociados_fincas.id")
+        ->join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
+        ->where('tb_asociados.id','=',$request->id)
+        ->where('tb_ofertas.estado','=',0)
+        ->orderBy('tb_ofertas.end_date',"DESC")
         ->get();
 
 
         return [
             'estado' => 'Ok',
             'asociado' => $asociado,
-            'ofertas' => $produccion
+            'ofertasActivas' => $produccionActiva,
+            'ofertasInactivas' => $produccionInactiva
         ];
     }
 
