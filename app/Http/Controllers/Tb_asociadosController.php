@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tb_asociados;
+use App\Models\Tb_asociados_fincas;
 use App\Models\Tb_familiares;
+use App\Models\Tb_oferta;
 use Illuminate\Http\Request;
 
 class Tb_asociadosController extends Controller
@@ -63,17 +65,23 @@ class Tb_asociadosController extends Controller
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
-        $produccionActiva = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
-        ->join("tb_ofertas","tb_ofertas.asociados_finca_id","=","tb_asociados_fincas.id")
-        ->join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
-        ->where('tb_asociados.id','=',$request->id)
+        $tb_asociados_finca=Tb_asociados_fincas::where("tb_asociados_fincas.asociado","=",$request->id)
+        ->select("tb_asociados_fincas.id")
+        ->first();
+
+        $produccion = Tb_asociados_fincas::join("tb_produccion","tb_produccion.asociados_finca","=","tb_asociados_fincas.id")
+        ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+        ->where('tb_asociados_fincas.id','=',$tb_asociados_finca->id)
+        ->select("tb_produccion.id","tb_produccion.produccion","tb_productos.producto","tb_productos.imagenProducto")
+        ->get();
+
+        $produccionActiva = Tb_oferta::join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
+        ->where('tb_ofertas.asociados_finca_id','=',$tb_asociados_finca->id)
         ->where('tb_ofertas.estado','=',1)
         ->get();
 
-        $produccionInactiva = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
-        ->join("tb_ofertas","tb_ofertas.asociados_finca_id","=","tb_asociados_fincas.id")
-        ->join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
-        ->where('tb_asociados.id','=',$request->id)
+        $produccionInactiva = Tb_oferta::join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
+        ->where('tb_ofertas.asociados_finca_id','=',$tb_asociados_finca->id)
         ->where('tb_ofertas.estado','=',0)
         ->orderBy('tb_ofertas.end_date',"DESC")
         ->get();
@@ -82,6 +90,8 @@ class Tb_asociadosController extends Controller
         return [
             'estado' => 'Ok',
             'asociado' => $asociado,
+            'asociados_finca' => $tb_asociados_finca,
+            'produccion' => $produccion,
             'ofertasActivas' => $produccionActiva,
             'ofertasInactivas' => $produccionInactiva
         ];
