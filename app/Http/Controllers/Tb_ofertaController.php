@@ -49,12 +49,22 @@ class Tb_ofertaController extends Controller
     public function store(Request $request)
     {
         try {
+            // Verificar si ya existe una oferta para el producto dado
+            $existingOffer = Tb_oferta::where('product_id', $request->product_id)->first();
+
+            if ($existingOffer) {
+                return response()->json([
+                    'estado' => 'Error',
+                    'message' => 'Ya existe una oferta para este producto.'
+                ], 400);
+            }
+
+            // Crear la nueva oferta
             $tb_oferta = new Tb_oferta();
             $tb_oferta->product_id = $request->product_id;
             $tb_oferta->asociados_finca_id = $request->asociados_finca_id;
             $tb_oferta->start_date = $request->start_date;
-            $tb_oferta->estado = 1;
-            // Suponiendo que la duración es de 30 días
+            $tb_oferta->estado = 1; // Establecer la nueva oferta como activa
             $tb_oferta->end_date = \Carbon\Carbon::parse($tb_oferta->start_date)->addDays(30);
             $tb_oferta->cantidad = $request->cantidad;
             $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
