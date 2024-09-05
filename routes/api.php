@@ -178,6 +178,12 @@ Route::group(['prefix' => 'auth'], function () {
      Route::get("ofertas/selectofertas/{id}", "Tb_ofertaController@indexOne");
      Route::get("ofertas/detallado", "Tb_ofertaController@detallado");
 
+     Route::get("periodicidad", "Tb_periodicidadController@index");
+     Route::post("periodicidad/store", "Tb_periodicidadController@store");
+     Route::put("periodicidad/update", "Tb_periodicidadController@update");
+     Route::put("periodicidad/deactivate", "Tb_periodicidadController@deactivate");
+     Route::put("periodicidad/activate", "Tb_periodicidadController@activate");
+     Route::get("periodicidad/selectperiodicidad/{id}", "Tb_periodicidadController@indexOne");
 
      Route::post('/upload-image', 'ImageController@uploadImage');
     });

@@ -45,7 +45,8 @@ class Tb_asociadosController extends Controller
         ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
         ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
         ->select('tb_asociados.id as idAsociado','tb_fincas.nombre','tb_fincas.vereda','tb_produccion.id as idProduccion',
-        'tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida','tb_productos.producto','tb_productos.imagenProducto')
+        'tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida','tb_produccion.estado as estadoProduccion',
+        'tb_productos.id as idProducto','tb_productos.producto','tb_productos.imagenProducto')
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
@@ -80,11 +81,17 @@ class Tb_asociadosController extends Controller
         $produccionActiva = Tb_oferta::join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
         ->where('tb_ofertas.asociados_finca_id','=',$tb_asociados_finca->id)
         ->where('tb_ofertas.estado','=',1)
+        ->select("tb_ofertas.id","tb_ofertas.imagenProducto","tb_ofertas.start_date","tb_ofertas.end_date","tb_ofertas.estado",
+        "tb_ofertas.contacto_visible","tb_ofertas.cantidad","tb_ofertas.product_id","tb_ofertas.asociados_finca_id",
+        "tb_ofertas.medida_unidades_id","tb_productos.producto")
         ->get();
 
         $produccionInactiva = Tb_oferta::join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
         ->where('tb_ofertas.asociados_finca_id','=',$tb_asociados_finca->id)
         ->where('tb_ofertas.estado','=',0)
+        ->select("tb_ofertas.id","tb_ofertas.imagenProducto","tb_ofertas.start_date","tb_ofertas.end_date","tb_ofertas.estado",
+        "tb_ofertas.contacto_visible","tb_ofertas.cantidad","tb_ofertas.product_id","tb_ofertas.asociados_finca_id",
+        "tb_ofertas.medida_unidades_id","tb_productos.producto")
         ->orderBy('tb_ofertas.end_date',"DESC")
         ->get();
 
