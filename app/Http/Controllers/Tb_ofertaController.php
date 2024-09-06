@@ -76,11 +76,8 @@ class Tb_ofertaController extends Controller
         $tb_oferta->contacto_visible = $request->contacto_visible;
         $tb_oferta->precio = $request->precio;
         $tb_oferta->descripcion= $request->descripcion;
+        $tb_oferta->imagenProducto =$request->imagenProducto;
 
-        // Almacenar directamente el string de la imagen en base64 si está presente
-        if ($request->filled('image')) {
-            $tb_oferta->image = $request->image; // Guardar la imagen en base64
-        }
 
         $tb_oferta->save();
 
@@ -120,7 +117,7 @@ public function update(Request $request)
             'cantidad' => 'required|integer',
             'medida_unidades_id' => 'required|integer|exists:tb_medida_unidades,id',
             'contacto_visible' => 'required|boolean',
-            'photo' => 'nullable|string', // Validar la imagen como un string de base64
+            'imagenProducto' => 'nullable|string', // Validar la imagen como un string de base64
             'precio' => 'required|numeric|min:0', // Validar precio como número positivo
             'descripcion' => 'nullable|string|max:500', // Validar descripción como string con un máximo de 500 caracteres
         ]);
@@ -148,7 +145,7 @@ public function update(Request $request)
 
         // Verificar si la imagen está presente en formato base64
         $imageExists = false;
-        if ($request->filled('photo')) {
+        if ($request->filled('imagenProducto')) {
             $imageExists = true; // Ya que la imagen viene en base64, no necesitamos mover archivos
         }
 
@@ -168,8 +165,8 @@ public function update(Request $request)
                 $offer->precio = $request->precio; // Actualizar el precio
                 $offer->descripcion = $request->descripcion; // Actualizar la descripción
 
-                if ($request->filled('photo')) {
-                    $offer->photo = $request->photo; // Actualizar la imagen en base64
+                if ($request->filled('imagenProducto')) {
+                    $offer->imagenProducto =$request->imagenProducto; // Actualizar la imagen en base64
                 }
 
                 // Activar la oferta modificada
@@ -203,8 +200,8 @@ public function update(Request $request)
             $newOferta->precio = $request->precio; // Guardar el precio
             $newOferta->descripcion = $request->descripcion; // Guardar la descripción
 
-            if ($request->filled('photo')) {
-                $newOferta->photo = $request->photo; // Guardar la imagen en base64
+            if ($request->filled('imagenProducto')) {
+                $newOferta->imagenProducto = $request->imagenProducto; // Guardar la imagen en base64
             }
 
             if (!$newOferta->save()) {
