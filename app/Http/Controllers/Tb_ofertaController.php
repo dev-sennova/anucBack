@@ -69,6 +69,9 @@ class Tb_ofertaController extends Controller
         $tb_oferta->cantidad = $request->cantidad;
         $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
         $tb_oferta->contacto_visible = $request->contacto_visible;
+        $tb_oferta->precio = $request->precio;
+        $tb_oferta->descripcion= $request->descripcion;
+        $tb_oferta->imagenProducto =$request->imagenProducto;
         $tb_oferta->save();
 
         return response()->json([
