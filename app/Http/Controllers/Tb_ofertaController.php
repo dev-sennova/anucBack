@@ -49,9 +49,9 @@ class Tb_ofertaController extends Controller
     public function store(Request $request)
 {
     try {
-        // Validar que se esté subiendo una imagen
+        // Validar los datos enviados, en este caso la imagen en base64 puede ser null
         $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|string', 
         ]);
 
         // Verificar si ya existe una oferta para el producto dado
@@ -74,13 +74,12 @@ class Tb_ofertaController extends Controller
         $tb_oferta->cantidad = $request->cantidad;
         $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
         $tb_oferta->contacto_visible = $request->contacto_visible;
+        $tb_oferta->precio = $request->precio;
+        $tb_oferta->descripcion= $request->descripcion;
 
-        // Manejar la subida de la imagen
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images/ofertas'), $imageName);
-            $tb_oferta->image = $imageName; // Guardar el nombre de la imagen en la base de datos
+        // Almacenar directamente el string de la imagen en base64 si está presente
+        if ($request->filled('image')) {
+            $tb_oferta->image = $request->image; // Guardar la imagen en base64
         }
 
         $tb_oferta->save();
@@ -102,7 +101,6 @@ class Tb_ofertaController extends Controller
         return response()->json($errorDetails, 500);
     }
 }
-
     /**
      * Update the specified resource in storage.
      *
@@ -110,10 +108,10 @@ class Tb_ofertaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+public function update(Request $request)
 {
     try {
-        // Validar la entrada incluyendo la imagen
+        // Validar la entrada incluyendo la imagen en base64, precio y descripción
         $request->validate([
             'id' => 'nullable|integer|exists:tb_ofertas,id', // id es opcional para crear una nueva oferta
             'product_id' => 'required|integer|exists:tb_productos,id',
@@ -122,7 +120,9 @@ class Tb_ofertaController extends Controller
             'cantidad' => 'required|integer',
             'medida_unidades_id' => 'required|integer|exists:tb_medida_unidades,id',
             'contacto_visible' => 'required|boolean',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de la imagen
+            'photo' => 'nullable|string', // Validar la imagen como un string de base64
+            'precio' => 'required|numeric|min:0', // Validar precio como número positivo
+            'descripcion' => 'nullable|string|max:500', // Validar descripción como string con un máximo de 500 caracteres
         ]);
 
         DB::beginTransaction();
@@ -146,18 +146,10 @@ class Tb_ofertaController extends Controller
             }
         }
 
-        // Verificar si la imagen ya existe
+        // Verificar si la imagen está presente en formato base64
         $imageExists = false;
-        if ($request->hasFile('photo')) {
-            $photo = $request->file('photo');
-            $path = 'ofertas/' . time() . '_' . $photo->getClientOriginalName();
-            
-            // Comprobar si la imagen ya existe en la carpeta
-            if (file_exists(public_path($path))) {
-                $imageExists = true;
-            } else {
-                $photo->move(public_path('ofertas'), $path);
-            }
+        if ($request->filled('photo')) {
+            $imageExists = true; // Ya que la imagen viene en base64, no necesitamos mover archivos
         }
 
         if ($request->id) {
@@ -173,13 +165,11 @@ class Tb_ofertaController extends Controller
                 $offer->medida_unidades_id = $request->medida_unidades_id;
                 $offer->contacto_visible = $request->contacto_visible;
                 $offer->end_date = \Carbon\Carbon::parse($request->start_date)->addDays(30); // Fecha de finalización 30 días después de la fecha de inicio
+                $offer->precio = $request->precio; // Actualizar el precio
+                $offer->descripcion = $request->descripcion; // Actualizar la descripción
 
-                if ($request->hasFile('photo') && !$imageExists) {
-                    // Eliminar la imagen anterior si existe
-                    if ($offer->photo && file_exists(public_path($offer->photo))) {
-                        unlink(public_path($offer->photo));
-                    }
-                    $offer->photo = $path;
+                if ($request->filled('photo')) {
+                    $offer->photo = $request->photo; // Actualizar la imagen en base64
                 }
 
                 // Activar la oferta modificada
@@ -210,9 +200,11 @@ class Tb_ofertaController extends Controller
             $newOferta->cantidad = $request->cantidad;
             $newOferta->medida_unidades_id = $request->medida_unidades_id;
             $newOferta->contacto_visible = $request->contacto_visible;
+            $newOferta->precio = $request->precio; // Guardar el precio
+            $newOferta->descripcion = $request->descripcion; // Guardar la descripción
 
-            if ($request->hasFile('photo') && !$imageExists) {
-                $newOferta->photo = $path;
+            if ($request->filled('photo')) {
+                $newOferta->photo = $request->photo; // Guardar la imagen en base64
             }
 
             if (!$newOferta->save()) {
