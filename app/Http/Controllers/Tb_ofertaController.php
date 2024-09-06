@@ -47,47 +47,49 @@ class Tb_ofertaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        try {
-            // Verificar si ya existe una oferta para el producto dado
-            $existingOffer = Tb_oferta::where('product_id', $request->product_id)->first();
+{
+    try {
+        // Verificar si ya existe una oferta activa para el producto dado
+        $existingOffer = Tb_oferta::where('product_id', $request->product_id)
+            ->where('estado', 1) // Asegúrate de buscar solo ofertas activas
+            ->first();
 
-            if ($existingOffer) {
-                return response()->json([
-                    'estado' => 'Error',
-                    'message' => 'Ya existe una oferta para este producto.'
-                ], 400);
-            }
-
-            // Crear la nueva oferta
-            $tb_oferta = new Tb_oferta();
-            $tb_oferta->product_id = $request->product_id;
-            $tb_oferta->asociados_finca_id = $request->asociados_finca_id;
-            $tb_oferta->start_date = $request->start_date;
-            $tb_oferta->estado = 1; // Establecer la nueva oferta como activa
-            $tb_oferta->end_date = \Carbon\Carbon::parse($tb_oferta->start_date)->addDays(30);
-            $tb_oferta->cantidad = $request->cantidad;
-            $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
-            $tb_oferta->contacto_visible = $request->contacto_visible;
-            $tb_oferta->save();
-
+        if ($existingOffer) {
             return response()->json([
-                'estado' => 'Ok',
-                'message' => 'La oferta ha sido creada con éxito'
-            ]);
-        } catch (\Exception $e) {
-            $errorMessage = 'Ocurrió un error interno: ' . $e->getMessage();
-            $errorDetails = [
-                'message' => $errorMessage,
-                'exception' => get_class($e),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-                'trace' => $e->getTraceAsString(),
-            ];
-
-            return response()->json($errorDetails, 500);
+                'estado' => 'Error',
+                'message' => 'Ya existe una oferta activa para este producto.'
+            ], 400);
         }
+
+        // Crear la nueva oferta
+        $tb_oferta = new Tb_oferta();
+        $tb_oferta->product_id = $request->product_id;
+        $tb_oferta->asociados_finca_id = $request->asociados_finca_id;
+        $tb_oferta->start_date = $request->start_date;
+        $tb_oferta->estado = 1; // Establecer la nueva oferta como activa
+        $tb_oferta->end_date = \Carbon\Carbon::parse($tb_oferta->start_date)->addDays(30);
+        $tb_oferta->cantidad = $request->cantidad;
+        $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
+        $tb_oferta->contacto_visible = $request->contacto_visible;
+        $tb_oferta->save();
+
+        return response()->json([
+            'estado' => 'Ok',
+            'message' => 'La oferta ha sido creada con éxito'
+        ]);
+    } catch (\Exception $e) {
+        $errorMessage = 'Ocurrió un error interno: ' . $e->getMessage();
+        $errorDetails = [
+            'message' => $errorMessage,
+            'exception' => get_class($e),
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+            'trace' => $e->getTraceAsString(),
+        ];
+
+        return response()->json($errorDetails, 500);
     }
+}
 
     /**
      * Update the specified resource in storage.
