@@ -47,22 +47,17 @@ class Tb_ofertaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-{
-    try {
-        // Validar los datos enviados, en este caso la imagen en base64 puede ser null
-        $request->validate([
-            'image' => 'nullable|string', 
-        ]);
+    {
+        try {
+            // Verificar si ya existe una oferta para el producto dado
+            $existingOffer = Tb_oferta::where('product_id', $request->product_id)->first();
 
-        // Verificar si ya existe una oferta para el producto dado
-        $existingOffer = Tb_oferta::where('product_id', $request->product_id)->first();
-
-        if ($existingOffer) {
-            return response()->json([
-                'estado' => 'Error',
-                'message' => 'Ya existe una oferta para este producto.'
-            ], 400);
-        }
+            if ($existingOffer) {
+                return response()->json([
+                    'estado' => 'Error',
+                    'message' => 'Ya existe una oferta para este producto.'
+                ], 400);
+            }
 
         // Crear la nueva oferta
         $tb_oferta = new Tb_oferta();
@@ -77,8 +72,6 @@ class Tb_ofertaController extends Controller
         $tb_oferta->precio = $request->precio;
         $tb_oferta->descripcion= $request->descripcion;
         $tb_oferta->imagenProducto =$request->imagenProducto;
-
-
         $tb_oferta->save();
 
         return response()->json([
@@ -95,9 +88,10 @@ class Tb_ofertaController extends Controller
             'trace' => $e->getTraceAsString(),
         ];
 
-        return response()->json($errorDetails, 500);
+            return response()->json($errorDetails, 500);
+        }
     }
-}
+
     /**
      * Update the specified resource in storage.
      *
