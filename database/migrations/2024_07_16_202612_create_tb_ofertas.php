@@ -21,6 +21,8 @@ class CreateTbOfertas extends Migration
             $table->boolean('estado')->default(1);
             $table->boolean('contacto_visible')->default(1);
             $table->integer('cantidad');
+            $table->decimal('precio');
+            $table->string('descripcion'); 
 
 
             // Clave foránea para productos
