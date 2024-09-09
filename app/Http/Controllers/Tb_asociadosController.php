@@ -44,7 +44,7 @@ class Tb_asociadosController extends Controller
         ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
         ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
         ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
-        ->select('tb_asociados.id as idAsociado','tb_fincas.nombre','tb_fincas.vereda','tb_produccion.id as idProduccion',
+        ->select('tb_asociados.id as idAsociado','tb_fincas.nombre','tb_fincas.vereda','tb_fincas.extension','tb_produccion.id as idProduccion',
         'tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida','tb_produccion.estado as estadoProduccion',
         'tb_productos.id as idProducto','tb_productos.producto','tb_productos.imagenProducto')
         ->where('tb_asociados.id','=',$request->id)

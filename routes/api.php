@@ -185,6 +185,13 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("periodicidad/activate", "Tb_periodicidadController@activate");
      Route::get("periodicidad/selectperiodicidad/{id}", "Tb_periodicidadController@indexOne");
 
+     Route::get("familiares", "Tb_familiaresController@index");
+     Route::post("familiares/store", "Tb_familiaresController@store");
+     Route::put("familiares/update", "Tb_familiaresController@update");
+     Route::put("familiares/deactivate", "Tb_familiaresController@deactivate");
+     Route::put("familiares/activate", "Tb_familiaresController@activate");
+     Route::get("familiares/selectfamiliares/{id}", "Tb_familiaresController@indexOne");
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 
