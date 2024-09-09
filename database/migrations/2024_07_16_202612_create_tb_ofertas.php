@@ -19,10 +19,15 @@ class CreateTbOfertas extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->boolean('estado')->default(1);
-            $table->boolean('contacto_visible')->default(1);
+            $table->boolean('telefono_visible')->default(1);
+            $table->string('telefono')->nullable();
+            $table->boolean('whatsapp_visible')->default(1);
+            $table->string('whatsapp')->nullable();
+            $table->boolean('correo_visible')->default(1);
+            $table->string('correo')->nullable();
             $table->integer('cantidad');
             $table->decimal('precio');
-            $table->string('descripcion'); 
+            $table->string('descripcion');
 
 
             // Clave foránea para productos

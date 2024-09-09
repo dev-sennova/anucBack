@@ -68,7 +68,12 @@ class Tb_ofertaController extends Controller
         $tb_oferta->end_date = \Carbon\Carbon::parse($tb_oferta->start_date)->addDays(30);
         $tb_oferta->cantidad = $request->cantidad;
         $tb_oferta->medida_unidades_id = $request->medida_unidades_id;
-        $tb_oferta->contacto_visible = $request->contacto_visible;
+        $tb_oferta->telefono_visible = $request->telefono_visible;
+        $tb_oferta->telefono = $request->telefono;
+        $tb_oferta->whatsapp_visible = $request->whatsapp_visible;
+        $tb_oferta->whatsapp = $request->whatsapp;
+        $tb_oferta->correo_visible = $request->correo_visible;
+        $tb_oferta->correo = $request->correo;
         $tb_oferta->precio = $request->precio;
         $tb_oferta->descripcion= $request->descripcion;
         $tb_oferta->imagenProducto =$request->imagenProducto;
@@ -110,7 +115,12 @@ public function update(Request $request)
             'start_date' => 'required|date',
             'cantidad' => 'required|integer',
             'medida_unidades_id' => 'required|integer|exists:tb_medida_unidades,id',
-            'contacto_visible' => 'required|boolean',
+            'telefono_visible' => 'required|boolean',
+            'telefono' => 'nullable|string',
+            'whatsapp_visible' => 'required|boolean',
+            'whatsapp' => 'nullable|string',
+            'correo_visible' => 'required|boolean',
+            'correo' => 'nullable|string',
             'imagenProducto' => 'nullable|string', // Validar la imagen como un string de base64
             'precio' => 'required|numeric|min:0', // Validar precio como número positivo
             'descripcion' => 'nullable|string|max:500', // Validar descripción como string con un máximo de 500 caracteres
