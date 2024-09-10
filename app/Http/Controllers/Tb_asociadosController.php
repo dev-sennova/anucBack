@@ -82,9 +82,9 @@ class Tb_asociadosController extends Controller
         ->where('tb_ofertas.asociados_finca_id','=',$tb_asociados_finca->id)
         ->where('tb_ofertas.estado','=',1)
         ->select("tb_ofertas.id","tb_ofertas.imagenProducto","tb_ofertas.start_date","tb_ofertas.end_date","tb_ofertas.estado",
-        "tb_ofertas.telefono_visible","tb_ofertas.telefono","tb_ofertas.whatsapp_visible","tb_ofertas.whatsapp",
-        "tb_ofertas.correo_visible","tb_ofertas.correo","tb_ofertas.cantidad","tb_ofertas.product_id","tb_ofertas.asociados_finca_id",
-        "tb_ofertas.medida_unidades_id","tb_productos.producto")
+        "tb_ofertas.descripcion","tb_ofertas.precio","tb_ofertas.telefono_visible","tb_ofertas.telefono","tb_ofertas.whatsapp_visible",
+        "tb_ofertas.whatsapp","tb_ofertas.correo_visible","tb_ofertas.correo","tb_ofertas.cantidad","tb_ofertas.product_id",
+        "tb_ofertas.asociados_finca_id","tb_ofertas.medida_unidades_id","tb_productos.producto")
         ->get();
 
 
@@ -92,9 +92,9 @@ class Tb_asociadosController extends Controller
         ->where('tb_ofertas.asociados_finca_id','=',$tb_asociados_finca->id)
         ->where('tb_ofertas.estado','=',0)
         ->select("tb_ofertas.id","tb_ofertas.imagenProducto","tb_ofertas.start_date","tb_ofertas.end_date","tb_ofertas.estado",
-        "tb_ofertas.telefono_visible","tb_ofertas.telefono","tb_ofertas.whatsapp_visible","tb_ofertas.whatsapp",
-        "tb_ofertas.correo_visible","tb_ofertas.correo","tb_ofertas.cantidad","tb_ofertas.product_id","tb_ofertas.asociados_finca_id",
-        "tb_ofertas.medida_unidades_id","tb_productos.producto")
+        "tb_ofertas.descripcion","tb_ofertas.precio","tb_ofertas.telefono_visible","tb_ofertas.telefono","tb_ofertas.whatsapp_visible",
+        "tb_ofertas.whatsapp","tb_ofertas.correo_visible","tb_ofertas.correo","tb_ofertas.cantidad","tb_ofertas.product_id",
+        "tb_ofertas.asociados_finca_id","tb_ofertas.medida_unidades_id","tb_productos.producto")
         ->orderBy('tb_ofertas.end_date',"DESC")
         ->get();
 
