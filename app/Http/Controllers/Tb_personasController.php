@@ -50,6 +50,7 @@ class Tb_personasController extends Controller
             if ($tb_personas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
+                    'id' => $tb_personas->id,
                     'message' => 'Las personas han sido creadas con éxito'
                    ]);
             } else {
@@ -84,6 +85,7 @@ class Tb_personasController extends Controller
             if ($tb_personas->save()) {
                 return response()->json([
                     'estado' => 'Ok',
+                    'id' => $tb_personas->id,
                     'message' => 'Las personas se actualizaron con éxito'
                    ]);
             } else {

@@ -44,14 +44,17 @@ class Tb_asociadosController extends Controller
         ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
         ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
         ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
-        ->select('tb_asociados.id as idAsociado','tb_fincas.nombre','tb_fincas.vereda','tb_fincas.extension','tb_produccion.id as idProduccion',
-        'tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida','tb_produccion.estado as estadoProduccion',
-        'tb_productos.id as idProducto','tb_productos.producto','tb_productos.imagenProducto')
+        ->select('tb_asociados.id as idAsociado','tb_fincas.id as idFinca','tb_fincas.nombre','tb_fincas.vereda','tb_fincas.extension',
+        'tb_produccion.id as idProduccion','tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida',
+        'tb_produccion.estado as estadoProduccion','tb_productos.id as idProducto','tb_productos.producto','tb_productos.imagenProducto')
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
         $familiares = Tb_familiares::join("tb_personas","tb_familiares.persona","=","tb_personas.id")
         ->where('tb_familiares.asociado','=',$request->id)
+        ->select('tb_personas.id','tb_personas.identificacion','tb_personas.nombres','tb_personas.apellidos','tb_personas.telefono',
+        'tb_personas.correo','tb_personas.fecha_nacimiento', 'tb_personas.estado', 'tb_personas.tipo_documento', 'tb_personas.sexo',
+        'tb_personas.estado_civil','tb_familiares.id as idFamiliar','tb_familiares.asociado','tb_familiares.parentesco','tb_familiares.persona')
         ->get();
 
         return [
