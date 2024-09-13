@@ -26,6 +26,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/resend-email','AuthController@resendEmail')->name('resend_email');
     Route::post('register', 'AuthController@register');
     Route::get("empresa_globales_publico", "Tb_empresa_globalesController@indexPublico");
+    Route::get("ofertas", "Tb_ofertaController@index");
 
     // Las siguientes rutas además del prefijo requieren que el usuario tenga un token válido
 
