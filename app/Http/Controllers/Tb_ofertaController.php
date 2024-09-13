@@ -164,7 +164,12 @@ public function update(Request $request)
                 $offer->start_date = $request->start_date;
                 $offer->cantidad = $request->cantidad;
                 $offer->medida_unidades_id = $request->medida_unidades_id;
-                $offer->contacto_visible = $request->contacto_visible;
+                $offer->telefono_visible = $request->telefono_visible;
+                $offer->telefono = $request->telefono;
+                $offer->whatsapp_visible = $request->whatsapp_visible;
+                $offer->whatsapp = $request->whatsapp;
+                $offer->correo_visible = $request->correo_visible;
+                $offer->correo = $request->correo;
                 $offer->end_date = \Carbon\Carbon::parse($request->start_date)->addDays(30); // Fecha de finalización 30 días después de la fecha de inicio
                 $offer->precio = $request->precio; // Actualizar el precio
                 $offer->descripcion = $request->descripcion; // Actualizar la descripción
@@ -200,7 +205,12 @@ public function update(Request $request)
             $newOferta->end_date = \Carbon\Carbon::parse($request->start_date)->addDays(30); // Fecha de finalización 30 días después de la fecha de inicio
             $newOferta->cantidad = $request->cantidad;
             $newOferta->medida_unidades_id = $request->medida_unidades_id;
-            $newOferta->contacto_visible = $request->contacto_visible;
+            $newOferta->telefono_visible = $request->telefono_visible;
+            $newOferta->telefono = $request->telefono;
+            $newOferta->whatsapp_visible = $request->whatsapp_visible;
+            $newOferta->whatsapp = $request->whatsapp;
+            $newOferta->correo_visible = $request->correo_visible;
+            $newOferta->correo = $request->correo;
             $newOferta->precio = $request->precio; // Guardar el precio
             $newOferta->descripcion = $request->descripcion; // Guardar la descripción
 
