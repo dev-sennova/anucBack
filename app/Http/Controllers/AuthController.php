@@ -7,6 +7,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Mail\RegistroMailable;
+use App\Models\Tb_asociados;
+use App\Models\Tb_asociados_fincas;
 use App\Models\Tb_personas;
 use App\Models\Tb_usuario_rol;
 use Illuminate\Support\Facades\Mail;
@@ -40,6 +42,18 @@ class AuthController extends Controller
 
         $userDocument=$user->identificacion;
 
+        $idPersona = Tb_personas::where('identificacion', $userDocument)
+        ->orderBy('id', 'asc')
+        ->value('id');
+
+        $idAsociado = Tb_asociados::where('persona', $idPersona)
+        ->orderBy('id', 'asc')
+        ->value('id');
+
+        $idAsociadoFinca = Tb_asociados_fincas::where('asociado', $idAsociado)
+        ->orderBy('id', 'asc')
+        ->value('id');
+
         $nombres = Tb_personas::where('identificacion', $userDocument)
         ->orderBy('id', 'asc')
         ->value('nombres');
@@ -63,6 +77,9 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse($tokenResult->token->expires_at)->toDateTimeString(),
             'id_usuario' => $user->id,
+            'id_persona' => $idPersona,
+            'id_asociado' => $idAsociado,
+            'id_asociados_finca' => $idAsociadoFinca,
             'identificacion' => $user->identificacion,
             'nombres' => $nombres,
             'apellidos' => $apellidos,
