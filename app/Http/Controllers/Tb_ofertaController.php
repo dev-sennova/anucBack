@@ -47,17 +47,19 @@ class Tb_ofertaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        try {
-            // Verificar si ya existe una oferta para el producto dado
-            $existingOffer = Tb_oferta::where('product_id', $request->product_id)->first();
+{
+    try {
+        // Verificar si ya existe una oferta activa para el producto dado
+        $existingOffer = Tb_oferta::where('product_id', $request->product_id)
+            ->where('estado', 1) // Solo ofertas activas
+            ->first();
 
-            if ($existingOffer) {
-                return response()->json([
-                    'estado' => 'Error',
-                    'message' => 'Ya existe una oferta para este producto.'
-                ], 400);
-            }
+        if ($existingOffer) {
+            return response()->json([
+                'estado' => 'Error',
+                'message' => 'Ya existe una oferta activa para este producto.'
+            ], 400);
+        }
 
         // Crear la nueva oferta
         $tb_oferta = new Tb_oferta();
@@ -93,9 +95,9 @@ class Tb_ofertaController extends Controller
             'trace' => $e->getTraceAsString(),
         ];
 
-            return response()->json($errorDetails, 500);
-        }
+        return response()->json($errorDetails, 500);
     }
+}
 
     /**
      * Update the specified resource in storage.
