@@ -15,6 +15,7 @@ class UsersSeeder extends Seeder
         $data = json_decode(file_get_contents(__DIR__ . '/json/tb_user.json'));
         foreach ($data as $item){
             User::create(array(
+                'id' => $item->id,
                 'identificacion' => $item->identificacion,
                 'email' => $item->email,
                 'password' => $item->password

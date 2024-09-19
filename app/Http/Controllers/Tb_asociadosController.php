@@ -6,6 +6,7 @@ use App\Models\Tb_asociados;
 use App\Models\Tb_asociados_fincas;
 use App\Models\Tb_familiares;
 use App\Models\Tb_oferta;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Tb_asociadosController extends Controller
@@ -35,8 +36,15 @@ class Tb_asociadosController extends Controller
 
     public function indexOneDetalle(Request $request)
     {
+        $idAsociado = User::first()
+        ->join("tb_personas", "users.identificacion", "=", "tb_personas.identificacion")
+        ->join("tb_asociados", "tb_asociados.persona", "=", "tb_personas.id")
+        ->where('users.id', '=', $request->id)
+        ->pluck("tb_asociados.id")
+        ->first();
+
         $asociado = Tb_asociados::join("tb_personas","tb_asociados.persona","=","tb_personas.id")
-        ->where('tb_asociados.id','=',$request->id)
+        ->where('tb_asociados.id','=',$idAsociado)
         ->get();
 
         $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
@@ -47,11 +55,11 @@ class Tb_asociadosController extends Controller
         ->select('tb_asociados.id as idAsociado','tb_fincas.id as idFinca','tb_fincas.nombre','tb_fincas.vereda','tb_fincas.extension',
         'tb_produccion.id as idProduccion','tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida',
         'tb_produccion.estado as estadoProduccion','tb_productos.id as idProducto','tb_productos.producto','tb_productos.imagenProducto')
-        ->where('tb_asociados.id','=',$request->id)
+        ->where('tb_asociados.id','=',$idAsociado)
         ->get();
 
         $familiares = Tb_familiares::join("tb_personas","tb_familiares.persona","=","tb_personas.id")
-        ->where('tb_familiares.asociado','=',$request->id)
+        ->where('tb_familiares.asociado','=',$idAsociado)
         ->select('tb_personas.id','tb_personas.identificacion','tb_personas.nombres','tb_personas.apellidos','tb_personas.telefono',
         'tb_personas.correo','tb_personas.fecha_nacimiento', 'tb_personas.estado', 'tb_personas.tipo_documento', 'tb_personas.sexo',
         'tb_personas.estado_civil','tb_familiares.id as idFamiliar','tb_familiares.asociado','tb_familiares.parentesco','tb_familiares.persona')
@@ -59,6 +67,7 @@ class Tb_asociadosController extends Controller
 
         return [
             'estado' => 'Ok',
+            'idUsuario' => $idAsociado,
             'asociado' => $asociado,
             'familiares' => $familiares,
             'produccion' => $produccion
