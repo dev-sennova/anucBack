@@ -27,6 +27,9 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('register', 'AuthController@register');
     Route::get("empresa_globales_publico", "Tb_empresa_globalesController@indexPublico");
     Route::get("ofertas", "Tb_ofertaController@index");
+    Route::get("producto", "Tb_productosController@index");
+    Route::get("categoria", "Tb_producto_categoriasController@index");
+    Route::get("unidad", "Tb_medida_unidadesController@index");
 
     // Las siguientes rutas además del prefijo requieren que el usuario tenga un token válido
 
@@ -77,7 +80,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("estado_civil/activate", "Tb_estado_civilController@activate");
      Route::get("estado_civil/selectestado_civil/{id}", "Tb_estado_civilController@indexOne");
 
-     Route::get("unidad", "Tb_medida_unidadesController@index");
+     //Route::get("unidad", "Tb_medida_unidadesController@index");
      Route::post("unidad/store", "Tb_medida_unidadesController@store");
      Route::put("unidad/update", "Tb_medida_unidadesController@update");
      Route::put("unidad/deactivate", "Tb_medida_unidadesController@deactivate");
@@ -91,14 +94,14 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("parentesco/activate", "Tb_parentescosController@activate");
      Route::get("parentesco/selectparentesco/{id}", "Tb_parentescosController@indexOne");
 
-     Route::get("categoria", "Tb_producto_categoriasController@index");
+     //Route::get("categoria", "Tb_producto_categoriasController@index");
      Route::post("categoria/store", "Tb_producto_categoriasController@store");
      Route::put("categoria/update", "Tb_producto_categoriasController@update");
      Route::put("categoria/deactivate", "Tb_producto_categoriasController@deactivate");
      Route::put("categoria/activate", "Tb_producto_categoriasController@activate");
      Route::get("categoria/selectcategoria/{id}", "Tb_producto_categoriasController@indexOne");
 
-     Route::get("producto", "Tb_productosController@index");
+     //Route::get("producto", "Tb_productosController@index");
      Route::post("producto/store", "Tb_productosController@store");
      Route::put("producto/update", "Tb_productosController@update");
      Route::put("producto/deactivate", "Tb_productosController@deactivate");
@@ -171,7 +174,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("produccion/activate", "Tb_produccionController@activate");
      Route::get("produccion/selectproduccion/{id}", "Tb_produccionController@indexOne");
 
-     Route::get("ofertas", "Tb_ofertaController@index");
+     //Route::get("ofertas", "Tb_ofertaController@index");
      Route::post("ofertas/store", "Tb_ofertaController@store");
      Route::put("ofertas/update", "Tb_ofertaController@update");
      Route::put("ofertas/deactivate", "Tb_ofertaController@deactivate");
