@@ -176,6 +176,27 @@ class Tb_asociadosController extends Controller
 
     }
 
+    public function updatePassword(Request $request){
+        try {
+            $user=User::findOrFail($request->id);
+            $user->password=bcrypt($request->password);
+
+            if ($user->save()) {
+                return response()->json([
+                    'estado' => 'Ok',
+                    'message' => 'La password se actualizó con éxito'
+                   ]);
+            } else {
+                return response()->json([
+                    'estado' => 'Error',
+                    'message' => 'La password no fue actualizado'
+                   ]);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Ocurrió un error interno'], 500);
+        }
+    }
+
     public function deactivate(Request $request)
     {
         //if(!$request->ajax()) return redirect('/');

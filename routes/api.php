@@ -39,17 +39,6 @@ Route::group(['prefix' => 'auth'], function () {
      Route::post('verifypassword','AuthController@verifyPassword');
      Route::post('changepassword','AuthController@changePassword');
 
-     Route::get("usuario", "Tb_usuarioController@index");
-     Route::post("usuario/store", "Tb_usuarioController@store");
-     Route::put("usuario/update", "Tb_usuarioController@update");
-     Route::put("usuario/deactivate", "Tb_usuarioController@deactivate");
-     Route::put("usuario/activate", "Tb_usuarioController@activate");
-     Route::get("usuario/selectusuario/{id}", "Tb_usuarioController@indexOne");
-     Route::get("usuario/selectemail/{id}", "Tb_usuarioController@indexUser");
-     Route::get("usuario/selectemaillogin/{id}", "Tb_usuarioController@indexIdUser");
-     Route::get("usuarioGestor/{idGestor}", "Tb_usuarioController@indexGestor");
-     Route::get("usuarioPendientes/{idUsuario}", "Tb_usuarioController@indexPendientes");
-     Route::get("countUsuario/{idUsuario}", "Tb_usuarioController@countUsuario");
 
      Route::get("rol", "Tb_rolController@index");
      Route::post("rol/store", "Tb_rolController@store");
@@ -158,6 +147,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::get("asociados/selectasociados/{id}", "Tb_asociadosController@indexOne");
      Route::get("asociados/detallado/{id}", "Tb_asociadosController@indexOneDetalle");
      Route::get("asociados/ofertas/{id}", "Tb_asociadosController@indexOneOfertas");
+     Route::put("asociados/passwordupdate", "Tb_asociadosController@updatePassword");
 
      Route::get("asociados_finca", "Tb_asociados_fincasController@index");
      Route::post("asociados_finca/store", "Tb_asociados_fincasController@store");
