@@ -49,6 +49,10 @@ class Tb_asociadosController extends Controller
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
+        $permisos = Tb_asociados::join("tb_asociado_permisos","tb_asociados.id","=","tb_asociado_permisos.asociado")
+        ->where('tb_asociados.id','=',$request->id)
+        ->get();
+
         $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
         ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
         ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
@@ -70,6 +74,7 @@ class Tb_asociadosController extends Controller
         return [
             'estado' => 'Ok',
             'asociado' => $asociado,
+            'permisos' => $permisos,
             'familiares' => $familiares,
             'produccion' => $produccion
         ];
@@ -78,6 +83,10 @@ class Tb_asociadosController extends Controller
     public function indexOneOfertas(Request $request)
     {
         $asociado = Tb_asociados::join("tb_personas","tb_asociados.persona","=","tb_personas.id")
+        ->where('tb_asociados.id','=',$request->id)
+        ->get();
+
+        $permisos = Tb_asociados::join("tb_asociado_permisos","tb_asociados.id","=","tb_asociado_permisos.asociado")
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
@@ -115,6 +124,7 @@ class Tb_asociadosController extends Controller
         return [
             'estado' => 'Ok',
             'asociado' => $asociado,
+            'permisos' => $permisos,
             'asociados_finca' => $tb_asociados_finca,
             'produccion' => $produccion,
             'ofertasActivas' => $produccionActiva,

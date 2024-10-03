@@ -16,6 +16,7 @@ class Tb_asociadosSeeder extends Seeder
         foreach ($data as $item){
             Tb_asociados::create(array(
                 'id' => $item->id,
+                'fotoAsociado' => null,
                 'persona' => $item->persona,
                 'categoria' => $item->categoria,
                 'estado' => $item->estado,

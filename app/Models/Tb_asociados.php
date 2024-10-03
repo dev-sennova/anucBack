@@ -8,7 +8,7 @@ class Tb_asociados extends Model
 {
     protected $table = 'tb_asociados';
 
-    protected $fillable = ['estado','persona'];
+    protected $fillable = ['fotoAsociado','persona','categoria','estado'];
 
     public $timestamps = false;
 

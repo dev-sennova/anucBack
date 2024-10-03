@@ -15,7 +15,7 @@ class CreateTbAsociadosTable extends Migration
     {
         Schema::create('tb_asociados', function (Blueprint $table) {
             $table->id();
-            $table->boolean('estado')->default(1);
+            $table->longText('fotoAsociado')->nullable();
 
             // Clave foránea para personas
             $table->unsignedBigInteger('persona');
@@ -24,6 +24,9 @@ class CreateTbAsociadosTable extends Migration
             // Clave foránea para categoria
             $table->unsignedBigInteger('categoria');
             $table->foreign('categoria')->references('id')->on('tb_categorias');
+
+            $table->boolean('habeasData')->default(0);
+            $table->boolean('estado')->default(1);
         });
     }
 

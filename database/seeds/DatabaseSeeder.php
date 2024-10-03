@@ -188,6 +188,15 @@ class DatabaseSeeder extends Seeder
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
+            'tb_asociado_permisos'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(Tb_asociado_permisosSeeder::class);
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
             'tb_asociados_fincas'
         ]);
 

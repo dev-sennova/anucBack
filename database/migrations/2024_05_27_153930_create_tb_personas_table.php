@@ -20,6 +20,9 @@ class CreateTbPersonasTable extends Migration
             $table->string('apellidos');
             $table->string('telefono')->nullable();
             $table->string('correo')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->boolean('estado')->default(1);
 
