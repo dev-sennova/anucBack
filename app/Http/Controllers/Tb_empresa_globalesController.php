@@ -62,6 +62,12 @@ class Tb_empresa_globalesController extends Controller
             $tb_empresa_globales->direccion=$request->direccion;
             $tb_empresa_globales->nit=$request->nit;
             $tb_empresa_globales->horarios=$request->horarios;
+            $tb_empresa_globales->horariosCargue=$request->horariosCargue;
+            $tb_empresa_globales->telefono=$request->telefono;
+            $tb_empresa_globales->correo=$request->correo;
+            $tb_empresa_globales->whatsapp=$request->whatsapp;
+            $tb_empresa_globales->facebook=$request->facebook;
+            $tb_empresa_globales->instagram=$request->instagram;
             $tb_empresa_globales->estatutos=$request->estatutos;
             $tb_empresa_globales->mision=$request->mision;
             $tb_empresa_globales->vision=$request->vision;
@@ -94,6 +100,12 @@ class Tb_empresa_globalesController extends Controller
             $tb_empresa_globales->direccion=$request->direccion;
             $tb_empresa_globales->nit=$request->nit;
             $tb_empresa_globales->horarios=$request->horarios;
+            $tb_empresa_globales->horariosCargue=$request->horariosCargue;
+            $tb_empresa_globales->telefono=$request->telefono;
+            $tb_empresa_globales->correo=$request->correo;
+            $tb_empresa_globales->whatsapp=$request->whatsapp;
+            $tb_empresa_globales->facebook=$request->facebook;
+            $tb_empresa_globales->instagram=$request->instagram;
             $tb_empresa_globales->estatutos=$request->estatutos;
             $tb_empresa_globales->mision=$request->mision;
             $tb_empresa_globales->vision=$request->vision;

@@ -20,6 +20,11 @@ class CreateTbEmpresaGlobalesTable extends Migration
             $table->string('nit');
             $table->string('horarios');
             $table->string('horariosCargue');
+            $table->string('telefono');
+            $table->string('correo');
+            $table->string('whatsapp');
+            $table->string('facebook');
+            $table->string('instagram');
             $table->text('mision');
             $table->text('vision');
             $table->longText('estatutos');
