@@ -8,7 +8,6 @@ use App\Http\Resources\DatosGeneralesResource;
 use Illuminate\Support\Facades\DB;
 
 
-
 class Tb_ofertaController extends Controller
 {
     /**
@@ -46,7 +45,7 @@ class Tb_ofertaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
     try {
         // Verificar si el asociado ya tiene una oferta activa sin importar el producto
@@ -228,7 +227,6 @@ public function update(Request $request)
     }
 }
 
-
     /**
      * Activate the specified resource.
      *
@@ -285,5 +283,17 @@ public function update(Request $request)
     public function detallado()
     {
         return DatosGeneralesResource::collection(Tb_oferta::with(['product.productoCategoria'])->get());
+    }
+
+    public function ofertasActivas()
+    {
+/*         $ofertas_activas = Tb_oferta::orderBy('id','desc')
+        ->where('tb_oferta.id','=',$request->id)
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'ofertas_activas' => $ofertas_activas
+        ]; */
     }
 }

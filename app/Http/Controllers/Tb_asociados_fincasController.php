@@ -142,12 +142,30 @@ class Tb_asociados_fincasController extends Controller
         $asociados_finca = Tb_asociados_fincas::join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
         ->join("tb_tipo_predios","tb_asociados_fincas.tipo_predio","=","tb_tipo_predios.id")
         ->join("tb_asociados","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_asociado_permisos","tb_asociado_permisos.asociado","=","tb_asociados.id")
         ->join("tb_personas","tb_asociados.persona","=","tb_personas.id")
         ->join("tb_tipo_documento","tb_personas.tipo_documento","=","tb_tipo_documento.id")
         ->join("tb_sexo","tb_personas.sexo","=","tb_sexo.id")
         ->join("tb_estado_civil","tb_personas.estado_civil","=","tb_estado_civil.id")
         ->join("tb_categorias","tb_asociados.categoria","=","tb_categorias.id")
         ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+        ->select(
+            "tb_asociados_fincas.*",
+            "tb_fincas.*",
+            "tb_tipo_predios.*",
+            "tb_asociados.*",
+            "tb_asociado_permisos.telefono as permisotelefono",
+            "tb_asociado_permisos.correo as permisocorreo",
+            "tb_asociado_permisos.whatsapp as permisowhatsapp",
+            "tb_asociado_permisos.facebook as permisofacebook",
+            "tb_asociado_permisos.instagram as permisoinstagram", // Alias para evitar conflicto
+            "tb_personas.*",
+            "tb_tipo_documento.*",
+            "tb_sexo.*",
+            "tb_estado_civil.*",
+            "tb_categorias.*",
+            "tb_veredas.*"
+        )
         ->get();
 
         return [
