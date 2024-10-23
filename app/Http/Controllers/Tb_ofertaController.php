@@ -287,13 +287,27 @@ public function update(Request $request)
 
     public function ofertasActivas()
     {
-/*         $ofertas_activas = Tb_oferta::orderBy('id','desc')
-        ->where('tb_oferta.id','=',$request->id)
-        ->get();
+            # Modelo::join('tablaqueseune',basicamente un on)
+            $ofertas_activas = Tb_oferta::join("tb_productos","tb_ofertas.product_id","=","tb_productos.id")
+            ->join("tb_asociados_fincas","tb_ofertas.asociados_finca_id","=","tb_asociados_fincas.id")
+            ->join("tb_medida_unidades","tb_ofertas.medida_unidades_id","=","tb_medida_unidades.id")
+            ->join("tb_asociados","tb_asociados_fincas.asociado","=","tb_asociados.id")
+            ->join("tb_personas","tb_asociados.persona","=","tb_personas.id")
+            ->where("tb_ofertas.estado","=",1)
+            ->select(
+                "tb_ofertas.*",
+                "tb_productos.*",
+                "tb_asociados_fincas.*",
+                "tb_medida_unidades.*",
+                "tb_asociados.*",
+                //"tb_asociado_permisos.instagram as permisoinstagram", // Alias para evitar conflicto
+                "tb_personas.*"
+            )
+            ->get();
 
-        return [
-            'estado' => 'Ok',
-            'ofertas_activas' => $ofertas_activas
-        ]; */
+            return [
+                'estado' => 'Ok',
+                'ofertas_activas' => $ofertas_activas
+            ];
     }
 }

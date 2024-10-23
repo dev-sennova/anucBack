@@ -176,6 +176,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("ofertas/activate", "Tb_ofertaController@activate");
      Route::get("ofertas/selectofertas/{id}", "Tb_ofertaController@indexOne");
      Route::get("ofertas/detallado", "Tb_ofertaController@detallado");
+     Route::get("ofertas/ofertasactivas", "Tb_ofertaController@ofertasActivas");
 
      Route::get("periodicidad", "Tb_periodicidadController@index");
      Route::post("periodicidad/store", "Tb_periodicidadController@store");
