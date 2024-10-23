@@ -41,6 +41,9 @@ class Tb_personasController extends Controller
             $tb_personas->apellidos=$request->apellidos;
             $tb_personas->telefono=$request->telefono;
             $tb_personas->correo=$request->correo;
+            $tb_personas->whatsapp=$request->whatsapp;
+            $tb_personas->facebook=$request->facebook;
+            $tb_personas->instagram=$request->instagram;
             $tb_personas->fecha_nacimiento=$request->fecha_nacimiento;
             $tb_personas->tipo_documento=$request->tipo_documento;
             $tb_personas->sexo=$request->sexo;
@@ -76,6 +79,9 @@ class Tb_personasController extends Controller
             $tb_personas->apellidos=$request->apellidos;
             $tb_personas->telefono=$request->telefono;
             $tb_personas->correo=$request->correo;
+            $tb_personas->whatsapp=$request->whatsapp;
+            $tb_personas->facebook=$request->facebook;
+            $tb_personas->instagram=$request->instagram;
             $tb_personas->fecha_nacimiento=$request->fecha_nacimiento;
             $tb_personas->tipo_documento=$request->tipo_documento;
             $tb_personas->sexo=$request->sexo;

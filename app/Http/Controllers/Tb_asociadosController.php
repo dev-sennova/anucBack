@@ -138,8 +138,10 @@ class Tb_asociadosController extends Controller
 
         try {
             $tb_asociados=new Tb_asociados();
+            $tb_asociados->fotoAsociado = $request->fotoAsociado; // Guardar la imagen en base64
             $tb_asociados->persona=$request->persona;
             $tb_asociados->categoria=$request->categoria;
+            $tb_asociados->habeasData=$request->habeasData;
             $tb_asociados->estado=1;
 
             if ($tb_asociados->save()) {
@@ -165,8 +167,10 @@ class Tb_asociadosController extends Controller
 
         try {
             $tb_asociados=Tb_asociados::findOrFail($request->id);
+            $tb_asociados->fotoAsociado = $request->fotoAsociado; // Guardar la imagen en base64
             $tb_asociados->persona=$request->persona;
             $tb_asociados->categoria=$request->categoria;
+            $tb_asociados->habeasData=$request->habeasData;
             $tb_asociados->estado='1';
 
             if ($tb_asociados->save()) {
