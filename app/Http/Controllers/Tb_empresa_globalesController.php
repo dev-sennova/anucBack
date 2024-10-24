@@ -31,7 +31,8 @@ class Tb_empresa_globalesController extends Controller
     public function indexPublico()
     {
         $empresa = Tb_empresa_globales::orderBy('nombre','asc')
-        ->select("nombre","direccion","horarios","mision","vision")
+        ->select("nombre","direccion",'telefono','correo','whatsapp','facebook','instagram',"horarios","mision","vision")
+
         ->get();
 
         return [
