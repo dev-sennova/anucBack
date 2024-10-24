@@ -10,7 +10,8 @@ class Tb_oferta extends Model
 {
     protected $table = 'tb_ofertas';
 
-    protected $fillable = ['product_id','asociados_finca_id','start_date','end_date','imagenProducto','estado'];
+    protected $fillable = ['product_id','asociados_finca_id','start_date','end_date','imagenProducto','telefono_visible','telefono',
+    'whatsapp_visible','whatsapp','correo_visible','correo','cantidad','precio','descripcion','estado'];
 
     public $timestamps = false;
 
