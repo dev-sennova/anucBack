@@ -83,6 +83,10 @@ class Tb_ofertaController extends Controller
             $tb_oferta->whatsapp = $request->whatsapp;
             $tb_oferta->correo_visible = $request->correo_visible;
             $tb_oferta->correo = $request->correo;
+            $tb_oferta->facebook_visible = $request->facebook_visible;
+            $tb_oferta->facebook = $request->facebook;
+            $tb_oferta->instagram_visible = $request->instagram_visible;
+            $tb_oferta->instagram = $request->instagram;
             $tb_oferta->precio = $request->precio;
             $tb_oferta->descripcion = $request->descripcion;
             $tb_oferta->imagenProducto = $request->imagenProducto;
@@ -131,6 +135,10 @@ public function update(Request $request)
             'whatsapp' => 'nullable|string',
             'correo_visible' => 'required|boolean',
             'correo' => 'nullable|string',
+            'facebook_visible' => 'required|boolean',
+            'facebook' => 'nullable|string',
+            'instagram_visible' => 'required|boolean',
+            'instagram' => 'nullable|string',
             'imagenProducto' => 'nullable|string', // Validar la imagen como un string de base64
             'precio' => 'required|numeric|min:0', // Validar precio como número positivo
             'descripcion' => 'nullable|string|max:500', // Validar descripción como string con un máximo de 500 caracteres
@@ -168,6 +176,10 @@ public function update(Request $request)
                 $offer->whatsapp = $request->whatsapp;
                 $offer->correo_visible = $request->correo_visible;
                 $offer->correo = $request->correo;
+                $offer->facebook_visible = $request->facebook_visible;
+                $offer->facebook = $request->facebook;
+                $offer->instagram_visible = $request->instagram_visible;
+                $offer->instagram = $request->instagram;
                 $offer->end_date = \Carbon\Carbon::parse($request->start_date)->addDays(30); // Actualizar fecha de finalización
                 $offer->precio = $request->precio; // Actualizar el precio
                 $offer->descripcion = $request->descripcion; // Actualizar la descripción
@@ -216,6 +228,10 @@ public function update(Request $request)
             $newOferta->whatsapp = $request->whatsapp;
             $newOferta->correo_visible = $request->correo_visible;
             $newOferta->correo = $request->correo;
+            $newOferta->facebook_visible = $request->facebook_visible;
+            $newOferta->facebook = $request->facebook;
+            $newOferta->instagram_visible = $request->instagram_visible;
+            $newOferta->instagram = $request->instagram;
             $newOferta->precio = $request->precio; // Guardar el precio
             $newOferta->descripcion = $request->descripcion; // Guardar la descripción
 

@@ -25,6 +25,10 @@ class CreateTbOfertas extends Migration
             $table->string('whatsapp')->nullable();
             $table->boolean('correo_visible')->default(1);
             $table->string('correo')->nullable();
+            $table->boolean('facebook_visible')->default(1);
+            $table->string('facebook')->nullable();
+            $table->boolean('instagram_visible')->default(1);
+            $table->string('instagram')->nullable();
             $table->integer('cantidad');
             $table->decimal('precio');
             $table->string('descripcion');
