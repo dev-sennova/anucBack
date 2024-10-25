@@ -1,0 +1,6 @@
+[
+    {"id":"1","grupo":"Cultivos","descripcion":"Contempla el cálculo de costos relacionados con la siembra y cosecha de productos por ejemplo: tomate, limón, aguacate,  entre otros.","estado":"1"},
+    {"id":"2","grupo":"Carnes","descripcion":"Contempla el cálculo de  costos para la producción de carne de res, cerdo, pescado, pollo, entre otras.","estado":"1"},
+    {"id":"3","grupo":"Huevos","descripcion":"Contempla el cálculo de  costos para la producción de huevos de cualquier ave.","estado":"1"},
+    {"id":"4","grupo":"Transformados","descripcion":"Contempla el cálculo de  costos para productos transformados.","estado":"1"}
+]

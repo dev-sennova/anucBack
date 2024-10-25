@@ -143,6 +143,24 @@ class DatabaseSeeder extends Seeder
 //-------------------------------------------------------------------//
         //primero vacia la tabla y luego la llena ojo
         $this->truncateTables([
+            'tb_grupos'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(Tb_gruposSeeder::class);
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
+            'tb_grupo_categorias'
+        ]);
+
+        //funcion principal que llama cada seeder
+        $this->call(Tb_grupo_categoriasSeeder::class);
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+        //primero vacia la tabla y luego la llena ojo
+        $this->truncateTables([
             'tb_tipo_predios'
         ]);
 
