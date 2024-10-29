@@ -1,0 +1,5 @@
+[
+    {"id":"1","pregunta_1":"Producto","pregunta_2":"Descripcion","pregunta_3":"¿Cuántas hectareas va a cutivar?","pregunta_4":"Fecha Inicio Produccion","pregunta_5":"Fecha Fin Produccion","pregunta_6":"Produccion Esperada","idGrupo":"1","estado":"1"},
+    {"id":"2","pregunta_1":"Producto","pregunta_2":"Descripcion","pregunta_3":"¿Cuántos animales va a engordar?","pregunta_4":"Fecha Inicio Produccion","pregunta_5":"Fecha Fin Produccion","pregunta_6":"Produccion Esperada","idGrupo":"2","estado":"1"},
+    {"id":"3","pregunta_1":"Producto","pregunta_2":"Descripcion","pregunta_3":"¿Cuántos animales va a engordar?","pregunta_4":"Fecha Inicio Produccion","pregunta_5":"Fecha Fin Produccion","pregunta_6":"Produccion Esperada","idGrupo":"3","estado":"1"}
+]

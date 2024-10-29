@@ -192,6 +192,60 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("familiares/activate", "Tb_familiaresController@activate");
      Route::get("familiares/selectfamiliares/{id}", "Tb_familiaresController@indexOne");
 
+     Route::get("grupos", "Tb_gruposController@index");
+     Route::post("grupos/store", "Tb_gruposController@store");
+     Route::put("grupos/update", "Tb_gruposController@update");
+     Route::put("grupos/deactivate", "Tb_gruposController@deactivate");
+     Route::put("grupos/activate", "Tb_gruposController@activate");
+     Route::get("grupos/selectgrupos/{id}", "Tb_gruposController@indexOne");
+
+     Route::get("grupo_categorias", "Tb_grupo_categoriasController@index");
+     Route::post("grupo_categorias/store", "Tb_grupo_categoriasController@store");
+     Route::put("grupo_categorias/update", "Tb_grupo_categoriasController@update");
+     Route::get("grupo_categorias/selectgrupo_categorias/{id}", "Tb_grupo_categoriasController@indexOne");
+
+     Route::get("generalidades_produccion", "Tb_generalidades_produccionController@index");
+     Route::post("generalidades_produccion/store", "Tb_generalidades_produccionController@store");
+     Route::put("generalidades_produccion/update", "Tb_generalidades_produccionController@update");
+     Route::put("generalidades_produccion/deactivate", "Tb_generalidades_produccionController@deactivate");
+     Route::put("generalidades_produccion/activate", "Tb_generalidades_produccionController@activate");
+     Route::get("generalidades_produccion/selectgeneralidades_produccion/{id}", "Tb_generalidades_produccionController@indexOne");
+
+     Route::get("fases_produccion", "Tb_fases_produccionController@index");
+     Route::post("fases_produccion/store", "Tb_fases_produccionController@store");
+     Route::put("fases_produccion/update", "Tb_fases_produccionController@update");
+     Route::put("fases_produccion/deactivate", "Tb_fases_produccionController@deactivate");
+     Route::put("fases_produccion/activate", "Tb_fases_produccionController@activate");
+     Route::get("fases_produccion/selectfases_produccion/{id}", "Tb_fases_produccionController@indexOne");
+
+     Route::get("grupos_conceptos", "Tb_grupos_conceptosController@index");
+     Route::post("grupos_conceptos/store", "Tb_grupos_conceptosController@store");
+     Route::put("grupos_conceptos/update", "Tb_grupos_conceptosController@update");
+     Route::put("grupos_conceptos/deactivate", "Tb_grupos_conceptosController@deactivate");
+     Route::put("grupos_conceptos/activate", "Tb_grupos_conceptosController@activate");
+     Route::get("grupos_conceptos/selectgrupos_conceptos/{id}", "Tb_grupos_conceptosController@indexOne");
+
+     Route::get("conceptos", "Tb_conceptosController@index");
+     Route::post("conceptos/store", "Tb_conceptosController@store");
+     Route::put("conceptos/update", "Tb_conceptosController@update");
+     Route::put("conceptos/deactivate", "Tb_conceptosController@deactivate");
+     Route::put("conceptos/activate", "Tb_conceptosController@activate");
+     Route::get("conceptos/selectconceptos/{id}", "Tb_conceptosController@indexOne");
+
+     Route::get("hoja_de_costos", "Tb_hoja_de_costosController@index");
+     Route::post("hoja_de_costos/store", "Tb_hoja_de_costosController@store");
+     Route::put("hoja_de_costos/update", "Tb_hoja_de_costosController@update");
+     Route::put("hoja_de_costos/deactivate", "Tb_hoja_de_costosController@deactivate");
+     Route::put("hoja_de_costos/activate", "Tb_hoja_de_costosController@activate");
+     Route::get("hoja_de_costos/selecthoja_de_costos/{id}", "Tb_hoja_de_costosController@indexOne");
+
+     Route::get("detallado_produccion", "Tb_detallado_produccionController@index");
+     Route::post("detallado_produccion/store", "Tb_detallado_produccionController@store");
+     Route::put("detallado_produccion/update", "Tb_detallado_produccionController@update");
+     Route::put("detallado_produccion/deactivate", "Tb_detallado_produccionController@deactivate");
+     Route::put("detallado_produccion/activate", "Tb_detallado_produccionController@activate");
+     Route::get("detallado_produccion/selectdetallado_produccion/{id}", "Tb_detallado_produccionController@indexOne");
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 

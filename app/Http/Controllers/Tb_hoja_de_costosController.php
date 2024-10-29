@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tb_grupos;
+use App\Models\Tb_hoja_de_costos;
 use Illuminate\Http\Request;
 
-class Tb_gruposController extends Controller
+class Tb_hoja_de_costosController extends Controller
 {
     public function index(Request $request)
     {
-        $grupo = Tb_grupos::orderBy('grupo','asc')
+        $hoja_de_costos = Tb_hoja_de_costos::orderBy('hoja_de_costos','asc')
         ->get();
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'hoja_de_costos' => $hoja_de_costos
         ];
     }
 
     public function indexOne(Request $request)
     {
-        $grupo = Tb_grupos::orderBy('grupo','desc')
-        ->where('Tb_grupos.id','=',$request->id)
+        $hoja_de_costos = Tb_hoja_de_costos::orderBy('hoja_de_costos','desc')
+        ->where('tb_hoja_de_costos.id','=',$request->id)
         ->get();
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'hoja_de_costos' => $hoja_de_costos
         ];
     }
 
@@ -35,20 +35,20 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=new Tb_grupos();
-            $tb_grupos->grupo=$request->grupo;
-            $tb_grupos->descripcion=$request->descripcion;
-            $tb_grupos->estado=1;
+            $tb_hoja_de_costos=new Tb_hoja_de_costos();
+            $tb_hoja_de_costos->idProducto=$request->idProducto;
+            $tb_hoja_de_costos->fecha=$request->fecha;
+            $tb_hoja_de_costos->estado=1;
 
-            if ($tb_grupos->save()) {
+            if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido creado con éxito'
+                    'message' => 'hoja_de_costos ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue creado'
+                    'message' => 'hoja_de_costos no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -62,20 +62,20 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->grupo=$request->grupo;
-            $tb_grupos->descripcion=$request->descripcion;
-            $tb_grupos->estado='1';
+            $tb_hoja_de_costos=Tb_hoja_de_costos::findOrFail($request->id);
+            $tb_hoja_de_costos->idProducto=$request->idProducto;
+            $tb_hoja_de_costos->fecha=$request->fecha;
+            $tb_hoja_de_costos->estado='1';
 
-            if ($tb_grupos->save()) {
+            if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo se actualizó con éxito'
+                    'message' => 'hoja_de_costos se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue actualizado'
+                    'message' => 'hoja_de_costos no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -89,18 +89,18 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->estado='0';
+            $tb_hoja_de_costos=Tb_hoja_de_costos::findOrFail($request->id);
+            $tb_hoja_de_costos->estado='0';
 
-            if ($tb_grupos->save()) {
+            if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido desactivado con éxito'
+                    'message' => 'hoja_de_costos ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue desactivado'
+                    'message' => 'hoja_de_costos no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -114,18 +114,18 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->estado='1';
+            $tb_hoja_de_costos=Tb_hoja_de_costos::findOrFail($request->id);
+            $tb_hoja_de_costos->estado='1';
 
-            if ($tb_grupos->save()) {
+            if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido activado con éxito'
+                    'message' => 'hoja_de_costos ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue activado'
+                    'message' => 'hoja_de_costos no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tb_grupos;
+use App\Models\Tb_fases_produccion;
 use Illuminate\Http\Request;
 
-class Tb_gruposController extends Controller
+class Tb_fases_produccionController extends Controller
 {
     public function index(Request $request)
     {
-        $grupo = Tb_grupos::orderBy('grupo','asc')
+        $fases_produccion = Tb_fases_produccion::orderBy('fases_produccion','asc')
         ->get();
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'fases_produccion' => $fases_produccion
         ];
     }
 
     public function indexOne(Request $request)
     {
-        $grupo = Tb_grupos::orderBy('grupo','desc')
-        ->where('Tb_grupos.id','=',$request->id)
+        $fases_produccion = Tb_fases_produccion::orderBy('fases_produccion','desc')
+        ->where('tb_fases_produccion.id','=',$request->id)
         ->get();
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'fases_produccion' => $fases_produccion
         ];
     }
 
@@ -35,20 +35,21 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=new Tb_grupos();
-            $tb_grupos->grupo=$request->grupo;
-            $tb_grupos->descripcion=$request->descripcion;
-            $tb_grupos->estado=1;
+            $tb_fases_produccion=new Tb_fases_produccion();
+            $tb_fases_produccion->nombre_fase=$request->nombre_fase;
+            $tb_fases_produccion->descripcion=$request->descripcion;
+            $tb_fases_produccion->idGrupo=$request->idGrupo;
+            $tb_fases_produccion->estado=1;
 
-            if ($tb_grupos->save()) {
+            if ($tb_fases_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido creado con éxito'
+                    'message' => 'fases_produccion ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue creado'
+                    'message' => 'fases_produccion no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -62,20 +63,21 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->grupo=$request->grupo;
-            $tb_grupos->descripcion=$request->descripcion;
-            $tb_grupos->estado='1';
+            $tb_fases_produccion=Tb_fases_produccion::findOrFail($request->id);
+            $tb_fases_produccion->nombre_fase=$request->nombre_fase;
+            $tb_fases_produccion->descripcion=$request->descripcion;
+            $tb_fases_produccion->idGrupo=$request->idGrupo;
+            $tb_fases_produccion->estado='1';
 
-            if ($tb_grupos->save()) {
+            if ($tb_fases_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo se actualizó con éxito'
+                    'message' => 'fases_produccion se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue actualizado'
+                    'message' => 'fases_produccion no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -89,18 +91,18 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->estado='0';
+            $tb_fases_produccion=Tb_fases_produccion::findOrFail($request->id);
+            $tb_fases_produccion->estado='0';
 
-            if ($tb_grupos->save()) {
+            if ($tb_fases_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido desactivado con éxito'
+                    'message' => 'fases_produccion ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue desactivado'
+                    'message' => 'fases_produccion no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -114,18 +116,18 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->estado='1';
+            $tb_fases_produccion=Tb_fases_produccion::findOrFail($request->id);
+            $tb_fases_produccion->estado='1';
 
-            if ($tb_grupos->save()) {
+            if ($tb_fases_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido activado con éxito'
+                    'message' => 'fases_produccion ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue activado'
+                    'message' => 'fases_produccion no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

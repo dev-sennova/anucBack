@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tb_grupos;
+use App\Models\Tb_grupos_conceptos;
 use Illuminate\Http\Request;
 
-class Tb_gruposController extends Controller
+class Tb_grupos_conceptosController extends Controller
 {
     public function index(Request $request)
     {
-        $grupo = Tb_grupos::orderBy('grupo','asc')
+        $grupos_conceptos = Tb_grupos_conceptos::orderBy('grupos_conceptos','asc')
         ->get();
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'grupos_conceptos' => $grupos_conceptos
         ];
     }
 
     public function indexOne(Request $request)
     {
-        $grupo = Tb_grupos::orderBy('grupo','desc')
-        ->where('Tb_grupos.id','=',$request->id)
+        $grupos_conceptos = Tb_grupos_conceptos::orderBy('grupos_conceptos','desc')
+        ->where('tb_grupos_conceptos.id','=',$request->id)
         ->get();
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'grupos_conceptos' => $grupos_conceptos
         ];
     }
 
@@ -35,20 +35,19 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=new Tb_grupos();
-            $tb_grupos->grupo=$request->grupo;
-            $tb_grupos->descripcion=$request->descripcion;
-            $tb_grupos->estado=1;
+            $tb_grupos_conceptos=new Tb_grupos_conceptos();
+            $tb_grupos_conceptos->grupo=$request->grupo;
+            $tb_grupos_conceptos->estado=1;
 
-            if ($tb_grupos->save()) {
+            if ($tb_grupos_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido creado con éxito'
+                    'message' => 'grupos_conceptos ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue creado'
+                    'message' => 'grupos_conceptos no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -62,20 +61,19 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->grupo=$request->grupo;
-            $tb_grupos->descripcion=$request->descripcion;
-            $tb_grupos->estado='1';
+            $tb_grupos_conceptos=Tb_grupos_conceptos::findOrFail($request->id);
+            $tb_grupos_conceptos->grupo=$request->grupo;
+            $tb_grupos_conceptos->estado='1';
 
-            if ($tb_grupos->save()) {
+            if ($tb_grupos_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo se actualizó con éxito'
+                    'message' => 'grupos_conceptos se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue actualizado'
+                    'message' => 'grupos_conceptos no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -89,18 +87,18 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->estado='0';
+            $tb_grupos_conceptos=Tb_grupos_conceptos::findOrFail($request->id);
+            $tb_grupos_conceptos->estado='0';
 
-            if ($tb_grupos->save()) {
+            if ($tb_grupos_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido desactivado con éxito'
+                    'message' => 'grupos_conceptos ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue desactivado'
+                    'message' => 'grupos_conceptos no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -114,18 +112,18 @@ class Tb_gruposController extends Controller
         //if(!$request->ajax()) return redirect('/');
 
         try {
-            $tb_grupos=Tb_grupos::findOrFail($request->id);
-            $tb_grupos->estado='1';
+            $tb_grupos_conceptos=Tb_grupos_conceptos::findOrFail($request->id);
+            $tb_grupos_conceptos->estado='1';
 
-            if ($tb_grupos->save()) {
+            if ($tb_grupos_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'El grupo ha sido activado con éxito'
+                    'message' => 'grupos_conceptos ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'El grupo no fue activado'
+                    'message' => 'grupos_conceptos no fue activado'
                    ]);
             }
         } catch (\Exception $e) {
