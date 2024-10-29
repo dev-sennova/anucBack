@@ -9,7 +9,7 @@ class Tb_fases_produccionController extends Controller
 {
     public function index(Request $request)
     {
-        $fases_produccion = Tb_fases_produccion::orderBy('fases_produccion','asc')
+        $fases_produccion = Tb_fases_produccion::orderBy('nombre_fase','asc')
         ->get();
 
         return [
@@ -20,8 +20,8 @@ class Tb_fases_produccionController extends Controller
 
     public function indexOne(Request $request)
     {
-        $fases_produccion = Tb_fases_produccion::orderBy('fases_produccion','desc')
-        ->where('tb_fases_produccion.id','=',$request->id)
+        $fases_produccion = Tb_fases_produccion::orderBy('nombre_fase','asc')
+        ->where('tb_fases_produccion.idGrupo','=',$request->id)
         ->get();
 
         return [
@@ -44,12 +44,12 @@ class Tb_fases_produccionController extends Controller
             if ($tb_fases_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'fases_produccion ha sido creado con éxito'
+                    'message' => 'fases produccion ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'fases_produccion no fue creado'
+                    'message' => 'fases produccion no fue creado'
                    ]);
             }
         } catch (\Exception $e) {

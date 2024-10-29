@@ -24,7 +24,7 @@ class Tb_grupo_categoriasController extends Controller
     {
         $grupo_categorias = Tb_grupo_categorias::join("tb_grupos","tb_grupo_categorias.idGrupo","=","tb_grupos.id")
         ->join("tb_productos","tb_grupo_categorias.idProducto","=","tb_productos.id")
-        ->orderBy('tb_grupo_categorias.id','asc')
+        ->orderBy('tb_productos.producto','asc')
         ->where('tb_grupo_categorias.idGrupo','=',$request->id)
         ->get();
 
