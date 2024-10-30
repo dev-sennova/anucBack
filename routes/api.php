@@ -246,6 +246,13 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("detallado_produccion/activate", "Tb_detallado_produccionController@activate");
      Route::get("detallado_produccion/selectdetallado_produccion/{id}", "Tb_detallado_produccionController@indexOne");
 
+     Route::get("medida_unidades", "Tb_medida_unidadesController@index");
+     Route::post("medida_unidades/store", "Tb_medida_unidadesController@store");
+     Route::put("medida_unidades/update", "Tb_medida_unidadesController@update");
+     Route::put("medida_unidades/deactivate", "Tb_medida_unidadesController@deactivate");
+     Route::put("medida_unidades/activate", "Tb_medida_unidadesController@activate");
+     Route::get("medida_unidades/selectmedida_unidades/{id}", "Tb_medida_unidadesController@indexOne");
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 
