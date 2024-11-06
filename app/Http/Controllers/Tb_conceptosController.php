@@ -9,7 +9,7 @@ class Tb_conceptosController extends Controller
 {
     public function index(Request $request)
     {
-        $conceptos = Tb_conceptos::orderBy('conceptos','asc')
+        $conceptos = Tb_conceptos::orderBy('concepto','asc')
         ->get();
 
         return [
@@ -20,8 +20,20 @@ class Tb_conceptosController extends Controller
 
     public function indexOne(Request $request)
     {
-        $conceptos = Tb_conceptos::orderBy('conceptos','desc')
+        $conceptos = Tb_conceptos::orderBy('concepto','desc')
         ->where('tb_conceptos.id','=',$request->id)
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'conceptos' => $conceptos
+        ];
+    }
+
+    public function indexOneGrupo(Request $request)
+    {
+        $conceptos = Tb_conceptos::orderBy('concepto','desc')
+        ->where('tb_conceptos.idGrupo','=',$request->id)
         ->get();
 
         return [
@@ -70,12 +82,12 @@ class Tb_conceptosController extends Controller
             if ($tb_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'conceptos se actualizó con éxito'
+                    'message' => 'Concepto se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'conceptos no fue actualizado'
+                    'message' => 'Concepto no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +107,12 @@ class Tb_conceptosController extends Controller
             if ($tb_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'conceptos ha sido desactivado con éxito'
+                    'message' => 'Concepto ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'conceptos no fue desactivado'
+                    'message' => 'Concepto no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +132,12 @@ class Tb_conceptosController extends Controller
             if ($tb_conceptos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'conceptos ha sido activado con éxito'
+                    'message' => 'Concepto ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'conceptos no fue activado'
+                    'message' => 'Concepto no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

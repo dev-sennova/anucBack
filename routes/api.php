@@ -231,6 +231,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("conceptos/deactivate", "Tb_conceptosController@deactivate");
      Route::put("conceptos/activate", "Tb_conceptosController@activate");
      Route::get("conceptos/selectconceptos/{id}", "Tb_conceptosController@indexOne");
+     Route::get("conceptos/selectconceptosgrupo/{id}", "Tb_conceptosController@indexOneGrupo");
 
      Route::get("hoja_de_costos", "Tb_hoja_de_costosController@index");
      Route::post("hoja_de_costos/store", "Tb_hoja_de_costosController@store");
