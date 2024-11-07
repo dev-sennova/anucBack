@@ -4,7 +4,7 @@
     {"id":"3","concepto":"Fertilizantes","idGrupo":"2","estado":"1"},
     {"id":"4","concepto":"Pesticidas","idGrupo":"2","estado":"1"},
     {"id":"5","concepto":"Herbicidas","idGrupo":"2","estado":"1"},
-    {"id":"6","concepto":"Fugnicidas","idGrupo":"2","estado":"1"},
+    {"id":"6","concepto":"Fungicidas","idGrupo":"2","estado":"1"},
     {"id":"7","concepto":"Otros insumos","idGrupo":"2","estado":"1"},
     {"id":"8","concepto":"Concentrados","idGrupo":"2","estado":"1"},
     {"id":"9","concepto":"Vacunas","idGrupo":"2","estado":"1"},

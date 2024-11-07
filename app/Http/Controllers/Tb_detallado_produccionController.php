@@ -9,7 +9,7 @@ class Tb_detallado_produccionController extends Controller
 {
     public function index(Request $request)
     {
-        $detallado_produccion = Tb_detallado_produccion::orderBy('detallado_produccion','asc')
+        $detallado_produccion = Tb_detallado_produccion::orderBy('idHojaCostos','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_detallado_produccionController extends Controller
 
     public function indexOne(Request $request)
     {
-        $detallado_produccion = Tb_detallado_produccion::orderBy('detallado_produccion','desc')
+        $detallado_produccion = Tb_detallado_produccion::orderBy('idHojaCostos','desc')
         ->where('tb_detallado_produccion.id','=',$request->id)
         ->get();
 
@@ -45,12 +45,12 @@ class Tb_detallado_produccionController extends Controller
             if ($tb_detallado_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'detallado_produccion ha sido creado con éxito'
+                    'message' => 'Detallado produccion ha sido creado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'detallado_produccion no fue creado'
+                    'message' => 'Detallado produccion no fue creado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -74,12 +74,12 @@ class Tb_detallado_produccionController extends Controller
             if ($tb_detallado_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'detallado_produccion se actualizó con éxito'
+                    'message' => 'Detallado produccion se actualizó con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'detallado_produccion no fue actualizado'
+                    'message' => 'Detallado produccion no fue actualizado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -99,12 +99,12 @@ class Tb_detallado_produccionController extends Controller
             if ($tb_detallado_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'detallado_produccion ha sido desactivado con éxito'
+                    'message' => 'Detallado produccion ha sido desactivado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'detallado_produccion no fue desactivado'
+                    'message' => 'Detallado produccion no fue desactivado'
                    ]);
             }
         } catch (\Exception $e) {
@@ -124,12 +124,12 @@ class Tb_detallado_produccionController extends Controller
             if ($tb_detallado_produccion->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'detallado_produccion ha sido activado con éxito'
+                    'message' => 'Detallado produccion ha sido activado con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'detallado_produccion no fue activado'
+                    'message' => 'Detallado produccion no fue activado'
                    ]);
             }
         } catch (\Exception $e) {

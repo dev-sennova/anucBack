@@ -254,6 +254,9 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("medida_unidades/activate", "Tb_medida_unidadesController@activate");
      Route::get("medida_unidades/selectmedida_unidades/{id}", "Tb_medida_unidadesController@indexOne");
 
+     Route::get("costeo/categorias_usuario/{id}", "CosteoController@categoriasPorUsuario");
+     Route::get("costeo/productos_usuario/{id}", "CosteoController@productosPorUsuario");
+
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
 

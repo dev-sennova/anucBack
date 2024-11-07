@@ -9,7 +9,7 @@ class Tb_hoja_de_costosController extends Controller
 {
     public function index(Request $request)
     {
-        $hoja_de_costos = Tb_hoja_de_costos::orderBy('hoja_de_costos','asc')
+        $hoja_de_costos = Tb_hoja_de_costos::orderBy('id','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_hoja_de_costosController extends Controller
 
     public function indexOne(Request $request)
     {
-        $hoja_de_costos = Tb_hoja_de_costos::orderBy('hoja_de_costos','desc')
+        $hoja_de_costos = Tb_hoja_de_costos::orderBy('id','desc')
         ->where('tb_hoja_de_costos.id','=',$request->id)
         ->get();
 
@@ -43,12 +43,12 @@ class Tb_hoja_de_costosController extends Controller
             if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'hoja_de_costos ha sido creado con éxito'
+                    'message' => 'Hoja de costos ha sido creada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'hoja_de_costos no fue creado'
+                    'message' => 'Hoja de costos no fue creada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -75,7 +75,7 @@ class Tb_hoja_de_costosController extends Controller
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'hoja_de_costos no fue actualizado'
+                    'message' => 'Hoja de costos no fue actualizada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -95,12 +95,12 @@ class Tb_hoja_de_costosController extends Controller
             if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'hoja_de_costos ha sido desactivado con éxito'
+                    'message' => 'Hoja de costos ha sido desactivada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'hoja_de_costos no fue desactivado'
+                    'message' => 'Hoja de costos no fue desactivada'
                    ]);
             }
         } catch (\Exception $e) {
@@ -120,12 +120,12 @@ class Tb_hoja_de_costosController extends Controller
             if ($tb_hoja_de_costos->save()) {
                 return response()->json([
                     'estado' => 'Ok',
-                    'message' => 'hoja_de_costos ha sido activado con éxito'
+                    'message' => 'Hoja de costos ha sido activada con éxito'
                    ]);
             } else {
                 return response()->json([
                     'estado' => 'Error',
-                    'message' => 'hoja_de_costos no fue activado'
+                    'message' => 'Hoja de costos no fue activada'
                    ]);
             }
         } catch (\Exception $e) {
