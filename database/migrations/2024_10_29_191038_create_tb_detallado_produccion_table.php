@@ -18,14 +18,12 @@ class CreateTbDetalladoProduccionTable extends Migration
             $table->string('cantidad');
             $table->string('valorUnitario');
             $table->boolean('estado')->default(1);
-
-            // Clave foránea para producto categoria
             $table->unsignedBigInteger('idConcepto');
-            $table->foreign('idConcepto')->references('id')->on('tb_conceptos');
-
-            // Clave foránea para producto categoria
             $table->unsignedBigInteger('idHojaCostos');
+            $table->unsignedBigInteger('idFase');
+            $table->foreign('idConcepto')->references('id')->on('tb_conceptos');
             $table->foreign('idHojaCostos')->references('id')->on('tb_hoja_de_costos');
+            $table->foreign('idFase')->references('id')->on('tb_fases_produccion');
         });
     }
 

@@ -37,6 +37,7 @@ class Tb_hoja_de_costosController extends Controller
         try {
             $tb_hoja_de_costos=new Tb_hoja_de_costos();
             $tb_hoja_de_costos->idProducto=$request->idProducto;
+            $tb_hoja_de_costos->idAsociado=$request->idAsociado;
             $tb_hoja_de_costos->fecha=$request->fecha;
             $tb_hoja_de_costos->estado=1;
 
@@ -64,6 +65,7 @@ class Tb_hoja_de_costosController extends Controller
         try {
             $tb_hoja_de_costos=Tb_hoja_de_costos::findOrFail($request->id);
             $tb_hoja_de_costos->idProducto=$request->idProducto;
+            $tb_hoja_de_costos->idAsociado=$request->idAsociado;
             $tb_hoja_de_costos->fecha=$request->fecha;
             $tb_hoja_de_costos->estado='1';
 

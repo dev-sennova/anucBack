@@ -17,10 +17,10 @@ class CreateTbHojaDeCostosTable extends Migration
             $table->id();
             $table->string('fecha');
             $table->boolean('estado')->default(1);
-
-            // Clave foránea para producto categoria
             $table->unsignedBigInteger('idProducto');
+            $table->unsignedBigInteger('idAsociado');
             $table->foreign('idProducto')->references('id')->on('tb_productos');
+            $table->foreign('idAsociado')->references('id')->on('tb_asociados');
         });
     }
 

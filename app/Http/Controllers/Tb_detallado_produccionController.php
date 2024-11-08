@@ -39,6 +39,7 @@ class Tb_detallado_produccionController extends Controller
             $tb_detallado_produccion->cantidad=$request->cantidad;
             $tb_detallado_produccion->valorUnitario=$request->valorUnitario;
             $tb_detallado_produccion->idConcepto=$request->idConcepto;
+            $tb_detallado_produccion->idFase=$request->idFase;
             $tb_detallado_produccion->idHojaCostos=$request->idHojaCostos;
             $tb_detallado_produccion->estado=1;
 
@@ -68,6 +69,7 @@ class Tb_detallado_produccionController extends Controller
             $tb_detallado_produccion->cantidad=$request->cantidad;
             $tb_detallado_produccion->valorUnitario=$request->valorUnitario;
             $tb_detallado_produccion->idConcepto=$request->idConcepto;
+            $tb_detallado_produccion->idFase=$request->idFase;
             $tb_detallado_produccion->idHojaCostos=$request->idHojaCostos;
             $tb_detallado_produccion->estado='1';
 
