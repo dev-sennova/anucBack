@@ -38,7 +38,11 @@ class Tb_hoja_de_costosController extends Controller
             $tb_hoja_de_costos=new Tb_hoja_de_costos();
             $tb_hoja_de_costos->idProducto=$request->idProducto;
             $tb_hoja_de_costos->idAsociado=$request->idAsociado;
-            $tb_hoja_de_costos->fecha=$request->fecha;
+            $tb_hoja_de_costos->fecha=$request->fechaInicio;
+            $tb_hoja_de_costos->fechaFin=$request->fechaFin;
+            $tb_hoja_de_costos->descripcion=$request->descripcion;
+            $tb_hoja_de_costos->cantidad=$request->cantidad;
+            $tb_hoja_de_costos->esperado=$request->esperado;
             $tb_hoja_de_costos->estado=1;
 
             if ($tb_hoja_de_costos->save()) {
@@ -66,7 +70,11 @@ class Tb_hoja_de_costosController extends Controller
             $tb_hoja_de_costos=Tb_hoja_de_costos::findOrFail($request->id);
             $tb_hoja_de_costos->idProducto=$request->idProducto;
             $tb_hoja_de_costos->idAsociado=$request->idAsociado;
-            $tb_hoja_de_costos->fecha=$request->fecha;
+            $tb_hoja_de_costos->fecha=$request->fechaInicio;
+            $tb_hoja_de_costos->fechaFin=$request->fechaFin;
+            $tb_hoja_de_costos->descripcion=$request->descripcion;
+            $tb_hoja_de_costos->cantidad=$request->cantidad;
+            $tb_hoja_de_costos->esperado=$request->esperado;
             $tb_hoja_de_costos->estado='1';
 
             if ($tb_hoja_de_costos->save()) {

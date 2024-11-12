@@ -9,7 +9,7 @@ class Tb_generalidades_produccionController extends Controller
 {
     public function index(Request $request)
     {
-        $generalidades_produccion = Tb_generalidades_produccion::orderBy('generalidades_produccion','asc')
+        $generalidades_produccion = Tb_generalidades_produccion::orderBy('idGrupo','asc')
         ->get();
 
         return [
@@ -20,7 +20,7 @@ class Tb_generalidades_produccionController extends Controller
 
     public function indexOne(Request $request)
     {
-        $generalidades_produccion = Tb_generalidades_produccion::orderBy('generalidades_produccion','desc')
+        $generalidades_produccion = Tb_generalidades_produccion::orderBy('idGrupo','desc')
         ->where('tb_generalidades_produccion.id','=',$request->id)
         ->get();
 

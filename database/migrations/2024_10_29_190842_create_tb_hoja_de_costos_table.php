@@ -15,7 +15,11 @@ class CreateTbHojaDeCostosTable extends Migration
     {
         Schema::create('tb_hoja_de_costos', function (Blueprint $table) {
             $table->id();
-            $table->string('fecha');
+            $table->string('fechaInicio');
+            $table->string('fechaFin');
+            $table->string('descripcion');
+            $table->integer('cantidad');
+            $table->integer('esperado');
             $table->boolean('estado')->default(1);
             $table->unsignedBigInteger('idProducto');
             $table->unsignedBigInteger('idAsociado');
