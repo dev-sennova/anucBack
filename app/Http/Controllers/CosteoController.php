@@ -63,8 +63,9 @@ class CosteoController extends Controller
         $hojas_por_grupo = Tb_hoja_de_costos::join('tb_grupo_categorias','tb_hoja_de_costos.idProducto','=','tb_grupo_categorias.idProducto')
         ->join('tb_grupos','tb_grupo_categorias.idGrupo','=','tb_grupos.id')
         ->join('tb_productos','tb_hoja_de_costos.idProducto','=','tb_productos.id')
-        ->select('tb_hoja_de_costos.id as idHoja', 'tb_hoja_de_costos.fecha','tb_hoja_de_costos.idAsociado',
-        'tb_productos.id as idProducto', 'tb_productos.producto as producto',
+        ->select('tb_hoja_de_costos.id as idHoja', 'tb_hoja_de_costos.fechaInicio','tb_hoja_de_costos.fechaFin',
+        'tb_hoja_de_costos.descripcion','tb_hoja_de_costos.unidad','tb_hoja_de_costos.cantidad','tb_hoja_de_costos.esperado',
+        'tb_hoja_de_costos.idAsociado','tb_productos.id as idProducto', 'tb_productos.producto as producto',
         'tb_grupos.id as idGrupo', 'tb_grupos.grupo as grupo', 'tb_grupos.descripcion as descripcionGrupo')
         ->where('tb_grupos.id','=',$idGrupo)
         ->where('tb_hoja_de_costos.idAsociado','=',$idAsociado)
