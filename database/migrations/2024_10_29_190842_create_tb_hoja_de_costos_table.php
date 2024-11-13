@@ -18,6 +18,7 @@ class CreateTbHojaDeCostosTable extends Migration
             $table->string('fechaInicio');
             $table->string('fechaFin');
             $table->string('descripcion');
+            $table->string('unidad');
             $table->integer('cantidad');
             $table->integer('esperado');
             $table->boolean('estado')->default(1);
