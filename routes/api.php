@@ -258,6 +258,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::get("costeo/productos_usuario/{id}", "CosteoController@productosPorUsuario");
      Route::get("costeo/hojas_grupo/", "CosteoController@hojasPorGrupo");
      Route::get("costeo/hojas_detallado/{id}", "CosteoController@detalladoHoja");
+     Route::get("costeo/hojas_calculo/{id}", "CosteoController@calculoHoja");
 
      Route::post('/upload-image', 'ImageController@uploadImage');
     });
