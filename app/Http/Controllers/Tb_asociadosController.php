@@ -260,4 +260,50 @@ class Tb_asociadosController extends Controller
         }
 
     }
+
+    public function indexAllDetalle()
+    {
+        $listaasociados = Tb_asociados::get();
+
+        $resultado=[];
+
+        foreach ($listaasociados as $global) {
+
+            $idAsociadoGlobal = $global->id;
+
+            $asociado = Tb_asociados::join("tb_personas","tb_asociados.persona","=","tb_personas.id")
+            ->where('tb_asociados.id','=',$idAsociadoGlobal)
+            ->select('tb_asociados.id as idAsociado','tb_personas.id as idPersona','tb_personas.identificacion','tb_personas.nombres',
+            'tb_personas.apellidos')
+            ->get();
+
+            $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+            ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
+            ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+            ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
+            ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
+            ->select('tb_fincas.id as idFinca','tb_fincas.nombre','tb_produccion.id as idProduccion','tb_productos.id as idProducto',
+            'tb_productos.producto')
+            ->where('tb_asociados.id','=',$idAsociadoGlobal)
+            ->get();
+
+            $familiares = Tb_familiares::join("tb_personas","tb_familiares.persona","=","tb_personas.id")
+            ->where('tb_familiares.asociado','=',$idAsociadoGlobal)
+            ->select('tb_personas.id as idPersona','tb_personas.identificacion','tb_personas.nombres','tb_personas.apellidos',
+            'tb_familiares.id as idFamiliar','tb_familiares.parentesco')
+            ->get();
+
+            $resultado[] = [
+                'asociado' => $asociado,
+                'familiares' => $familiares,
+                'produccion' => $produccion
+            ];
+        }
+
+
+        return [
+            'estado' => 'Ok',
+            'resultados' => $resultado
+        ];
+    }
 }

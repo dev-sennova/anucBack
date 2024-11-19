@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tb_asociados;
 use App\Models\Tb_personas;
+use App\Models\Tb_usuario_rol;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Tb_personasController extends Controller
@@ -33,6 +36,9 @@ class Tb_personasController extends Controller
     public function store(Request $request)
     {
         //if(!$request->ajax()) return redirect('/');
+        $idRol=$request->idRol;
+        // if idRol = 0 -> solo persona if idRol = 3 asociado
+        $encriptedPass='$2y$10$HlO4ipHoq0nktFaUdaB9KuQ8C1f3Rh.PfGexQtjhTHPR4vkNZc.Dy';
 
         try {
             $tb_personas=new Tb_personas();
@@ -51,11 +57,59 @@ class Tb_personasController extends Controller
             $tb_personas->estado=1;
 
             if ($tb_personas->save()) {
-                return response()->json([
-                    'estado' => 'Ok',
-                    'id' => $tb_personas->id,
-                    'message' => 'Las personas han sido creadas con éxito'
-                   ]);
+
+                $idPersona=$tb_personas->id;
+
+                if($idRol=='0'){
+                    return response()->json([
+                        'estado' => 'Ok',
+                        'id' => $idPersona,
+                        'message' => 'Las personas han sido creadas con éxito'
+                       ]);
+                }else if($idRol=='3'){
+                    $new_user=new User();
+                    $new_user->identificacion=$request->identificacion;
+                    $new_user->email=$request->correo;
+                    $new_user->password=$encriptedPass;
+                    if ($new_user->save()) {
+                        $idUsuario = $new_user->id;
+                        $new_user_rol=new Tb_usuario_rol();
+                        $new_user_rol->idRol=$idRol;
+                        $new_user_rol->idUsuario=$idUsuario;
+                        if ($new_user_rol->save()) {
+
+                            $new_asociado=new Tb_asociados();
+                            $new_asociado -> persona=$idPersona;
+                            $new_asociado -> categoria='1';
+
+                            if ($new_asociado->save()) {
+                                $idAsociado = $new_asociado->id;
+                                return response()->json([
+                                    'estado' => 'Ok',
+                                    'id' => $idAsociado,
+                                    'message' => 'El asociado ha sido creado con éxito'
+                                   ]);
+                            }else {
+                                return response()->json([
+                                    'estado' => 'Error',
+                                    'message' => 'Usuario no fue creado'
+                                   ]);
+                            }
+
+                        }else {
+                        return response()->json([
+                            'estado' => 'Error',
+                            'message' => 'Usuario rol no fue creado'
+                           ]);
+                        }
+                    } else {
+                        return response()->json([
+                            'estado' => 'Error',
+                            'message' => 'El usuario no fue creado'
+                           ]);
+                    }
+                }
+
             } else {
                 return response()->json([
                     'estado' => 'Error',
@@ -63,7 +117,7 @@ class Tb_personasController extends Controller
                    ]);
             }
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Ocurrió un error interno'], 500);
+            return response()->json(['error' => 'Ocurrió un error interno'+$e], 500);
         }
 
     }

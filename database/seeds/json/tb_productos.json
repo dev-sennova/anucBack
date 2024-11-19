@@ -57,5 +57,6 @@
     {"id":"56","producto":"Hoja de Platano","imagenProducto":"","categoria":"6","estado":"1"},
     {"id":"57","producto":"Ahuyama","imagenProducto":"","categoria":"3","estado":"1"},
     {"id":"58","producto":"Ruda","imagenProducto":"","categoria":"5","estado":"1"},
-    {"id":"59","producto":"Bocadillo","imagenProducto":"","categoria":"1","estado":"1"}
+    {"id":"59","producto":"Bocadillo","imagenProducto":"","categoria":"1","estado":"1"},
+    {"id":"60","producto":"Tomate de árbol","imagenProducto":"","categoria":"1","estado":"1"}
 ]

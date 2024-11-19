@@ -30,7 +30,7 @@
     {"id":"29","asociado":"29","persona":"102","parentesco":"4","estado":"1"},
     {"id":"30","asociado":"30","persona":"103","parentesco":"3","estado":"1"},
     {"id":"31","asociado":"31","persona":"105","parentesco":"4","estado":"1"},
-    {"id":"32","asociado":"32","persona":"106","parentesco":"4","estado":"1"},
+    {"id":"32","asociado":"33","persona":"106","parentesco":"4","estado":"1"},
     {"id":"33","asociado":"34","persona":"107","parentesco":"4","estado":"1"},
     {"id":"34","asociado":"35","persona":"108","parentesco":"4","estado":"1"},
     {"id":"35","asociado":"36","persona":"109","parentesco":"3","estado":"1"},
@@ -139,7 +139,7 @@
     {"id":"135","asociado":"74","persona":"240","parentesco":"3","estado":"1"},
     {"id":"136","asociado":"83","persona":"241","parentesco":"3","estado":"1"},
 
-    {"id":"137","asociado":"11","persona":"187","parentesco":"3","estado":"1"},
+    {"id":"137","asociado":"17","persona":"187","parentesco":"3","estado":"1"},
     {"id":"138","asociado":"20","persona":"188","parentesco":"5","estado":"1"},
     {"id":"139","asociado":"35","persona":"189","parentesco":"3","estado":"1"},
     {"id":"140","asociado":"43","persona":"190","parentesco":"5","estado":"1"},
