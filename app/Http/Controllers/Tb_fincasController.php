@@ -44,8 +44,10 @@ class Tb_fincasController extends Controller
             $tb_fincas->estado=1;
 
             if ($tb_fincas->save()) {
+                $idFinca = $tb_fincas->id;
                 return response()->json([
                     'estado' => 'Ok',
+                    'id' => $idFinca,
                     'message' => 'La finca ha sido creada con éxito'
                    ]);
             } else {
