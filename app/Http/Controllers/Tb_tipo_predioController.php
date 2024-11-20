@@ -21,7 +21,7 @@ class Tb_tipo_predioController extends Controller
     public function indexOne(Request $request)
     {
         $tipo_predio = Tb_tipo_predio::orderBy('tipo_predio','desc')
-        ->where('tb_tipo_predio.id','=',$request->id)
+        ->where('tb_tipo_predios.id','=',$request->id)
         ->get();
 
         return [
