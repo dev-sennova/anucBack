@@ -33,10 +33,6 @@ Route::group(['prefix' => 'auth'], function () {
 
     // Las siguientes rutas además del prefijo requieren que el usuario tenga un token válido
 
-    Route::options('/costeo/hojas_grupo', function () {
-        return response('', 200);
-    });
-
     Route::group(['middleware' => 'auth:api'], function() {
      Route::get('logout', 'AuthController@logout');
      Route::get('user', 'AuthController@user');
