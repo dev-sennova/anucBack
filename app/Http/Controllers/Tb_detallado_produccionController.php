@@ -37,6 +37,7 @@ class Tb_detallado_produccionController extends Controller
         try {
             $tb_detallado_produccion=new Tb_detallado_produccion();
             $tb_detallado_produccion->cantidad=$request->cantidad;
+            $tb_detallado_produccion->detalle=$request->detalle;
             $tb_detallado_produccion->valorUnitario=$request->valorUnitario;
             $tb_detallado_produccion->idConcepto=$request->idConcepto;
             $tb_detallado_produccion->idFase=$request->idFase;
@@ -67,6 +68,7 @@ class Tb_detallado_produccionController extends Controller
         try {
             $tb_detallado_produccion=Tb_detallado_produccion::findOrFail($request->id);
             $tb_detallado_produccion->cantidad=$request->cantidad;
+            $tb_detallado_produccion->detalle=$request->detalle;
             $tb_detallado_produccion->valorUnitario=$request->valorUnitario;
             $tb_detallado_produccion->idConcepto=$request->idConcepto;
             $tb_detallado_produccion->idFase=$request->idFase;

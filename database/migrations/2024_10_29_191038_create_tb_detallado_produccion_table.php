@@ -16,6 +16,7 @@ class CreateTbDetalladoProduccionTable extends Migration
         Schema::create('tb_detallado_produccion', function (Blueprint $table) {
             $table->id();
             $table->string('cantidad');
+            $table->string('detalle');
             $table->string('valorUnitario');
             $table->boolean('estado')->default(1);
             $table->unsignedBigInteger('idConcepto');

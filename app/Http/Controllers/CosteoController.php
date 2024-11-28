@@ -83,8 +83,9 @@ class CosteoController extends Controller
 
         $detallado_hoja = Tb_detallado_produccion::join('tb_fases_produccion','tb_fases_produccion.id','=','tb_detallado_produccion.idFase')
         ->join('tb_conceptos','tb_detallado_produccion.idConcepto','=','tb_conceptos.id')
-        ->select('tb_detallado_produccion.id as idDetallado', 'tb_detallado_produccion.cantidad', 'tb_detallado_produccion.valorUnitario',
-        'tb_fases_produccion.id as idFase', 'tb_fases_produccion.nombre_fase', 'tb_conceptos.id as idConcepto','tb_conceptos.concepto','tb_detallado_produccion.idHojaCostos')
+        ->select('tb_detallado_produccion.id as idDetallado', 'tb_detallado_produccion.cantidad', 'tb_detallado_produccion.detalle',
+        'tb_detallado_produccion.valorUnitario','tb_fases_produccion.id as idFase', 'tb_fases_produccion.nombre_fase',
+        'tb_conceptos.id as idConcepto','tb_conceptos.concepto','tb_detallado_produccion.idHojaCostos')
         ->where('tb_detallado_produccion.idHojaCostos','=',$id)
         ->get();
 
@@ -158,6 +159,7 @@ class CosteoController extends Controller
                     ->select(
                         'tb_detallado_produccion.id as idDetallado',
                         'tb_detallado_produccion.cantidad',
+                        'tb_detallado_produccion.detalle',
                         'tb_detallado_produccion.valorUnitario',
                         DB::raw('tb_detallado_produccion.cantidad * tb_detallado_produccion.valorUnitario as subtotal'),
                         'tb_conceptos.id as idConcepto',
