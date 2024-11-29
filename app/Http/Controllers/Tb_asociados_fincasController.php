@@ -174,4 +174,34 @@ class Tb_asociados_fincasController extends Controller
         ];
     }
 
+    public function indexByAsociado(Request $request)
+    {
+        # Modelo::join('tablaqueseune',basicamente un on)
+        $asociados_finca = Tb_asociados_fincas::join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
+        ->join("tb_tipo_predios","tb_asociados_fincas.tipo_predio","=","tb_tipo_predios.id")
+        ->join("tb_asociados","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_categorias","tb_asociados.categoria","=","tb_categorias.id")
+        ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+        ->where('tb_asociados_fincas.asociado','=',$request->idAsociado)
+        ->select(
+            "tb_asociados_fincas.id as idAsociacion",
+            "tb_fincas.id as idFinca",
+            "tb_fincas.nombre as nombreFinca",
+            "tb_fincas.extension",
+            "tb_fincas.latitud",
+            "tb_fincas.longitud",
+            "tb_tipo_predios.id as idTipoPredio",
+            "tb_tipo_predios.tipo_predio as tipo_predio",
+            "tb_asociados.id as idAsociado",
+            "tb_veredas.id as idVereda",
+            "tb_veredas.vereda as nombreVereda"
+        )
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'asociados_finca' => $asociados_finca
+        ];
+    }
+
 }

@@ -161,6 +161,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados_finca/deactivate", "Tb_asociados_fincasController@deactivate");
      Route::put("asociados_finca/activate", "Tb_asociados_fincasController@activate");
      Route::get("asociados_finca/selectasociados_finca/{id}", "Tb_asociados_fincasController@indexOne");
+     Route::get("asociados_finca/select_finca/{idAsociado}", "Tb_asociados_fincasController@indexByAsociado");
      Route::get("asociados_finca/detallado", "Tb_asociados_fincasController@detallado");
 
      Route::get("produccion", "Tb_produccionController@index");
