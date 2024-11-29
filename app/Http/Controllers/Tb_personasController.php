@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tb_asociado_permisos;
 use App\Models\Tb_asociados;
 use App\Models\Tb_personas;
 use App\Models\Tb_usuario_rol;
@@ -60,13 +61,13 @@ class Tb_personasController extends Controller
 
                 $idPersona=$tb_personas->id;
 
-                if($idRol != '0'){
+                if($idRol =='0'){
                     return response()->json([
                         'estado' => 'Ok',
                         'id' => $idPersona,
                         'message' => 'Las personas han sido creadas con éxito'
                        ]);
-                }else if($idRol=='3'){
+                }else if($idRol =='3'){
                     $new_user=new User();
                     $new_user->identificacion=$request->identificacion;
                     $new_user->email=$request->correo;
@@ -84,11 +85,27 @@ class Tb_personasController extends Controller
 
                             if ($new_asociado->save()) {
                                 $idAsociado = $new_asociado->id;
-                                return response()->json([
-                                    'estado' => 'Ok',
-                                    'id' => $idAsociado,
-                                    'message' => 'El asociado ha sido creado con éxito'
-                                   ]);
+
+                                $new_permisos=new Tb_asociado_permisos();
+                                $new_permisos -> asociado=$idAsociado;
+                                $new_permisos -> telefono='2';
+                                $new_permisos -> correo='2';
+                                $new_permisos -> whatsapp='2';
+                                $new_permisos -> facebook='2';
+                                $new_permisos -> instagram='2';
+
+                                if ($new_permisos->save()) {
+                                    return response()->json([
+                                        'estado' => 'Ok',
+                                        'id' => $idAsociado,
+                                        'message' => 'El asociado ha sido creado con éxito'
+                                       ]);
+                                }else {
+                                    return response()->json([
+                                        'estado' => 'Error',
+                                        'message' => 'Usuario permisos no fue creado'
+                                    ]);
+                                }
                             }else {
                                 return response()->json([
                                     'estado' => 'Error',
