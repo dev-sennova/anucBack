@@ -60,7 +60,7 @@ class Tb_personasController extends Controller
 
                 $idPersona=$tb_personas->id;
 
-                if($idRol=='0'){
+                if($idRol != '0'){
                     return response()->json([
                         'estado' => 'Ok',
                         'id' => $idPersona,
