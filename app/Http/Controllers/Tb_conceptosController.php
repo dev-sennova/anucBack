@@ -20,7 +20,7 @@ class Tb_conceptosController extends Controller
 
     public function indexOne(Request $request)
     {
-        $conceptos = Tb_conceptos::orderBy('concepto','desc')
+        $conceptos = Tb_conceptos::orderBy('concepto','asc')
         ->where('tb_conceptos.id','=',$request->id)
         ->get();
 
@@ -32,7 +32,7 @@ class Tb_conceptosController extends Controller
 
     public function indexOneGrupo(Request $request)
     {
-        $conceptos = Tb_conceptos::orderBy('concepto','desc')
+        $conceptos = Tb_conceptos::orderBy('concepto','asc')
         ->where('tb_conceptos.idGrupo','=',$request->id)
         ->get();
 
