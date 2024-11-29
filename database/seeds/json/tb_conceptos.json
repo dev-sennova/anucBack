@@ -20,5 +20,6 @@
     {"id":"19","concepto":"Veterinario","idGrupo":"3","estado":"1"},
     {"id":"20","concepto":"Compra de paquetes de datos celular","idGrupo":"3","estado":"1"},
     {"id":"21","concepto":"Empaques y/o bolsas","idGrupo":"3","estado":"1"},
-    {"id":"22","concepto":"Otros costos","idGrupo":"3","estado":"1"}
+    {"id":"22","concepto":"Otros costos","idGrupo":"3","estado":"1"},
+    {"id":"23","concepto":"Depreciación","idGrupo":"3","estado":"1"}
 ]
