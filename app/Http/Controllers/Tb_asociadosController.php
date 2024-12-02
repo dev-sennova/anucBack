@@ -53,14 +53,22 @@ class Tb_asociadosController extends Controller
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
+        $finca = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
+        ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
+        ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
+        ->select('tb_asociados.id as idAsociado','tb_fincas.id as idFinca','tb_fincas.nombre','tb_fincas.extension','tb_fincas.vereda as idVereda',
+        'tb_veredas.vereda as nombreVereda')
+        ->where('tb_asociados.id','=',$request->id)
+        ->get();
+
         $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
         ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
         ->join("tb_veredas","tb_fincas.vereda","=","tb_veredas.id")
         ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
         ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
-        ->select('tb_asociados.id as idAsociado','tb_fincas.id as idFinca','tb_fincas.nombre','tb_fincas.vereda','tb_fincas.extension',
-        'tb_produccion.id as idProduccion','tb_produccion.produccion','tb_produccion.periodicidad','tb_produccion.medida',
-        'tb_produccion.estado as estadoProduccion','tb_productos.id as idProducto','tb_productos.producto','tb_productos.imagenProducto')
+        ->select('tb_asociados.id as idAsociado','tb_produccion.id as idProduccion','tb_produccion.produccion','tb_produccion.periodicidad',
+        'tb_produccion.medida','tb_produccion.estado as estadoProduccion','tb_productos.id as idProducto','tb_productos.producto',
+        'tb_productos.imagenProducto')
         ->where('tb_asociados.id','=',$request->id)
         ->get();
 
@@ -76,6 +84,7 @@ class Tb_asociadosController extends Controller
             'asociado' => $asociado,
             'permisos' => $permisos,
             'familiares' => $familiares,
+            'finca' => $finca,
             'produccion' => $produccion
         ];
     }
