@@ -204,4 +204,16 @@ class Tb_asociados_fincasController extends Controller
         ];
     }
 
+    public function indexOneByAsociado(Request $request)
+    {
+        # Modelo::join('tablaqueseune',basicamente un on)
+        $asociacion_finca = Tb_asociados_fincas::where('tb_asociados_fincas.asociado','=',$request->idAsociado)
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'asociacion_finca' => $asociacion_finca
+        ];
+    }
+
 }

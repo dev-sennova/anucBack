@@ -27,6 +27,18 @@ class Tb_ofertaController extends Controller
         ], 200);
     }
 
+    public function indexPublico()
+    {
+        $ofertas = Tb_oferta::where('tb_ofertas.estado','=',1)
+            ->orderBy('id', 'asc')
+            ->get();
+
+        return response()->json([
+            'estado' => 'Ok',
+            'ofertas' => $ofertas
+        ], 200);
+    }
+
     public function indexOne(Request $request)
     {
         $ofertas = Tb_oferta::orderBy('id', 'desc')

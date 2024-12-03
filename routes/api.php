@@ -26,7 +26,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/resend-email','AuthController@resendEmail')->name('resend_email');
     Route::post('register', 'AuthController@register');
     Route::get("empresa_globales_publico", "Tb_empresa_globalesController@indexPublico");
-    Route::get("ofertas", "Tb_ofertaController@index");
+    Route::get("ofertaspublicas", "Tb_ofertaController@indexPublico");
     Route::get("producto", "Tb_productosController@index");
     Route::get("categoria", "Tb_producto_categoriasController@index");
     Route::get("unidad", "Tb_medida_unidadesController@index");
@@ -161,6 +161,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados_finca/deactivate", "Tb_asociados_fincasController@deactivate");
      Route::put("asociados_finca/activate", "Tb_asociados_fincasController@activate");
      Route::get("asociados_finca/selectasociados_finca/{id}", "Tb_asociados_fincasController@indexOne");
+     Route::get("asociados_finca/selectasociados_fincaAsociado/{idAsociado}", "Tb_asociados_fincasController@indexOneByAsociado");
      Route::get("asociados_finca/select_finca/{idAsociado}", "Tb_asociados_fincasController@indexByAsociado");
      Route::get("asociados_finca/detallado", "Tb_asociados_fincasController@detallado");
 
@@ -170,8 +171,10 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("produccion/deactivate", "Tb_produccionController@deactivate");
      Route::put("produccion/activate", "Tb_produccionController@activate");
      Route::get("produccion/selectproduccion/{id}", "Tb_produccionController@indexOne");
+     Route::get("produccion/selectproduccionByAsociado/{id}", "Tb_produccionController@indexByAsociado");
 
      //Route::get("ofertas", "Tb_ofertaController@index");
+     Route::get("ofertas", "Tb_ofertaController@index");
      Route::post("ofertas/store", "Tb_ofertaController@store");
      Route::put("ofertas/update", "Tb_ofertaController@update");
      Route::put("ofertas/deactivate", "Tb_ofertaController@deactivate");
@@ -248,6 +251,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("detallado_produccion/deactivate", "Tb_detallado_produccionController@deactivate");
      Route::put("detallado_produccion/activate", "Tb_detallado_produccionController@activate");
      Route::get("detallado_produccion/selectdetallado_produccion/{id}", "Tb_detallado_produccionController@indexOne");
+     Route::post("detallado_produccion/delete", "Tb_detallado_produccionController@delete");
 
      Route::get("medida_unidades", "Tb_medida_unidadesController@index");
      Route::post("medida_unidades/store", "Tb_medida_unidadesController@store");

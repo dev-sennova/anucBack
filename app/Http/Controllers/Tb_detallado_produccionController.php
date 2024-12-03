@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tb_detallado_produccion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Tb_detallado_produccionController extends Controller
 {
@@ -141,4 +142,39 @@ class Tb_detallado_produccionController extends Controller
         }
 
     }
+
+    public function delete(Request $request)
+    {
+        try {
+            // Deshabilitar las restricciones de claves foráneas temporalmente
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+            // Intentar eliminar físicamente el registro
+            $tb_detallado_produccion = Tb_detallado_produccion::findOrFail($request->id);
+
+            if ($tb_detallado_produccion->delete()) {
+                // Rehabilitar las restricciones
+                DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+                return response()->json([
+                    'estado' => 'Ok',
+                    'message' => 'Detallado produccion ha sido eliminado con éxito'
+                ]);
+            } else {
+                DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+                return response()->json([
+                    'estado' => 'Error',
+                    'message' => 'El registro no pudo ser eliminado'
+                ], 500);
+            }
+        } catch (\Exception $e) {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+            return response()->json([
+                'estado' => 'Error',
+                'message' => 'Ocurrió un error interno',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
 }
