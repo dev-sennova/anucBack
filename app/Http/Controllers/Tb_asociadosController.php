@@ -330,4 +330,20 @@ class Tb_asociadosController extends Controller
         ];
     }
 
+    public function indexOneContacto(Request $request)
+    {
+        $permisos = Tb_asociados::join("tb_personas","tb_asociados.persona","=","tb_personas.id")
+        ->join("tb_asociado_permisos","tb_asociados.id","=","tb_asociado_permisos.asociado")
+        ->where('tb_asociados.id','=',$request->id)
+        ->select('tb_personas.telefono','tb_personas.correo','tb_personas.whatsapp','tb_personas.facebook','tb_personas.instagram',
+        'tb_asociado_permisos.telefono as permisoTelefono','tb_asociado_permisos.correo as permisoCorreo','tb_asociado_permisos.whatsapp as permisoWhatsapp',
+        'tb_asociado_permisos.facebook as permisoFacebook','tb_asociado_permisos.instagram as permisoInstagram')
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'permisos' => $permisos
+        ];
+    }
+
 }

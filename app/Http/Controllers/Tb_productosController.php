@@ -30,6 +30,18 @@ class Tb_productosController extends Controller
         ];
     }
 
+    public function indexImagen(Request $request)
+    {
+        $productos = Tb_productos::where('tb_productos.id','=',$request->id)
+        ->select('tb_productos.imagenProducto')
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'productos' => $productos
+        ];
+    }
+
     public function store(Request $request)
     {
         //if(!$request->ajax()) return redirect('/');

@@ -96,6 +96,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("producto/deactivate", "Tb_productosController@deactivate");
      Route::put("producto/activate", "Tb_productosController@activate");
      Route::get("producto/selectproducto/{id}", "Tb_productosController@indexOne");
+     Route::get("producto/imagenproducto/{id}", "Tb_productosController@indexImagen");
 
      Route::get("sexo", "Tb_sexosController@index");
      Route::post("sexo/store", "Tb_sexosController@store");
@@ -146,6 +147,7 @@ Route::group(['prefix' => 'auth'], function () {
      Route::put("asociados/activate", "Tb_asociadosController@activate");
      Route::get("asociados/selectasociados/{id}", "Tb_asociadosController@indexOne");
      Route::get("asociados/detallado/{id}", "Tb_asociadosController@indexOneDetalle");
+     Route::get("asociados/contacto/{id}", "Tb_asociadosController@indexOneContacto");
      Route::get("asociados/ofertas/{id}", "Tb_asociadosController@indexOneOfertas");
      Route::put("asociados/passwordupdate", "Tb_asociadosController@updatePassword");
      Route::get("asociados/alldetallado/", "Tb_asociadosController@indexAllDetalle");
