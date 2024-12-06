@@ -314,4 +314,20 @@ class Tb_asociadosController extends Controller
             'resultados' => $resultado
         ];
     }
+
+    public function indexFamiliaresDetalle(Request $request)
+    {
+        $familiares = Tb_familiares::join("tb_personas","tb_familiares.persona","=","tb_personas.id")
+        ->where('tb_familiares.asociado','=',$request->id)
+        ->select('tb_personas.identificacion','tb_personas.nombres','tb_personas.apellidos','tb_personas.telefono',
+        'tb_personas.correo','tb_personas.fecha_nacimiento', 'tb_familiares.estado', 'tb_personas.tipo_documento', 'tb_personas.sexo',
+        'tb_personas.estado_civil','tb_familiares.id as idFamiliar','tb_familiares.asociado','tb_familiares.parentesco','tb_familiares.persona')
+        ->get();
+
+        return [
+            'estado' => 'Ok',
+            'familiares' => $familiares
+        ];
+    }
+
 }

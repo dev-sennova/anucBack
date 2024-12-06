@@ -26,7 +26,7 @@ class CosteoController extends Controller
             join tb_productos tpr on tp.producto = tpr.id
             join tb_grupo_categorias tgc on tgc.idProducto = tpr.id
             join tb_grupos tg on tgc.idGrupo = tg.id
-            WHERE aso.id = ?
+            WHERE tp.estado=1 AND aso.id = ?
         ", [$id]);
 
         return [
@@ -46,6 +46,7 @@ class CosteoController extends Controller
         ->join('tb_grupos','tb_grupo_categorias.idGrupo','=','tb_grupos.id')
         ->select('tb_asociados.id as idAsociado', 'tb_productos.id as idProducto', 'tb_productos.producto as producto',
         'tb_grupos.id as idGrupo', 'tb_grupos.grupo as grupo', 'tb_grupos.descripcion as descripcionGrupo')
+        ->where('tb_produccion.estado','=',1)
         ->where('tb_asociados.id','=',$id)
         ->get();
 
