@@ -27,6 +27,9 @@ class CreateTbEmpresaGlobalesTable extends Migration
             $table->string('instagram');
             $table->text('mision');
             $table->text('vision');
+            $table->string('vencimiento');
+            $table->string('presidente');
+            $table->string('secretario');
             $table->longText('estatutos');
             $table->boolean('estado')->default(1);
         });

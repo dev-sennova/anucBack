@@ -29,6 +29,9 @@ class Tb_empresa_globalesSeeder extends Seeder
                 'mision' => $item->mision,
                 'vision' => $item->vision,
                 'direccion' => $item->direccion,
+                'vencimiento' => $item->vencimiento,
+                'presidente' => $item->presidente,
+                'secretario' => $item->secretario,
                 'estatutos' => $item->estatutos,
                 'estado' => $item->estado
             ));
