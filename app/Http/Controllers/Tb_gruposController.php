@@ -14,7 +14,7 @@ class Tb_gruposController extends Controller
 
         return [
             'estado' => 'Ok',
-            'grupo' => $grupo
+            'grupos' => $grupo
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tb_grupo_categorias;
 use App\Models\Tb_productos;
 use Illuminate\Http\Request;
 
@@ -54,10 +55,24 @@ class Tb_productosController extends Controller
             $tb_productos->estado=1;
 
             if ($tb_productos->save()) {
-                return response()->json([
-                    'estado' => 'Ok',
-                    'message' => 'Los productos han sido creados con éxito'
-                   ]);
+
+                $idProducto=$tb_productos->id;
+
+                $new_grupo_categorias = new Tb_grupo_categorias();
+                $new_grupo_categorias->idGrupo=$request->grupo;
+                $new_grupo_categorias->idProducto=$idProducto;
+
+                if($new_grupo_categorias->save()){
+                    return response()->json([
+                        'estado' => 'Ok',
+                        'message' => 'Los productos han sido creados con éxito'
+                       ]);
+                }else {
+                    return response()->json([
+                        'estado' => 'Error',
+                        'message' => 'La asociacion no fue creada'
+                       ]);
+                }
             } else {
                 return response()->json([
                     'estado' => 'Error',

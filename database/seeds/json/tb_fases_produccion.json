@@ -20,5 +20,10 @@
     {"id":"19","nombre_fase":"4.Transferencia a la fase de producción","descripcion":"Al alcanzar la madurez sexual, generalmente entre 16 y 20 semanas de edad, las gallinas se trasladan a instalaciones diseñadas para la producción de huevos. En esta fase las gallinas ponedoras reciben una dieta específica para maximizar la producción de huevos, rica en calcio y otros nutrientes esenciales para la formación de cáscaras fuertes y huevos de buena calidad, entre otros cuidados.","idGrupo":"3","estado":"1"},
     {"id":"20","nombre_fase":"5.Producción de huevos","descripcion":"Las gallinas comienzan a poner huevos regularmente. Por lo tanto se debe comenzar con la recolección , clasificación y limpieza de los huevos.","idGrupo":"3","estado":"1"},
     {"id":"21","nombre_fase":"6.Almacenamiento y envasado","descripcion":"Los huevos clasificados para la comercialización se almacenan o se empacan para su venta posterior.","idGrupo":"3","estado":"1"},
-    {"id":"22","nombre_fase":"7.Distribución","descripcion":"Esta fase tiene en cuenta lo relacionado con la publicidad, logística y transporte de los huevos que ya están listos para su venta.","idGrupo":"3","estado":"1"}
+    {"id":"22","nombre_fase":"7.Distribución","descripcion":"Esta fase tiene en cuenta lo relacionado con la publicidad, logística y transporte de los huevos que ya están listos para su venta.","idGrupo":"3","estado":"1"},
+    {"id":"23","nombre_fase":"1.Adquisición de materias primas","descripcion":"Se adquieren productos y/o insumos para la producción.","idGrupo":"4","estado":"1"},
+    {"id":"24","nombre_fase":"2.Preparación previa","descripcion":"Fase inicial de preparación y manejo de insumos y/o productos.","idGrupo":"4","estado":"1"},
+    {"id":"25","nombre_fase":"3.Transferencia a la fase de producción","descripcion":"Manejo y/o transformación de las materias primas en producto procesado.","idGrupo":"4","estado":"1"},
+    {"id":"26","nombre_fase":"4.Almacenamiento y envasado","descripcion":"Los productos transformados se almacenan o envasan para el transporte y venta al usuario final.","idGrupo":"4","estado":"1"},
+    {"id":"27","nombre_fase":"5.Distribución","descripcion":"Esta fase tiene en cuenta lo relacionado con la publicidad, logística y transporte de los productos que ya están listos para su venta.","idGrupo":"4","estado":"1"}
 ]
