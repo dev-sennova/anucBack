@@ -34,13 +34,12 @@ class Tb_produccionController extends Controller
     public function indexByAsociado(Request $request)
     {
         $produccion = Tb_asociados::join("tb_asociados_fincas","tb_asociados_fincas.asociado","=","tb_asociados.id")
-        ->join("tb_fincas","tb_asociados_fincas.finca","=","tb_fincas.id")
         ->join("tb_produccion","tb_asociados_fincas.id","=","tb_produccion.asociados_finca")
         ->join("tb_productos","tb_produccion.producto","=","tb_productos.id")
         ->select('tb_produccion.asociados_finca as idAsociado','tb_produccion.id as idProduccion','tb_produccion.produccion','tb_produccion.periodicidad',
         'tb_produccion.medida','tb_produccion.estado as estadoProduccion','tb_productos.id as idProducto','tb_productos.producto',
         'tb_productos.imagenProducto')
-        ->where('tb_produccion.asociados_finca','=',$request->id)
+        ->where('tb_asociados.id','=',$request->id)
         ->where('tb_produccion.estado','=',1)
         ->get();
 
