@@ -270,6 +270,8 @@ Route::group(['prefix' => 'auth'], function () {
      Route::get("costeo/hojas_calculo/{id}", "CosteoController@calculoHoja");
 
      Route::post('/upload-image', 'ImageController@uploadImage');
+
+     Route::get("utilidades/crearusuariosprueba/{cantidad}", "UtilidadesController@crearUsuariosPrueba");
     });
 
 });
