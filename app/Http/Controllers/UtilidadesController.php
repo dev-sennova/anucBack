@@ -7,6 +7,7 @@ use App\Models\Tb_asociados;
 use App\Models\Tb_asociados_fincas;
 use App\Models\Tb_fincas;
 use App\Models\Tb_personas;
+use App\Models\Tb_produccion;
 use App\Models\Tb_usuario_rol;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class UtilidadesController extends Controller
     public function crearUsuariosPrueba(Request $request){
         $ciclos=$request->cantidad;
         $usuariosCreados = [];
+        $valores = [1, 5, 10, 12, 13];
 
         $cantidadTest=Tb_personas::where('tb_personas.nombres','=','UsuarioTest')->count();
 
@@ -87,10 +89,28 @@ class UtilidadesController extends Controller
                                         $new_asociado_finca->tipo_predio=1;
 
                                         if($new_asociado_finca->save()){
-                                            $usuariosCreados[] = [
-                                                'idAsociado' => $idAsociado,
-                                                'identificacion' => $identificacion
-                                            ];
+                                            $idAsociadoFinca = $new_asociado_finca->id;
+
+                                            $valorAleatorio = $valores[array_rand($valores)];
+                                            $new_produccion=new Tb_produccion();
+                                            $new_produccion->produccion=150;
+                                            $new_produccion->periodicidad=1;
+                                            $new_produccion->producto=$valorAleatorio;
+                                            $new_produccion->medida=3;
+                                            $new_produccion->asociados_finca=$idAsociadoFinca;
+
+                                            if($new_produccion->save()){
+                                                $usuariosCreados[] = [
+                                                    'idAsociado' => $idAsociado,
+                                                    'identificacion' => $identificacion,
+                                                    'idProducto' => $valorAleatorio
+                                                ];
+                                            }else{
+                                                return response()->json([
+                                                    'estado' => 'Error',
+                                                    'message' => 'Producción no fue creada'
+                                                ]);
+                                            }
                                         }else{
                                             return response()->json([
                                                 'estado' => 'Error',
